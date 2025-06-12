@@ -1,1 +1,0 @@
-chrome-extension://ekhagklcjbdpajgpjgmbionohlpdbjgc/i18n.js

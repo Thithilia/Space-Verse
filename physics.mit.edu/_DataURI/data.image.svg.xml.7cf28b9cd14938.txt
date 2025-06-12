@@ -1,1 +1,0 @@
-data:image/svg+xml;charset=utf8, %3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='27.91'%3E%3Cpath data-name='Path 810' d='M0 0l6.092 13.91H15L8.635 0z' fill='%23303c6c'/%3E%3Cpath data-name='Path 836' d='M0 27.91l6.092-13.911H15L8.635 27.91z' fill='%23303c6c' opacity='.5'/%3E%3C/svg%3E

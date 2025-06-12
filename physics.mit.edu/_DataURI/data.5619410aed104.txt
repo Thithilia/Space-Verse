@@ -1,1 +1,0 @@
-chrome-extension://ekhagklcjbdpajgpjgmbionohlpdbjgc/translate/utilities_translate.js

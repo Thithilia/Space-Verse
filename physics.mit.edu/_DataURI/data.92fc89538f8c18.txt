@@ -1,1 +1,0 @@
-chrome-extension://dhnkblpjbkfklfloegejegedcafpliaa/content-scripts/passkey_proxy/index.js
