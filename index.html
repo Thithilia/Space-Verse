@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Redirecting…</title>
+  <script>
+    (function () {
+      const locales = ["en", "vi", "fr"];
+      const saved = (localStorage.getItem("site_lang") || "").toLowerCase();
+      const guess = (navigator.language || "en").slice(0, 2).toLowerCase();
+      const target = locales.includes(saved) ? saved : (locales.includes(guess) ? guess : "en");
+
+      if (location.protocol === "file:") {
+        location.href = "./" + target + "/index.html";
+        return;
+      }
+
+      const parts = location.pathname.split("/").filter(Boolean);
+      const localeIndex = parts.findIndex((part) => locales.includes(part));
+      if (localeIndex >= 0) {
+        parts[localeIndex] = target;
+      } else {
+        parts.push(target, "index.html");
+      }
+      location.replace("/" + parts.join("/"));
+    })();
+  </script>
+</head>
+<body>
+  <p>Redirecting…</p>
+</body>
+</html>
