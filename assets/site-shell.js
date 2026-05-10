@@ -5,11 +5,21 @@
     vi: new Set([
       "index.html",
       "about.html",
+      "disclaimer.html",
       "research.html",
       "opportunities.html",
+      "opportunities/graduate-programs.html",
+      "opportunities/internships.html",
+      "opportunities/scholarships.html",
       "resources.html",
       "fields/astrophysics-&-cosmology.html",
+      "fields/astrophysics/exoplanets.html",
+      "fields/astrophysics/gamma-ray-astronomy.html",
+      "fields/astrophysics/microlensing.html",
+      "fields/satellite-technology.html",
+      "fields/remote-sensing.html",
       "fields/remote-sensing-&-earth-sciences.html",
+      "fields/space-physics.html",
       "resources/skills.html",
       "resources/scientific-programming.html",
       "resources/maths.html",
@@ -58,7 +68,10 @@
         {
           type: "submenu",
           label: "Giới thiệu",
-          items: [{ label: "Về chúng tôi", href: "about.html" }]
+          items: [
+            { label: "Về chúng tôi", href: "about.html" },
+            { label: "Tuyên bố miễn trừ trách nhiệm", href: "disclaimer.html" }
+          ]
         },
         {
           type: "submenu",
@@ -66,10 +79,21 @@
           href: "research.html",
           items: [
             { label: "Vật lý thiên văn và vũ trụ học", href: "fields/astrophysics-&-cosmology.html" },
-            { label: "Viễn thám và khoa học Trái Đất", href: "fields/remote-sensing-&-earth-sciences.html" }
+            { label: "Công nghệ vệ tinh", href: "fields/satellite-technology.html" },
+            { label: "Viễn thám", href: "fields/remote-sensing.html" },
+            { label: "Vật lý không gian", href: "fields/space-physics.html" }
           ]
         },
-        { type: "link", label: "Cơ hội", href: "opportunities.html" },
+        {
+          type: "submenu",
+          label: "Cơ hội",
+          href: "opportunities.html",
+          items: [
+            { label: "Chương trình học thạc sĩ / tiến sĩ", href: "opportunities/graduate-programs.html" },
+            { label: "Cơ hội internship", href: "opportunities/internships.html" },
+            { label: "Các chương trình học bổng", href: "opportunities/scholarships.html" }
+          ]
+        },
         { type: "link", label: "Tài nguyên", href: "resources.html" }
       ]
     },
@@ -155,13 +179,13 @@
   function renderNav(items) {
     return items.map((item) => {
       if (item.type === "submenu") {
-        const overviewLink = item.href ? `<a href="${localeHref(locale, item.href)}">${item.label}</a>` : "";
         const submenu = item.items.map((subItem) => {
           const href = localeHref(locale, subItem.href);
           const current = subItem.href === page ? ' aria-current="page"' : "";
           return `<a href="${href}"${current}>${subItem.label}</a>`;
         }).join("");
-        return `<div class="nav-item has-submenu"><button type="button">${item.label}</button><div class="submenu">${overviewLink}${submenu}</div></div>`;
+        const href = item.href ? ` data-href="${localeHref(locale, item.href)}"` : "";
+        return `<div class="nav-item has-submenu"><button type="button"${href}>${item.label}</button><div class="submenu">${submenu}</div></div>`;
       }
       const href = localeHref(locale, item.href);
       const current = item.href === page ? ' aria-current="page"' : "";
@@ -183,31 +207,25 @@
 
     headerRoot.innerHTML = `
       <header class="site-header">
-        <div class="site-header__top">
-          <div class="container">
-            <nav class="top-links" aria-label="Quick links">${topLinks}</nav>
-            <div class="header-tools">
-              <div class="lang-switcher">
-                <button class="lang-trigger" type="button" aria-haspopup="true" aria-expanded="false">
-                  <span class="lang-flag">${config.flag}</span>
-                  <span>${config.code}</span>
-                </button>
-                <ul class="lang-menu" aria-label="Language menu">${langMenu}</ul>
-              </div>
-              <button class="menu-toggle" type="button" aria-expanded="false">Menu</button>
-            </div>
-          </div>
+        <div class="site-header__bar">
+          <a class="brand" href="${localeHref(locale, "index.html")}" aria-label="Space-Verse home">
+            <span class="brand__mark">SV</span>
+            <span class="brand__name">Space-Verse</span>
+          </a>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
+            <span></span>
+            <span></span>
+          </button>
         </div>
-        <div class="site-header__main">
-          <div class="container">
-            <a class="brand" href="${localeHref(locale, "index.html")}">
-              <span class="brand__mark">SV</span>
-              <span class="brand__text">
-                <span class="brand__name">Space-Verse</span>
-                <span class="brand__tagline">Open resources for space science learners</span>
-              </span>
-            </a>
-            <nav class="main-nav" aria-label="Main navigation">${menu}</nav>
+        <div class="site-menu-panel">
+          <nav class="main-nav" aria-label="Main navigation">${menu}</nav>
+          <nav class="top-links" aria-label="Quick links">${topLinks}</nav>
+          <div class="lang-switcher">
+            <button class="lang-trigger" type="button" aria-haspopup="true" aria-expanded="false">
+              <span class="lang-flag">${config.flag}</span>
+              <span>${config.code}</span>
+            </button>
+            <ul class="lang-menu" aria-label="Language menu">${langMenu}</ul>
           </div>
         </div>
       </header>
@@ -216,29 +234,33 @@
 
   function renderFooter() {
     if (!footerRoot) return;
-    const footer = config.footer;
-    const quickLinks = footer.quickLinks.map((link) => `<li><a href="${localeHref(locale, link.href)}">${link.label}</a></li>`).join("");
-    const contact = footer.contactLines.map((line) => `<p>${line}</p>`).join("");
+    const researchHref = locale === "vi" ? localeHref(locale, "research.html") : localeHref(locale, "projects.html");
+    const materialHref = locale === "vi" ? localeHref(locale, "resources.html") : localeHref(locale, "index.html");
+    const newsHref = locale === "vi" ? localeHref(locale, "opportunities.html") : localeHref(locale, "index.html");
+    const contactHref = "mailto:contact.space-verse@gmail.com";
     footerRoot.innerHTML = `
       <footer class="site-footer">
-        <div class="container">
-          <div class="site-footer__grid">
-            <div class="site-footer__brand">
-              <h2>${footer.title}</h2>
-              <p>${footer.summary}</p>
+        <div class="site-footer__inner">
+          <a class="site-footer__brand" href="${localeHref(locale, "index.html")}" aria-label="Space-Verse home">
+            <span class="site-footer__mark" aria-hidden="true"></span>
+            <span>Space-Verse</span>
+          </a>
+
+          <div class="site-footer__nav">
+            <div class="site-footer__primary-links" aria-label="Footer primary links">
+              <a href="${newsHref}">News</a>
+              <a href="${materialHref}">Material</a>
             </div>
-            <div>
-              <h3>${footer.quickTitle}</h3>
-              <ul>${quickLinks}</ul>
-            </div>
-            <div>
-              <h3>${footer.contactTitle}</h3>
-              ${contact}
+            <div class="site-footer__secondary-links" aria-label="Footer secondary links">
+              <a href="${localeHref(locale, "about.html")}">About Us</a>
+              <a href="${researchHref}">Research</a>
+              <a href="${contactHref}">Contact</a>
+              <a href="https://github.com/Thithilia/Space-Verse">Github</a>
             </div>
           </div>
-          <div class="site-footer__bottom">
-            <span>© <span id="footer-year"></span></span>
-            <span>${footer.copyright}</span>
+
+          <div class="site-footer__copyright">
+            Copyright © <span id="footer-year"></span> Space-Verse - All Rights Reserved.
           </div>
         </div>
       </footer>
@@ -271,13 +293,24 @@
       const isOpen = header.dataset.menuOpen === "true";
       header.dataset.menuOpen = isOpen ? "false" : "true";
       menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      menuToggle.setAttribute("aria-label", isOpen ? "Open navigation" : "Close navigation");
+    });
+
+    document.addEventListener("click", function (event) {
+      if (header.contains(event.target)) return;
+      header.dataset.menuOpen = "false";
+      menuToggle.setAttribute("aria-expanded", "false");
+      menuToggle.setAttribute("aria-label", "Open navigation");
     });
 
     submenuParents.forEach(function (item) {
       const trigger = item.querySelector("button");
       if (!trigger) return;
       trigger.addEventListener("click", function () {
-        if (window.innerWidth > 920) return;
+        if (trigger.dataset.href && item.dataset.open === "true") {
+          window.location.href = trigger.dataset.href;
+          return;
+        }
         const open = item.dataset.open === "true";
         submenuParents.forEach((other) => {
           if (other !== item) other.dataset.open = "false";

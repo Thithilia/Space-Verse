@@ -65,58 +65,34 @@
       if (!group.items.length) return "";
       const links = group.items.map((item) => {
         const activeClass = item.slug === currentSlug ? " is-active" : "";
-        return `<a class="resource-link${activeClass}" href="${root}vi/${item.href}"><span>${item.title}</span></a>`;
+        return `<a class="resource-link${activeClass}" href="${root}vi/${item.href}"><span>${item.title}</span><span aria-hidden="true">›</span></a>`;
       }).join("");
       return `<div class="resource-list__group"><div class="resource-list__title">${group.label}</div>${links}</div>`;
     }).join("");
 
     sidebarTarget.innerHTML = `
       <div class="resource-sidebar">
-        <section class="panel-card resource-sidebar__panel resource-search">
-          <h2>Tài nguyên học tập</h2>
-          <p>Tìm nhanh theo môn học, kỹ năng hoặc độ khó.</p>
-          <label class="visually-hidden" for="resource-search-input">Tìm tài nguyên</label>
-          <input id="resource-search-input" type="search" placeholder="Tìm theo tên môn, tag..." value="${state.query}">
-          <div class="resource-chip-row" role="tablist" aria-label="Lọc theo mức độ">
-            <button class="resource-chip${state.level === "all" ? " is-active" : ""}" type="button" data-level="all">Tất cả</button>
-            <button class="resource-chip${state.level === "foundation" ? " is-active" : ""}" type="button" data-level="foundation">Nền tảng</button>
-            <button class="resource-chip${state.level === "advanced" ? " is-active" : ""}" type="button" data-level="advanced">Nâng cao</button>
-          </div>
-        </section>
-        <section class="panel-card resource-sidebar__panel resource-list">
+        <div class="resource-sidebar__heading">
+          <h2>Study Resources</h2>
+        </div>
+        <nav class="resource-list" aria-label="Study resources">
           ${groupsHtml || '<div class="resource-empty">Không có mục nào khớp bộ lọc hiện tại.</div>'}
-        </section>
+        </nav>
       </div>
     `;
-
-    const input = sidebarTarget.querySelector("#resource-search-input");
-    input.addEventListener("input", function () {
-      state.query = input.value.trim();
-      renderSidebar();
-      if (page === "resources.html") renderOverview();
-    });
-
-    sidebarTarget.querySelectorAll("[data-level]").forEach((button) => {
-      button.addEventListener("click", function () {
-        state.level = button.dataset.level;
-        renderSidebar();
-        if (page === "resources.html") renderOverview();
-      });
-    });
   }
 
   function renderOverview() {
     if (!overviewTarget) return;
     const filtered = filterResources();
     const cards = filtered.map((item) => {
-      const tags = item.tags.slice(0, 2).map((tag) => `<span class="resource-pill">${tagLabel(tag)}</span>`).join("");
-      return `<article class="resource-card"><div class="resource-meta"><span class="resource-pill level-${item.level}">${levelLabel(item.level)}</span>${tags}</div><div><h3>${item.title}</h3><p>${item.summary}</p></div><a class="btn dark" href="${root}vi/${item.href}">Xem tài nguyên</a></article>`;
+      return `<a class="resource-overview-link" href="${root}vi/${item.href}"><span>${item.title}</span><span>${item.summary}</span></a>`;
     }).join("");
 
     overviewTarget.innerHTML = `
       <section class="resource-summary">
-        <div class="notice">Danh mục này được nhóm theo mức độ để người mới bắt đầu có thể đi từ các môn nền tảng trước, sau đó chuyển dần sang các chủ đề chuyên sâu.</div>
-        <div class="resource-cards">${cards || '<div class="resource-empty">Không tìm thấy tài nguyên phù hợp. Hãy thử từ khóa hoặc mức độ khác.</div>'}</div>
+        <p>Danh mục này được nhóm theo mức độ để người mới bắt đầu có thể đi từ các môn nền tảng trước, sau đó chuyển dần sang các chủ đề chuyên sâu.</p>
+        <div class="resource-overview-list">${cards || '<div class="resource-empty">Không tìm thấy tài nguyên phù hợp.</div>'}</div>
       </section>
     `;
   }
@@ -136,6 +112,6 @@
   }
 
   renderSidebar();
-  if (page === "resources.html") renderOverview();
+  if (page === "resources.html" && overviewTarget) renderOverview();
   enhanceDetailPage();
 })();

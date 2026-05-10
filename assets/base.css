@@ -16,9 +16,9 @@
   --radius-md: 16px;
   --radius-sm: 10px;
   --container: 1180px;
-  --header-height: 84px;
-  --font-body: "IBM Plex Mono", "Courier Prime", "Courier New", monospace;
-  --font-display: "Roboto Condensed", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+  --header-height: 70px;
+  --font-body: Arial, Helvetica, sans-serif;
+  --font-display: Arial, Helvetica, sans-serif;
 }
 
 *,
@@ -36,7 +36,7 @@ body {
   background: radial-gradient(circle at top, #ffffff 0%, var(--color-bg) 60%, #edf2fb 100%);
   color: var(--color-text);
   font-family: var(--font-body);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .section-title,
@@ -108,7 +108,7 @@ nav {
   gap: 8px;
   border-radius: 999px;
   padding: 12px 20px;
-  font-weight: 700;
+  font-weight: 600;
   border: 1px solid transparent;
   transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
 }
@@ -150,8 +150,8 @@ nav {
   gap: 8px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  font-size: 0.78rem;
-  font-weight: 700;
+  font-size: 0.72rem;
+  font-weight: 600;
   color: var(--color-accent);
 }
 
@@ -174,7 +174,8 @@ nav {
 }
 
 .section-title {
-  font-size: clamp(1.8rem, 2vw, 2.6rem);
+  font-size: clamp(1.5rem, 1.7vw, 2.125rem);
+  font-weight: 400;
 }
 
 pre {
