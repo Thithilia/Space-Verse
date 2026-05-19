@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
   <title>Viễn thám | Space-Verse</title>
-  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/style.css?v=20260516-audit2">
 </head>
 <body data-locale="vi" data-page="fields/remote-sensing.html" data-root="../../">
   <div id="site-header"></div>
@@ -33,6 +34,7 @@
 
         <p>Viễn thám có nhiều ứng dụng thực tế trong quản lý tài nguyên, theo dõi biến đổi khí hậu, nông nghiệp, đô thị, rừng, nước, thiên tai và các hệ thống môi trường. Đây là một hướng nghiên cứu có tính liên ngành cao, vừa đòi hỏi kiến thức khoa học nền tảng, vừa cần kỹ năng lập trình và phân tích dữ liệu không gian.</p>
       </section>
+      <section class="field-atlas" aria-labelledby="remote-map-title"><div class="atlas-heading"><span class="atlas-kicker">Remote sensing workflow</span><h3 id="remote-map-title">From sensor signal to usable map product.</h3></div><div class="cosmic-scale mission-scale"><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">01</span><span class="cosmic-node__title">Sensor physics</span><span class="cosmic-node__question">Spectrum, resolution and measurement noise.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">02</span><span class="cosmic-node__title">Acquisition</span><span class="cosmic-node__question">Optical, radar, thermal or weather data.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">03</span><span class="cosmic-node__title">Pre-processing</span><span class="cosmic-node__question">Geometry, atmosphere, cloud and time alignment.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">04</span><span class="cosmic-node__title">Features</span><span class="cosmic-node__question">Spectral indices, texture and spatial context.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">05</span><span class="cosmic-node__title">Modeling</span><span class="cosmic-node__question">Classification, regression and change detection.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">06</span><span class="cosmic-node__title">Validation</span><span class="cosmic-node__question">Ground truth, uncertainty and accuracy.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">07</span><span class="cosmic-node__title">Decision layer</span><span class="cosmic-node__question">Maps, dashboards and operational alerts.</span></article></div></section>
     </div>
   </main>
 

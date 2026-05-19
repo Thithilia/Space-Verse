@@ -1,0 +1,54 @@
+name: News Pipeline
+
+on:
+  schedule:
+    - cron: "12 22 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sync-and-draft:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check required secrets
+        id: config
+        shell: bash
+        run: |
+          if [[ -n "${{ secrets.SUPABASE_URL }}" && -n "${{ secrets.SUPABASE_ANON_KEY }}" && -n "${{ secrets.NEWS_FUNCTION_SECRET }}" ]]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Sync source feeds
+        if: steps.config.outputs.enabled == 'true'
+        run: |
+          curl --fail --show-error --request POST \
+            --header "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            --header "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
+            --header "x-spaceverse-secret: ${{ secrets.NEWS_FUNCTION_SECRET }}" \
+            "${{ secrets.SUPABASE_URL }}/functions/v1/sync-news"
+
+      - name: Draft Vietnamese briefs
+        if: steps.config.outputs.enabled == 'true'
+        run: |
+          curl --fail --show-error --request POST \
+            --header "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            --header "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
+            --header "x-spaceverse-secret: ${{ secrets.NEWS_FUNCTION_SECRET }}" \
+            "${{ secrets.SUPABASE_URL }}/functions/v1/draft-news"
+
+      - name: Export approved static news
+        if: steps.config.outputs.enabled == 'true'
+        run: |
+          curl --fail --show-error --request POST \
+            --header "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
+            --header "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
+            --header "x-spaceverse-secret: ${{ secrets.NEWS_FUNCTION_SECRET }}" \
+            "${{ secrets.SUPABASE_URL }}/functions/v1/export-static-news"
+
+      - name: Skip notice
+        if: steps.config.outputs.enabled != 'true'
+        run: echo "News pipeline skipped because SUPABASE_URL, SUPABASE_ANON_KEY, or NEWS_FUNCTION_SECRET is missing."

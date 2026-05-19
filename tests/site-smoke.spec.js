@@ -1,0 +1,127 @@
+import { expect, test } from "@playwright/test";
+
+const pages = [
+  { path: "/vi/index.html", title: /Space-Verse/, checks: [[".home-circle-item", 4]] },
+  { path: "/vi/about.html", title: /Space-Verse/ },
+  { path: "/vi/disclaimer.html", title: /Space-Verse/ },
+  { path: "/vi/guide.html", title: /Hướng dẫn/, checks: [[".program-list a", 5]] },
+  { path: "/vi/news.html", title: /Tin/, checks: [[".news-toolbar", 1], ["[data-news-root]", 1]] },
+  { path: "/vi/news/article.html?slug=demo-webb-exoplanet-atmosphere&demo=1", title: /Space-Verse/, checks: [[".news-article", 1]] },
+  { path: "/vi/news/article.html?slug=test", title: /Tin/, checks: [[".news-state", 1]] },
+  { path: "/vi/admin/news.html", title: /Tin/, checks: [["input[name='email']", 1]] },
+  { path: "/vi/research.html", title: /Space-Verse/, checks: [[".research-card", 4]] },
+  {
+    path: "/vi/fields/astrophysics-&-cosmology.html",
+    title: /Space-Verse/,
+    checks: [["#astro-field-list-title", 1], [".field-link-list--atlas li", 100]]
+  },
+  {
+    path: "/vi/fields/satellite-technology.html",
+    title: /Space-Verse/,
+    checks: [[".mission-scale", 1], [".cosmic-node", 6]]
+  },
+  {
+    path: "/vi/fields/remote-sensing.html",
+    title: /Space-Verse/,
+    checks: [[".mission-scale", 1], [".cosmic-node", 7]]
+  },
+  {
+    path: "/vi/fields/space-physics.html",
+    title: /Space-Verse/,
+    checks: [[".space-weather-map", 1], [".space-weather-node", 6]]
+  },
+  {
+    path: "/vi/resources.html",
+    title: /Space-Verse/,
+    checks: [[".resource-sidebar", 1], [".resource-link", 18], [".resource-intro", 1]]
+  },
+  {
+    path: "/vi/resources/profile-building.html",
+    title: /Space-Verse/,
+    checks: [[".resource-sidebar", 1], [".resource-link", 18], [".resource-detail", 1]]
+  },
+  { path: "/vi/opportunities.html", title: /Space-Verse/ },
+  { path: "/vi/opportunities/graduate-programs.html", title: /Space-Verse/ },
+  { path: "/vi/opportunities/internships.html", title: /Space-Verse/ },
+  { path: "/vi/opportunities/scholarships.html", title: /Space-Verse/ }
+];
+
+test.describe("site smoke checks", () => {
+  for (const pageCase of pages) {
+    test(`${pageCase.path} renders expected shell and content`, async ({ page }) => {
+      const response = await page.goto(pageCase.path, { waitUntil: "domcontentloaded" });
+      expect(response?.ok(), `${pageCase.path} should return HTTP 2xx/3xx`).toBeTruthy();
+
+      await expect(page).toHaveTitle(pageCase.title);
+      await expect(page.locator(".site-header")).toHaveCount(1);
+      await expect(page.locator(".site-footer")).toHaveCount(1);
+
+      for (const [selector, minimum] of pageCase.checks || []) {
+        await expect.poll(async () => page.locator(selector).count(), {
+          message: `${pageCase.path} should render at least ${minimum} element(s) for ${selector}`
+        }).toBeGreaterThanOrEqual(minimum);
+      }
+    });
+  }
+
+  test("hamburger navigation opens and exposes major links", async ({ page }) => {
+    await page.goto("/vi/index.html", { waitUntil: "domcontentloaded" });
+
+    await expect(page.locator(".menu-toggle")).toHaveCount(1);
+    await page.locator(".menu-toggle").click();
+
+    await expect(page.locator(".site-header[data-menu-open='true']")).toHaveCount(1);
+    const panel = page.locator(".site-menu-panel");
+    await expect(panel).toBeVisible();
+    await expect(panel.locator('a[href$="/vi/news.html"]')).toBeVisible();
+    await expect(panel.locator('a[href$="/vi/resources.html"]')).toBeVisible();
+
+    await panel.locator(".nav-item.has-submenu").filter({ has: page.locator('a[href$="/vi/fields/space-physics.html"]') }).locator("button").click();
+    await expect(panel.locator('a[href$="/vi/fields/astrophysics-&-cosmology.html"]')).toBeVisible();
+    await expect(panel.locator('a[href$="/vi/fields/space-physics.html"]')).toBeVisible();
+  });
+
+  test("internal links on key pages do not point to missing pages", async ({ page, request }) => {
+    const keyPages = [
+      "/vi/index.html",
+      "/vi/about.html",
+      "/vi/guide.html",
+      "/vi/news.html",
+      "/vi/research.html",
+      "/vi/resources.html",
+      "/vi/fields/astrophysics-&-cosmology.html",
+      "/vi/fields/satellite-technology.html",
+      "/vi/fields/remote-sensing.html",
+      "/vi/fields/space-physics.html"
+    ];
+    const internalPaths = new Set();
+
+    for (const path of keyPages) {
+      await page.goto(path, { waitUntil: "domcontentloaded" });
+      const hrefs = await page.locator("a[href]").evaluateAll((links) => links.map((link) => link.href));
+      for (const href of hrefs) {
+        const url = new URL(href);
+        if (url.origin !== new URL(page.url()).origin) continue;
+        if (!url.pathname.startsWith("/vi/") && !url.pathname.startsWith("/assets/")) continue;
+        internalPaths.add(`${url.pathname}${url.search}`);
+      }
+    }
+
+    for (const path of internalPaths) {
+      const response = await request.get(path);
+      expect(response.status(), `${path} should not be missing`).toBeLessThan(400);
+    }
+  });
+
+  test("images on key pages are loaded", async ({ page }) => {
+    for (const path of ["/vi/index.html", "/vi/research.html"]) {
+      await page.goto(path, { waitUntil: "domcontentloaded" });
+      const broken = await page.locator("img").evaluateAll((images) =>
+        images
+          .filter((image) => !image.complete || image.naturalWidth === 0)
+          .map((image) => image.getAttribute("src"))
+      );
+      expect(broken, `${path} should not contain broken images`).toEqual([]);
+    }
+  });
+});

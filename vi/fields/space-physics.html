@@ -3,8 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
   <title>Vật lý không gian | Space-Verse</title>
-  <link rel="stylesheet" href="../../assets/style.css">
+  <link rel="stylesheet" href="../../assets/style.css?v=20260516-audit2">
 </head>
 <body data-locale="vi" data-page="fields/space-physics.html" data-root="../../">
   <div id="site-header"></div>
@@ -33,6 +34,7 @@
 
         <p>Người học quan tâm đến vật lý không gian thường cần nền tảng tốt về toán, cơ học, điện từ học, vật lý plasma, lập trình và phân tích dữ liệu. Đây là hướng nghiên cứu nằm giữa khoa học cơ bản và ứng dụng công nghệ không gian, rất phù hợp với những ai muốn hiểu môi trường mà các hệ thống vệ tinh đang hoạt động.</p>
       </section>
+      <section class="field-atlas" aria-labelledby="space-weather-title"><div class="atlas-heading"><span class="atlas-kicker">Space weather map</span><h3 id="space-weather-title">From solar activity to technology impacts near Earth.</h3></div><div class="space-weather-map" aria-label="Space physics map"><div class="space-weather-map__sun"></div><div class="space-weather-map__wind"></div><div class="space-weather-map__magnetosphere"></div><div class="space-weather-map__earth"></div><article class="space-weather-node space-weather-node--solar"><span class="space-weather-node__kicker">01</span><span class="space-weather-node__title">Solar drivers</span><span class="space-weather-node__text">Flares and coronal mass ejections.</span></article><article class="space-weather-node space-weather-node--wind"><span class="space-weather-node__kicker">02</span><span class="space-weather-node__title">Solar wind</span><span class="space-weather-node__text">Plasma and interplanetary magnetic field.</span></article><article class="space-weather-node space-weather-node--shield"><span class="space-weather-node__kicker">03</span><span class="space-weather-node__title">Magnetosphere</span><span class="space-weather-node__text">Earth's magnetic shield responds to solar forcing.</span></article><article class="space-weather-node space-weather-node--belts"><span class="space-weather-node__kicker">04</span><span class="space-weather-node__title">Radiation belts</span><span class="space-weather-node__text">Energetic particles affect spacecraft electronics.</span></article><article class="space-weather-node space-weather-node--ionosphere"><span class="space-weather-node__kicker">05</span><span class="space-weather-node__title">Ionosphere</span><span class="space-weather-node__text">Radio, GNSS and communication disturbances.</span></article><article class="space-weather-node space-weather-node--impact"><span class="space-weather-node__kicker">06</span><span class="space-weather-node__title">Technology impact</span><span class="space-weather-node__text">Risk to satellites, aviation, grids and navigation.</span></article></div></section>
     </div>
   </main>
 

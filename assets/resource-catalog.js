@@ -1,6 +1,7 @@
 ﻿(function () {
   const catalog = [
     { slug: "skills", href: "resources/skills.html", title: "Kỹ năng học thuật và nghề nghiệp", level: "foundation", tags: ["ky-nang", "viet-bai", "dao-duc"], summary: "Viết học thuật, trích dẫn, dùng AI có trách nhiệm, quản lý thời gian và kỹ năng làm việc học thuật." },
+    { slug: "profile-building", href: "resources/profile-building.html", title: "Xây dựng hồ sơ", level: "foundation", tags: ["ho-so", "cv", "thu", "email"], summary: "Hướng dẫn chuẩn bị CV, motivation letter, cover letter và email liên hệ giáo sư." },
     { slug: "scientific-programming", href: "resources/scientific-programming.html", title: "Lập trình khoa học với Python", level: "foundation", tags: ["lap-trinh", "python", "du-lieu"], summary: "Chuỗi tài nguyên cho Python, notebook, mô phỏng số và xử lý dữ liệu khoa học." },
     { slug: "maths", href: "resources/maths.html", title: "Toán nền tảng", level: "foundation", tags: ["toan", "phan-tich", "dai-so"], summary: "Các môn toán cần thiết để theo học vật lý, thiên văn và kỹ thuật không gian." },
     { slug: "CM-SR", href: "resources/CM-SR.html", title: "Cơ học cổ điển và thuyết tương đối hẹp", level: "foundation", tags: ["vat-ly", "co-hoc"], summary: "Nhập môn động lực học, Lagrangian, Hamiltonian và nền tảng của thuyết tương đối hẹp." },
@@ -35,10 +36,6 @@
   const currentSlug = page === "resources.html" ? null : page.split("/").pop().replace(".html", "");
   const state = { query: "", level: "all" };
 
-  function levelLabel(level) {
-    return level === "advanced" ? "Nâng cao" : "Nền tảng";
-  }
-
   function tagLabel(tag) {
     return tag.replaceAll("-", " ");
   }
@@ -54,8 +51,8 @@
 
   function groupedResources(items) {
     return [
-      { key: "foundation", label: "Nền tảng", items: items.filter((item) => item.level === "foundation") },
-      { key: "advanced", label: "Nâng cao", items: items.filter((item) => item.level === "advanced") }
+      { key: "foundation", items: items.filter((item) => item.level === "foundation") },
+      { key: "advanced", items: items.filter((item) => item.level === "advanced") }
     ];
   }
 
@@ -67,7 +64,7 @@
         const activeClass = item.slug === currentSlug ? " is-active" : "";
         return `<a class="resource-link${activeClass}" href="${root}vi/${item.href}"><span>${item.title}</span><span aria-hidden="true">›</span></a>`;
       }).join("");
-      return `<div class="resource-list__group"><div class="resource-list__title">${group.label}</div>${links}</div>`;
+      return `<div class="resource-list__group">${links}</div>`;
     }).join("");
 
     sidebarTarget.innerHTML = `
@@ -107,7 +104,7 @@
     if (breadcrumbCurrent) breadcrumbCurrent.textContent = currentItem.title;
     const detailMeta = document.getElementById("resource-detail-meta");
     if (detailMeta) {
-      detailMeta.innerHTML = `<span class="resource-pill level-${currentItem.level}">${levelLabel(currentItem.level)}</span>${currentItem.tags.map((tag) => `<span class="resource-pill">${tagLabel(tag)}</span>`).join("")}`;
+      detailMeta.innerHTML = currentItem.tags.map((tag) => `<span class="resource-pill">${tagLabel(tag)}</span>`).join("");
     }
   }
 

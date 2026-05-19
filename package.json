@@ -1,0 +1,18 @@
+{
+  "name": "space-verse-site",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "serve": "python -m http.server 8000 --bind 127.0.0.1",
+    "news:functions:deploy": "powershell -ExecutionPolicy Bypass -File scripts/deploy-news-functions.ps1",
+    "news:pipeline:check": "powershell -ExecutionPolicy Bypass -File scripts/check-news-pipeline.ps1",
+    "test": "playwright test",
+    "test:ci": "playwright test --reporter=list",
+    "test:ui": "playwright test --ui",
+    "test:report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.58.2"
+  }
+}

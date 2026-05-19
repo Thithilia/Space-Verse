@@ -1,10 +1,11 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="vi">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
   <title>Space-Verse</title>
-  <link rel="stylesheet" href="../assets/style.css?v=20260516-audit2">
+  <link rel="stylesheet" href="../assets/style.css?v=20260518-gray-dual">
   <style>
     body[data-page="index.html"] .home-circle-item::before {
       content: none !important;
@@ -76,6 +77,72 @@
       animation-delay: var(--meteor-delay, 0s);
     }
 
+    body[data-page="index.html"] .home-research__ground-wind {
+      position: absolute;
+      inset: 44% -12% 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 88%, transparent 100%);
+      mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 88%, transparent 100%);
+    }
+
+    body[data-page="index.html"] .home-research__leaf {
+      --leaf-color: #6f8b4b;
+      position: absolute;
+      left: var(--leaf-left, 0%);
+      bottom: var(--leaf-bottom, 8%);
+      width: var(--leaf-size, 18px);
+      aspect-ratio: 1.8 / 1;
+      border-radius: 100% 0 100% 0;
+      opacity: 0;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.28), transparent 42%),
+        var(--leaf-color);
+      box-shadow: 0 1px 2px rgba(16, 39, 70, 0.16);
+      transform: translate3d(-18vw, 0, 0) rotate(var(--leaf-rotate, 18deg));
+      transform-origin: 50% 70%;
+      animation: homeResearchLeafGust var(--leaf-duration, 10s) ease-in-out infinite;
+      animation-delay: var(--leaf-delay, 0s);
+    }
+
+    body[data-page="index.html"] .home-research__leaf::after {
+      content: "";
+      position: absolute;
+      left: 12%;
+      top: 50%;
+      width: 72%;
+      height: 1px;
+      background: rgba(59, 70, 38, 0.42);
+      transform: rotate(-22deg);
+      transform-origin: left center;
+    }
+
+    @keyframes homeResearchLeafGust {
+      0% {
+        opacity: 0;
+        transform: translate3d(-18vw, 22px, 0) rotate(var(--leaf-rotate, 18deg));
+      }
+
+      12% {
+        opacity: 0.78;
+      }
+
+      38% {
+        transform: translate3d(24vw, -18px, 0) rotate(calc(var(--leaf-rotate, 18deg) + 190deg));
+      }
+
+      68% {
+        opacity: 0.72;
+        transform: translate3d(58vw, 16px, 0) rotate(calc(var(--leaf-rotate, 18deg) + 360deg));
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate3d(116vw, -10px, 0) rotate(calc(var(--leaf-rotate, 18deg) + 540deg));
+      }
+    }
+
     @keyframes homeResearchMeteor {
       0% {
         opacity: 0;
@@ -93,6 +160,14 @@
       100% {
         opacity: 0;
         transform: translate3d(24vw, 24vw, 0) rotate(45deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body[data-page="index.html"] .home-research__meteor,
+      body[data-page="index.html"] .home-research__leaf {
+        animation: none;
+        opacity: 0.34;
       }
     }
 
@@ -140,6 +215,18 @@
         <span class="home-research__meteor" style="--meteor-left: 81%; --meteor-top: 11%; --meteor-length: 150px; --meteor-width: 2px; --meteor-duration: 4.1s; --meteor-delay: -2.6s;"></span>
         <span class="home-research__meteor" style="--meteor-left: 88%; --meteor-top: 34%; --meteor-length: 185px; --meteor-width: 3px; --meteor-duration: 5.4s; --meteor-delay: -0.4s;"></span>
       </div>
+      <div class="home-research__ground-wind" aria-hidden="true">
+        <span class="home-research__leaf" style="--leaf-left: -8%; --leaf-bottom: 8%; --leaf-size: 16px; --leaf-color: #7c9151; --leaf-rotate: 16deg; --leaf-duration: 9.8s; --leaf-delay: -1.4s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: -2%; --leaf-bottom: 26%; --leaf-size: 20px; --leaf-color: #b48643; --leaf-rotate: -18deg; --leaf-duration: 11.2s; --leaf-delay: -5.8s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 8%; --leaf-bottom: 14%; --leaf-size: 14px; --leaf-color: #5f7e45; --leaf-rotate: 28deg; --leaf-duration: 8.7s; --leaf-delay: -3.1s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 16%; --leaf-bottom: 38%; --leaf-size: 18px; --leaf-color: #9a6f35; --leaf-rotate: -8deg; --leaf-duration: 12.4s; --leaf-delay: -7.3s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 28%; --leaf-bottom: 22%; --leaf-size: 15px; --leaf-color: #6b8847; --leaf-rotate: 22deg; --leaf-duration: 9.4s; --leaf-delay: -4.6s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 39%; --leaf-bottom: 10%; --leaf-size: 21px; --leaf-color: #c18a3f; --leaf-rotate: -24deg; --leaf-duration: 13.1s; --leaf-delay: -9.2s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 50%; --leaf-bottom: 32%; --leaf-size: 13px; --leaf-color: #536f3d; --leaf-rotate: 34deg; --leaf-duration: 8.9s; --leaf-delay: -6.1s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 63%; --leaf-bottom: 18%; --leaf-size: 17px; --leaf-color: #8f6f3c; --leaf-rotate: -14deg; --leaf-duration: 10.6s; --leaf-delay: -2.8s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 74%; --leaf-bottom: 42%; --leaf-size: 19px; --leaf-color: #6f8b4b; --leaf-rotate: 19deg; --leaf-duration: 12.1s; --leaf-delay: -8.5s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 86%; --leaf-bottom: 12%; --leaf-size: 14px; --leaf-color: #a67a3c; --leaf-rotate: -30deg; --leaf-duration: 9.1s; --leaf-delay: -5.2s;"></span>
+      </div>
       <div class="container home-research__grid">
         <div class="home-research__label-wrap">
           <h2 class="home-research__label">Khám phá các hướng nghiên cứu không gian và vũ trụ.</h2>
@@ -178,23 +265,22 @@
       </div>
     </section>
 
-    <section class="home-band home-band--dark home-dual">
+    <section class="home-band home-band--gray home-dual">
       <div class="container home-dual__grid">
         <article class="home-dual__cell">
-          <span class="eyebrow">Cơ hội</span>
           <h2 class="section-title">Khám phá cơ hội</h2>
           <p>Trang cơ hội giúp người học xác định nên theo dõi học bổng, chương trình sau đại học và internship ở đâu trước khi đi sâu vào từng đợt tuyển chọn cụ thể.</p>
-          <a class="home-text-link home-text-link--light" href="../vi/opportunities.html">Đi tới cơ hội</a>
+          <a class="home-text-link" href="../vi/opportunities.html">Đi tới cơ hội</a>
         </article>
 
         <article class="home-dual__cell">
-          <span class="eyebrow">Tài nguyên</span>
           <h2 class="section-title">Tài nguyên học thuật</h2>
           <p>Danh mục tài nguyên giúp người học kết nối các môn nền tảng, kỹ năng học thuật và chủ đề chuyên sâu trong cùng một lộ trình học tập rõ ràng.</p>
-          <a class="home-text-link home-text-link--light" href="../vi/resources.html">Mở tài nguyên</a>
+          <a class="home-text-link" href="../vi/resources.html">Mở tài nguyên</a>
         </article>
       </div>
     </section>
+
   </main>
 
   <div id="site-footer"></div>

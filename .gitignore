@@ -1,0 +1,13 @@
+node_modules/
+playwright-report/
+test-results/
+npm-debug.log*
+.env
+.env.*
+assets/news-config.js
+supabase/.env
+supabase/.env.*
+supabase/.temp/
+!.env.example
+!assets/news-config.example.js
+!supabase/.env.example

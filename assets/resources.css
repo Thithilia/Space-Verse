@@ -1,11 +1,12 @@
 .resource-top-band {
-  min-height: 46px;
-  background: #355f97;
+  min-height: var(--header-height);
+  background: #eef1f4;
 }
 
 .resource-breadcrumb-row {
-  padding: 48px 0 18px;
-  background: #ffffff;
+  padding: 26px 0 34px;
+  border-bottom: 1px solid rgba(18, 32, 51, 0.12);
+  background: #eef1f4;
 }
 
 .resource-breadcrumb-row .container {
@@ -14,7 +15,7 @@
   gap: 22px;
   align-items: center;
   color: #06284c;
-  font-size: clamp(1rem, 1.1vw, 1.25rem);
+  font-size: 1rem;
   line-height: 1.4;
 }
 
@@ -184,13 +185,57 @@
   color: #111111;
   font-size: clamp(1.15rem, 1.4vw, 1.55rem);
   line-height: 1.58;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.resource-detail h1,
+.resource-detail h2,
+.resource-detail h3,
+.resource-detail p,
+.resource-detail ul {
+  max-width: 74ch;
+  margin: 0;
+}
+
+.resource-detail h1 {
+  color: #000000;
+  font-size: clamp(2rem, 3vw, 3.65rem);
+  font-weight: 600;
+  line-height: 1.08;
+}
+
+.resource-detail h2 {
+  color: #000000;
+  font-size: clamp(1.35rem, 1.7vw, 2.05rem);
+  font-weight: 500;
+  line-height: 1.22;
+}
+
+.resource-detail h3 {
+  color: #000000;
+  font-size: clamp(1.1rem, 1.25vw, 1.4rem);
+  font-weight: 600;
+}
+
+.resource-detail section {
+  display: grid;
+  gap: 14px;
+}
+
+.resource-detail a {
+  color: #0052a8;
+  overflow-wrap: anywhere;
 }
 
 .resource-detail pre {
+  max-width: min(74ch, 100%);
   margin: 0;
   color: #111111;
   font-family: var(--font-body);
   white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .divider {
