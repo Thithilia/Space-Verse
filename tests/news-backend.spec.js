@@ -45,15 +45,15 @@ test.describe("news backend artifacts", () => {
 
   test("draft function uses structured outputs and does not expose server keys to frontend", () => {
     const draftFunction = read("supabase/functions/draft-news/index.ts");
-    const browserConfig = read("assets/news-config.js");
+    const browserConfigExample = read("assets/news-config.example.js");
     const browserNews = read("assets/news.js");
 
     expect(draftFunction).toContain("OPENAI_API_KEY");
     expect(draftFunction).toContain("json_schema");
     expect(draftFunction).toContain("additionalProperties: false");
     expect(browserNews).toContain("@supabase/supabase-js@2.105.3");
-    expect(browserConfig).not.toContain("OPENAI_API_KEY");
-    expect(browserConfig).not.toContain("SERVICE_ROLE");
+    expect(browserConfigExample).not.toContain("OPENAI_API_KEY");
+    expect(browserConfigExample).not.toContain("SERVICE_ROLE");
   });
 
   test("sync function reads enabled sources and upserts raw items by hash", () => {
