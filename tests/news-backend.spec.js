@@ -84,6 +84,23 @@ test.describe("news backend artifacts", () => {
     expect(envExample).toContain("NEWS_ALLOWED_ORIGINS");
   });
 
+  test("daily workflow auto-publishes a ten-item replacement batch", () => {
+    const newsWorkflow = read(".github/workflows/news-pipeline.yml");
+    const draftFunction = read("supabase/functions/draft-news/index.ts");
+    const checkScript = read("scripts/check-news-pipeline.ps1");
+
+    expect(newsWorkflow).toContain('cron: "15 17 * * *"');
+    expect(newsWorkflow).toContain("draft-news?limit=10&publish=1&replace=1");
+    expect(newsWorkflow).not.toContain("functions/v1/export-static-news");
+    expect(checkScript).toContain("draft-news?limit=10&publish=1&replace=1");
+    expect(draftFunction).toContain("replace=1 requires publish=1.");
+    expect(draftFunction).toContain("Daily replacement requires exactly");
+    expect(draftFunction).toContain('status: autoPublish ? "published" : "draft"');
+    expect(draftFunction).toContain('.from("news_articles")');
+    expect(draftFunction).toContain(".delete()");
+    expect(draftFunction).toContain('.from("news_raw_items")');
+  });
+
   test("static pages include defense-in-depth browser security policy", () => {
     const headers = read("_headers");
     const homePage = read("vi/index.html");

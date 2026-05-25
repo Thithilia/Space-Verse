@@ -6,6 +6,7 @@ const pages = [
   { path: "/vi/disclaimer.html", title: /Space-Verse/ },
   { path: "/vi/guide.html", title: /Hướng dẫn/, checks: [[".program-list a", 5]] },
   { path: "/vi/news.html", title: /Tin/, checks: [[".news-toolbar", 1], ["[data-news-root]", 1]] },
+  { path: "/vi/news.html?demo=1", title: /Tin/, checks: [[".news-card", 10], [".news-card__media img", 10]] },
   { path: "/vi/news/article.html?slug=demo-webb-exoplanet-atmosphere&demo=1", title: /Space-Verse/, checks: [[".news-article", 1]] },
   { path: "/vi/news/article.html?slug=test", title: /Tin/, checks: [[".news-state", 1]] },
   { path: "/vi/admin/news.html", title: /Tin/, checks: [["input[name='email']", 1]] },
@@ -13,7 +14,7 @@ const pages = [
   {
     path: "/vi/fields/astrophysics-&-cosmology.html",
     title: /Space-Verse/,
-    checks: [["#astro-field-list-title", 1], [".field-link-list--atlas li", 100]]
+    checks: [["#astro-field-list-title", 1], [".taxonomy-group", 21], [".field-taxonomy-list li", 350], [".taxonomy-journal-table tbody tr", 10]]
   },
   {
     path: "/vi/fields/satellite-technology.html",
@@ -79,6 +80,39 @@ test.describe("site smoke checks", () => {
     await panel.locator(".nav-item.has-submenu").filter({ has: page.locator('a[href$="/vi/fields/space-physics.html"]') }).locator("button").click();
     await expect(panel.locator('a[href$="/vi/fields/astrophysics-&-cosmology.html"]')).toBeVisible();
     await expect(panel.locator('a[href$="/vi/fields/space-physics.html"]')).toBeVisible();
+  });
+
+  test("news demo page uses a five by two card grid on desktop", async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 900 });
+    await page.goto("/vi/news.html?demo=1", { waitUntil: "domcontentloaded" });
+    await expect(page.locator(".news-card")).toHaveCount(10);
+
+    const grid = await page.locator(".news-card").evaluateAll((cards) => {
+      const rects = cards.map((card) => {
+        const rect = card.getBoundingClientRect();
+        return {
+          top: Math.round(rect.top),
+          width: Math.round(rect.width),
+          imageCount: card.querySelectorAll(".news-card__media img").length
+        };
+      });
+      const firstTop = rects[0]?.top ?? 0;
+      return {
+        count: rects.length,
+        firstRowCount: rects.filter((rect) => Math.abs(rect.top - firstTop) <= 2).length,
+        rowCount: new Set(rects.map((rect) => rect.top)).size,
+        allHaveImages: rects.every((rect) => rect.imageCount === 1),
+        equalWidth: rects.every((rect) => Math.abs(rect.width - rects[0].width) <= 2)
+      };
+    });
+
+    expect(grid).toEqual({
+      count: 10,
+      firstRowCount: 5,
+      rowCount: 2,
+      allHaveImages: true,
+      equalWidth: true
+    });
   });
 
   test("internal links on key pages do not point to missing pages", async ({ page, request }) => {

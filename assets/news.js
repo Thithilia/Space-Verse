@@ -7,6 +7,15 @@ const FIELD_LABELS = {
   general: "Tin không gian"
 };
 
+const FIELD_FALLBACK_IMAGES = {
+  astrophysics: "image/astroarea.jpg",
+  satellite_technology: "image/sate.png",
+  remote_sensing: "image/remote.png",
+  space_physics: "image/crabglass.png",
+  opportunities: "image/galaxy.png",
+  general: "image/galaxy.png"
+};
+
 const SUPABASE_MODULE_URL = "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.105.3/+esm";
 
 let supabaseClientPromise = null;
@@ -14,6 +23,10 @@ let adminLoadVersion = 0;
 
 function getConfig() {
   return window.SpaceVerseNewsConfig || {};
+}
+
+function isDemoRequest() {
+  return new URLSearchParams(window.location.search).get("demo") === "1";
 }
 
 function hasSupabaseConfig() {
@@ -45,7 +58,7 @@ function clearAuthCallbackParams() {
 
 function getDemoArticles(force = false) {
   const config = getConfig();
-  if (!force && config.demoMode === false) return [];
+  if (!force && !isDemoRequest() && config.demoMode === false) return [];
   return Array.isArray(window.SpaceVerseNewsDemoArticles) ? window.SpaceVerseNewsDemoArticles : [];
 }
 
@@ -117,11 +130,6 @@ function safeHttpUrl(value) {
   }
 }
 
-function safeSlugSegment(value) {
-  const slug = String(value || "").trim();
-  return /^[a-z0-9-]+$/.test(slug) ? slug : "";
-}
-
 function formatDate(value) {
   if (!value) return "";
   const date = new Date(value);
@@ -131,6 +139,22 @@ function formatDate(value) {
 
 function fieldLabel(value) {
   return FIELD_LABELS[value] || value || "Tin không gian";
+}
+
+function rootPath() {
+  return document.body.dataset.root || "";
+}
+
+function fallbackImageForField(field) {
+  return `${rootPath()}${FIELD_FALLBACK_IMAGES[field] || FIELD_FALLBACK_IMAGES.general}`;
+}
+
+function cardImageUrls(article) {
+  const fallback = fallbackImageForField(article.field);
+  return {
+    image: safeHttpUrl(article.image_url) || fallback,
+    fallback
+  };
 }
 
 function normalizeSearchText(value) {
@@ -143,10 +167,6 @@ function normalizeSearchText(value) {
 function articleHref(article) {
   if (article.demo) {
     return `./news/article.html?slug=${encodeURIComponent(article.slug)}&demo=1`;
-  }
-  const staticSlug = safeSlugSegment(article.static_slug);
-  if (article.featured_static && staticSlug) {
-    return `./news/${staticSlug}.html`;
   }
   return `./news/article.html?slug=${encodeURIComponent(article.slug)}`;
 }
@@ -170,9 +190,13 @@ function articleSearchText(article) {
   ].join(" "));
 }
 
-function renderNewsCard(article, isFeatured = false) {
+function renderNewsCard(article) {
+  const imageUrls = cardImageUrls(article);
   return `
-    <a class="news-card${isFeatured ? " news-card--featured" : ""}" data-news-card data-field="${escapeHtml(article.field || "general")}" data-search="${escapeHtml(articleSearchText(article))}" href="${articleHref(article)}">
+    <a class="news-card" data-news-card data-field="${escapeHtml(article.field || "general")}" data-search="${escapeHtml(articleSearchText(article))}" href="${articleHref(article)}">
+      <span class="news-card__media">
+        <img data-news-card-image src="${escapeHtml(imageUrls.image)}" data-fallback-src="${escapeHtml(imageUrls.fallback)}" alt="" loading="lazy" referrerpolicy="no-referrer">
+      </span>
       <span class="news-card__main">
         <span class="news-meta">
           <span class="news-tag">${escapeHtml(fieldLabel(article.field))}</span>
@@ -206,17 +230,26 @@ function renderNewsFilters(articles) {
 
 function renderNewsCards(articles) {
   if (!articles.length) return "";
-  const [featured, ...rest] = articles;
   return `
     <div class="news-list">
-      ${renderNewsCard(featured, true)}
-      ${rest.map((article) => renderNewsCard(article)).join("")}
+      ${articles.slice(0, 10).map((article) => renderNewsCard(article)).join("")}
     </div>
     <div class="news-state news-state--empty" data-news-empty hidden>
       <strong>Không có bản tin phù hợp.</strong>
       <p>Thử đổi từ khóa tìm kiếm hoặc chọn lọc tất cả lĩnh vực.</p>
     </div>
   `;
+}
+
+function initNewsCardImages(target) {
+  target.querySelectorAll("[data-news-card-image]").forEach((image) => {
+    image.addEventListener("error", () => {
+      const fallback = image.dataset.fallbackSrc;
+      if (!fallback) return;
+      const fallbackUrl = new URL(fallback, window.location.href).href;
+      if (image.src !== fallbackUrl) image.src = fallback;
+    });
+  });
 }
 
 function initNewsFilters(target) {
@@ -256,11 +289,13 @@ function initNewsFilters(target) {
 }
 
 function renderNewsIndex(target, articles, noticeHtml = "") {
+  const visibleArticles = articles.slice(0, 10);
   target.innerHTML = `
     ${noticeHtml}
-    ${renderNewsFilters(articles)}
-    ${renderNewsCards(articles)}
+    ${renderNewsFilters(visibleArticles)}
+    ${renderNewsCards(visibleArticles)}
   `;
+  initNewsCardImages(target);
   initNewsFilters(target);
 }
 
@@ -329,6 +364,16 @@ function renderAdminDiagnostics({ session, isAdmin, visibleCount, allCount, draf
 }
 
 async function renderNewsList(target) {
+  if (isDemoRequest()) {
+    renderNewsIndex(target, getDemoArticles(true).map((article) => ({ ...article, demo: true })), `
+      <div class="news-state">
+        <strong>News demo grid.</strong>
+        <p>Trang này đang hiển thị 10 bài mẫu để kiểm tra layout 5x2.</p>
+      </div>
+    `);
+    return;
+  }
+
   if (!hasSupabaseConfig()) {
     renderSetupState(target);
     return;
@@ -339,10 +384,10 @@ async function renderNewsList(target) {
     const supabase = await getSupabaseClient();
     const { data, error } = await supabase
       .from("news_articles")
-      .select("slug,title_vi,summary_vi,source_name,source_url,source_published_at,field,tags,featured_static,static_slug")
+      .select("slug,title_vi,summary_vi,source_name,source_url,source_published_at,field,tags,image_url")
       .eq("status", "published")
       .order("source_published_at", { ascending: false, nullsFirst: false })
-      .limit(40);
+      .limit(10);
 
     if (error) throw error;
     if (!data || data.length === 0) {
