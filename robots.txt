@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /New-Space-Verse/
+Disallow: /New-Space-Verse/vi/admin/
+
+Sitemap: https://thithilia.github.io/New-Space-Verse/sitemap.xml
