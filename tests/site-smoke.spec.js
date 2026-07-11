@@ -8,8 +8,8 @@ const pages = [
   { path: "/vi/news.html", title: /Tin/, checks: [[".news-toolbar", 1], ["[data-news-root]", 1]] },
   { path: "/vi/news.html?demo=1", title: /Tin/, checks: [[".news-card", 10], [".news-card__media img", 10]] },
   { path: "/vi/news/article.html?slug=demo-webb-exoplanet-atmosphere&demo=1", title: /Space-Verse/, checks: [[".news-article", 1]] },
-  { path: "/vi/news/article.html?slug=test", title: /Tin/, checks: [[".news-state", 1]] },
-  { path: "/vi/admin/news.html", title: /Tin/, checks: [["input[name='email']", 1]] },
+  { path: "/vi/news/article.html?slug=test", title: /Chi tiết bản tin/, checks: [[".news-state", 1]] },
+  { path: "/vi/admin/news.html", title: /Quản trị tin tức/, checks: [["input[name='email']", 1]] },
   { path: "/vi/research.html", title: /Space-Verse/, checks: [[".research-card", 4]] },
   {
     path: "/vi/fields/astrophysics-&-cosmology.html",
