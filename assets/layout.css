@@ -14,6 +14,11 @@
   gap: 18px;
 }
 
+.hero-banner .page-intro .section-title {
+  max-width: 24ch;
+  font-size: clamp(1.9rem, 3vw, 3.2rem);
+}
+
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -73,6 +78,7 @@
   background: linear-gradient(180deg, #ffffff, #f6f9ff);
 }
 
+.info-card h2,
 .info-card h3 {
   margin: 0 0 10px;
   font-size: 1.15rem;
@@ -135,7 +141,7 @@ body[data-page="about.html"] {
   background: #ffffff;
 }
 
-body[data-page="about.html"] .site-main {
+.site-main.about-page {
   padding-bottom: 0;
 }
 
@@ -145,7 +151,7 @@ body[data-page="about.html"] .site-main {
 }
 
 .about-hero {
-  min-height: 72vh;
+  min-height: clamp(500px, 62vh, 640px);
   padding: calc(var(--header-height) + 110px) 0 86px;
   display: grid;
   align-items: start;
@@ -431,6 +437,7 @@ body[data-page^="fields/"] .menu-toggle {
   text-transform: uppercase;
 }
 
+.atlas-heading h2,
 .atlas-heading h3 {
   max-width: 740px;
   margin: 0;
@@ -1141,7 +1148,7 @@ body[data-page^="fields/"] .menu-toggle {
   }
 
   .about-hero {
-    min-height: 62vh;
+    min-height: 56vh;
     padding: calc(var(--header-height) + 76px) 0 64px;
   }
 

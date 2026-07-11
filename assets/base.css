@@ -65,7 +65,8 @@ a:hover {
   color: var(--color-primary-strong);
 }
 
-main a:not(.btn) {
+main :where(p, blockquote, pre) :where(a:not(.btn)),
+main :where(.rich-text, .resource-detail, .about-copy__inner, .field-copy) li :where(a:not(.btn)) {
   text-decoration: underline;
   text-decoration-thickness: 0.08em;
   text-underline-offset: 0.18em;
@@ -78,7 +79,9 @@ main a:not(.btn) {
 }
 
 button,
-input {
+input,
+select,
+textarea {
   font: inherit;
 }
 
@@ -165,6 +168,13 @@ nav {
 .btn.light {
   background: #ffffff;
   color: var(--color-primary-strong);
+  border-color: var(--color-border);
+}
+
+.cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .page-section {

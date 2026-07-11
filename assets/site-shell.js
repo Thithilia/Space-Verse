@@ -136,8 +136,8 @@
         overview: "Overview",
         footerPrimary: "Footer primary links",
         footerSecondary: "Footer secondary links",
-        news: "News",
-        material: "Resources",
+        news: "News (VI)",
+        material: "Resources (VI)",
         about: "About us",
         research: "Projects",
         contact: "Contact",
@@ -184,8 +184,8 @@
         overview: "Vue d’ensemble",
         footerPrimary: "Liens principaux du pied de page",
         footerSecondary: "Liens secondaires du pied de page",
-        news: "Actualités",
-        material: "Ressources",
+        news: "Actualités (VI)",
+        material: "Ressources (VI)",
         about: "À propos",
         research: "Projets",
         contact: "Contact",
@@ -304,8 +304,8 @@
   function renderFooter() {
     if (!footerRoot) return;
     const researchHref = locale === "vi" ? localeHref(locale, "research.html") : localeHref(locale, "projects.html");
-    const materialHref = locale === "vi" ? localeHref(locale, "resources.html") : localeHref(locale, "index.html");
-    const newsHref = locale === "vi" ? localeHref(locale, "news.html") : localeHref(locale, "index.html");
+    const materialHref = localeHref(locale === "vi" ? locale : "vi", "resources.html");
+    const newsHref = localeHref(locale === "vi" ? locale : "vi", "news.html");
     const contactHref = "mailto:contact.space-verse@gmail.com";
     footerRoot.innerHTML = `
       <footer class="site-footer">

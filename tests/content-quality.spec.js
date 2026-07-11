@@ -147,6 +147,22 @@ test.describe("public content and SEO guardrails", () => {
     expect(failures).toEqual([]);
   });
 
+  test("resource pages do not ship empty spacing or placeholder divider artifacts", () => {
+    const resourcePages = listHtmlPages(join(root, "vi", "resources"));
+    const failures = [];
+
+    for (const filePath of resourcePages) {
+      const html = source(filePath);
+      const path = relative(root, filePath).replaceAll("\\", "/");
+      if (/<p\b[^>]*>\s*<\/p>/i.test(html)) failures.push(`${path}: empty paragraph`);
+      if (/<pre\b[^>]*>\s*<\/pre>/i.test(html)) failures.push(`${path}: empty preformatted block`);
+      if (/<div class="circle">\s*\?\s*<\/div>/i.test(html)) failures.push(`${path}: placeholder divider`);
+      if (/style="color:\s*blue;?"/i.test(html)) failures.push(`${path}: inline link color`);
+    }
+
+    expect(failures).toEqual([]);
+  });
+
   test("sitemap contains every public canonical URL exactly once", () => {
     const locations = [...source(join(root, "sitemap.xml")).matchAll(/<loc>(.*?)<\/loc>/g)]
       .map((match) => match[1].replaceAll("&amp;", "&"));

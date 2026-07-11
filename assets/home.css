@@ -12,10 +12,11 @@
   isolation: isolate;
   background: #ffffff;
   overflow: visible;
+  padding-bottom: 0;
 }
 
 .home-axiom-intro {
-  min-height: 61vh;
+  min-height: clamp(420px, 54vh, 560px);
   padding: var(--header-height) 0 36px;
   display: grid;
   place-items: center;
@@ -30,10 +31,11 @@
 }
 
 .home-axiom-intro h1 {
+  max-width: 18ch;
   margin: 0;
   color: #1b1b1b;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: clamp(1.5rem, 1.65vw, 1.8rem);
+  font-size: clamp(2rem, 3.2vw, 3.25rem);
   font-weight: 400;
   line-height: 1.2;
   letter-spacing: 0;
@@ -522,6 +524,7 @@
 
 .research-card {
   display: grid;
+  grid-template-rows: auto auto 1fr auto;
   gap: 12px;
   padding: 20px;
   border-radius: var(--radius-md);
@@ -542,13 +545,29 @@
   object-fit: cover;
 }
 
+.research-card h2,
 .research-card h3,
 .research-card p {
   margin: 0;
 }
 
+.research-card h2,
+.research-card h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.25;
+}
+
 .research-card p {
   color: var(--color-muted);
+}
+
+.research-card > a {
+  justify-self: start;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.18em;
 }
 
 @media (prefers-reduced-motion: reduce) {

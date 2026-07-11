@@ -202,7 +202,7 @@ function renderNewsCard(article) {
           <span>${escapeHtml(article.source_name)}</span>
           <span>${escapeHtml(formatDate(article.source_published_at))}</span>
         </span>
-        <h3>${escapeHtml(article.title_vi)}</h3>
+        <h2>${escapeHtml(article.title_vi)}</h2>
         <p>${escapeHtml(article.summary_vi)}</p>
       </span>
       <span class="news-source">Đọc bản tin</span>
