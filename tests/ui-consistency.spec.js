@@ -32,6 +32,23 @@ test.describe("UI consistency guardrails", () => {
     await expect(page.locator('.resource-list[aria-label="Tài nguyên học tập"]')).toBeVisible();
     await expect(page.locator('.resource-link[aria-current="page"]')).toHaveCount(1);
 
+    const palette = await page.evaluate(() => ({
+      body: getComputedStyle(document.body).backgroundColor,
+      main: getComputedStyle(document.querySelector("main")).backgroundColor,
+      band: getComputedStyle(document.querySelector(".resource-top-band")).backgroundColor,
+      text: getComputedStyle(document.querySelector(".resource-detail")).color,
+      activeLink: getComputedStyle(document.querySelector('.resource-link[aria-current="page"]')).color,
+      groupLabel: getComputedStyle(document.querySelector(".resource-list__title")).color
+    }));
+    expect(palette).toEqual({
+      body: "rgb(255, 255, 255)",
+      main: "rgb(255, 255, 255)",
+      band: "rgb(238, 244, 255)",
+      text: "rgb(18, 32, 51)",
+      activeLink: "rgb(20, 86, 193)",
+      groupLabel: "rgb(15, 118, 110)"
+    });
+
     const positions = await page.locator(".resource-layout .page-grid").evaluate((grid) => ({
       contentTop: grid.querySelector(".content-stack").getBoundingClientRect().top,
       sidebarTop: grid.querySelector("aside").getBoundingClientRect().top
