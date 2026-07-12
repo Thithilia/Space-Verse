@@ -77,6 +77,10 @@
   color: var(--color-accent);
 }
 
+.resource-list__group + .resource-list__group .resource-list__title {
+  padding-top: 28px;
+}
+
 .resource-link {
   display: flex;
   align-items: center;
@@ -93,6 +97,10 @@
 .resource-link:hover,
 .resource-link:focus-visible {
   color: #0052a8;
+}
+
+.resource-link.is-active {
+  font-weight: 600;
 }
 
 .resource-main,
@@ -149,6 +157,11 @@
 
 .resource-overview-link:hover,
 .resource-overview-link:focus-visible {
+  color: #0052a8;
+}
+
+.resource-overview-link:hover span:first-child,
+.resource-overview-link:focus-visible span:first-child {
   color: #0052a8;
 }
 
@@ -269,7 +282,19 @@
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
 }
 
+.divider .circle::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
 @media (max-width: 960px) {
+  .resource-layout .page-grid > .content-stack {
+    order: -1;
+  }
+
   .resource-sidebar {
     position: static;
   }

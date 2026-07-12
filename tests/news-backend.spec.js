@@ -46,7 +46,10 @@ test.describe("news backend artifacts", () => {
   test("draft function uses structured outputs and does not expose server keys to frontend", () => {
     const draftFunction = read("supabase/functions/draft-news/index.ts");
     const browserConfigExample = read("assets/news-config.example.js");
+    const browserConfigDefault = read("assets/news-config.js");
     const browserNews = read("assets/news.js");
+    const publicNewsPage = read("vi/news.html");
+    const publicArticlePage = read("vi/news/article.html");
 
     expect(draftFunction).toContain("OPENAI_API_KEY");
     expect(draftFunction).toContain("json_schema");
@@ -54,6 +57,12 @@ test.describe("news backend artifacts", () => {
     expect(browserNews).toContain("@supabase/supabase-js@2.105.3");
     expect(browserConfigExample).not.toContain("OPENAI_API_KEY");
     expect(browserConfigExample).not.toContain("SERVICE_ROLE");
+    expect(browserConfigDefault).toContain('supabaseUrl: ""');
+    expect(browserConfigDefault).toContain('supabaseAnonKey: ""');
+    expect(browserConfigDefault).not.toContain("OPENAI_API_KEY");
+    expect(browserConfigDefault).not.toContain("SERVICE_ROLE");
+    expect(publicNewsPage).toContain('src="../assets/news-config.js"');
+    expect(publicArticlePage).toContain('src="../../assets/news-config.js"');
   });
 
   test("sync function reads enabled sources and upserts raw items by hash", () => {
@@ -84,20 +93,25 @@ test.describe("news backend artifacts", () => {
     expect(envExample).toContain("NEWS_ALLOWED_ORIGINS");
   });
 
-  test("daily workflow auto-publishes a ten-item replacement batch", () => {
+  test("daily workflow creates reviewable drafts without automatic publishing", () => {
     const newsWorkflow = read(".github/workflows/news-pipeline.yml");
     const draftFunction = read("supabase/functions/draft-news/index.ts");
     const checkScript = read("scripts/check-news-pipeline.ps1");
 
     expect(newsWorkflow).toContain('cron: "15 17 * * *"');
-    expect(newsWorkflow).toContain("draft-news?limit=10&publish=1&replace=1");
+    expect(newsWorkflow).toContain("draft-news?limit=10");
+    expect(newsWorkflow).not.toContain("publish=1");
+    expect(newsWorkflow).not.toContain("replace=1");
     expect(newsWorkflow).not.toContain("functions/v1/export-static-news");
-    expect(checkScript).toContain("draft-news?limit=10&publish=1&replace=1");
-    expect(draftFunction).toContain("replace=1 requires publish=1.");
-    expect(draftFunction).toContain("Daily replacement requires exactly");
-    expect(draftFunction).toContain('status: autoPublish ? "published" : "draft"');
+    expect(checkScript).toContain('"draft-news?limit=10"');
+    expect(checkScript).not.toContain("publish=1");
+    expect(draftFunction).not.toContain("autoPublish");
+    expect(draftFunction).not.toContain('params.get("publish")');
+    expect(draftFunction).not.toContain('params.get("replace")');
+    expect(draftFunction).toContain('status: "draft"');
+    expect(draftFunction).toContain("published_at: null");
+    expect(draftFunction).toContain("reviewed_at: null");
     expect(draftFunction).toContain('.from("news_articles")');
-    expect(draftFunction).toContain(".delete()");
     expect(draftFunction).toContain('.from("news_raw_items")');
   });
 

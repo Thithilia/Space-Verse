@@ -9,9 +9,9 @@ const FIELD_LABELS = {
 
 const FIELD_FALLBACK_IMAGES = {
   astrophysics: "image/astroarea.jpg",
-  satellite_technology: "image/sate.png",
-  remote_sensing: "image/remote.png",
-  space_physics: "image/crabglass.png",
+  satellite_technology: "image/sate-448.webp",
+  remote_sensing: "image/remote-448.webp",
+  space_physics: "image/crabglass-448.webp",
   opportunities: "image/galaxy.png",
   general: "image/galaxy.png"
 };
@@ -57,8 +57,7 @@ function clearAuthCallbackParams() {
 }
 
 function getDemoArticles(force = false) {
-  const config = getConfig();
-  if (!force && !isDemoRequest() && config.demoMode === false) return [];
+  if (!force && !isDemoRequest()) return [];
   return Array.isArray(window.SpaceVerseNewsDemoArticles) ? window.SpaceVerseNewsDemoArticles : [];
 }
 
@@ -203,7 +202,7 @@ function renderNewsCard(article) {
           <span>${escapeHtml(article.source_name)}</span>
           <span>${escapeHtml(formatDate(article.source_published_at))}</span>
         </span>
-        <h3>${escapeHtml(article.title_vi)}</h3>
+        <h2>${escapeHtml(article.title_vi)}</h2>
         <p>${escapeHtml(article.summary_vi)}</p>
       </span>
       <span class="news-source">Đọc bản tin</span>
@@ -300,20 +299,19 @@ function renderNewsIndex(target, articles, noticeHtml = "") {
 }
 
 function renderSetupState(target, isAdmin = false) {
-  const demoArticles = getDemoArticles();
-  if (!isAdmin && demoArticles.length) {
-    renderNewsIndex(target, demoArticles.map((article) => ({ ...article, demo: true })), `
+  if (!isAdmin) {
+    target.innerHTML = `
       <div class="news-state">
-        <strong>Mục Tin tức đang chạy ở chế độ demo.</strong>
-        <p>Điền <code>supabaseUrl</code> và <code>supabaseAnonKey</code> trong <code>assets/news-config.js</code> để thay dữ liệu mẫu bằng các bài đã duyệt từ backend.</p>
+        <strong>Mục Tin tức chưa mở trong bản beta.</strong>
+        <p>Space-Verse đang hoàn thiện quy trình biên tập và kiểm tra nguồn. Trong thời gian này, bạn có thể khám phá các trang Nghiên cứu và Tài nguyên học thuật.</p>
       </div>
-    `);
+    `;
     return;
   }
 
   target.innerHTML = `
     <div class="news-state">
-      <strong>${isAdmin ? "Admin dashboard chưa được kết nối Supabase." : "Mục Tin tức đã sẵn sàng nhưng chưa có cấu hình Supabase."}</strong>
+      <strong>Admin dashboard chưa được kết nối Supabase.</strong>
       <p>Điền <code>supabaseUrl</code> và <code>supabaseAnonKey</code> trong <code>assets/news-config.js</code>, sau đó chạy migration Supabase để bật dữ liệu thật.</p>
     </div>
   `;
@@ -367,8 +365,8 @@ async function renderNewsList(target) {
   if (isDemoRequest()) {
     renderNewsIndex(target, getDemoArticles(true).map((article) => ({ ...article, demo: true })), `
       <div class="news-state">
-        <strong>News demo grid.</strong>
-        <p>Trang này đang hiển thị 10 bài mẫu để kiểm tra layout 5x2.</p>
+        <strong>Dữ liệu minh họa dành cho kiểm thử giao diện.</strong>
+        <p>Đây không phải tin đã xuất bản. Trang đang hiển thị 10 bài mẫu để kiểm tra bố cục.</p>
       </div>
     `);
     return;
@@ -391,13 +389,13 @@ async function renderNewsList(target) {
 
     if (error) throw error;
     if (!data || data.length === 0) {
-      target.innerHTML = `<div class="news-state"><strong>Chưa có tin đã duyệt.</strong><p>Trang này chỉ hiển thị bài có <code>status = published</code>. Tài khoản admin phải được owner cấp quyền trong backend trước khi duyệt draft.</p></div>`;
+      target.innerHTML = `<div class="news-state"><strong>Chưa có bản tin được xuất bản.</strong><p>Các bản tin sẽ xuất hiện sau khi đã được kiểm tra nguồn và biên tập.</p></div>`;
       return;
     }
 
     renderNewsIndex(target, data);
   } catch (error) {
-    target.innerHTML = `<div class="news-state"><strong>Không tải được tin tức.</strong><p>${escapeHtml(error.message)}</p></div>`;
+    target.innerHTML = `<div class="news-state"><strong>Tạm thời không tải được tin tức.</strong><p>Vui lòng thử lại sau.</p></div>`;
   }
 }
 
@@ -409,6 +407,7 @@ function renderArticle(target, data) {
   const sourceLabel = escapeHtml(data.source_name || "Nguồn chính thức");
   target.innerHTML = `
     <article class="news-article">
+      ${data.demo ? `<div class="news-state"><strong>Dữ liệu minh họa dành cho kiểm thử.</strong><p>Đây không phải bản tin đã xuất bản.</p></div>` : ""}
       <header class="news-article__header">
         <div class="news-meta">
           <span class="news-tag">${escapeHtml(fieldLabel(data.field))}</span>
@@ -445,7 +444,7 @@ async function renderNewsArticle(target) {
       target.innerHTML = `<div class="news-state"><strong>Không tìm thấy bài demo.</strong><p>Hãy mở bài viết từ trang danh sách Tin tức.</p></div>`;
       return;
     }
-    renderArticle(target, article);
+    renderArticle(target, { ...article, demo: true });
     return;
   }
 
@@ -467,7 +466,7 @@ async function renderNewsArticle(target) {
     if (error) throw error;
     renderArticle(target, data);
   } catch (error) {
-    target.innerHTML = `<div class="news-state"><strong>Không tải được bài viết.</strong><p>${escapeHtml(error.message)}</p></div>`;
+    target.innerHTML = `<div class="news-state"><strong>Tạm thời không tải được bài viết.</strong><p>Vui lòng quay lại trang Tin tức và thử lại sau.</p></div>`;
   }
 }
 

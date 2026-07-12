@@ -3,9 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <meta name="description" content="Space-Verse là bản đồ định hướng tiếng Việt về khoa học vũ trụ, công nghệ không gian, tài nguyên học tập và cách tìm cơ hội.">
+  <link rel="canonical" href="https://thithilia.github.io/New-Space-Verse/vi/index.html">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
   <title>Space-Verse</title>
-  <link rel="stylesheet" href="../assets/style.css?v=20260518-gray-dual">
+  <link rel="stylesheet" href="../assets/style.css?v=20260712-ui1">
   <style>
     body[data-page="index.html"] .home-circle-item::before {
       content: none !important;
@@ -189,6 +192,24 @@
     body[data-page="index.html"] .home-circle-item.is-overlay-source .home-circle-item__status {
       opacity: 0;
     }
+
+    body[data-page="index.html"] .home-axiom-intro__inner {
+      gap: 18px;
+    }
+
+    body[data-page="index.html"] .home-axiom-intro__beta {
+      margin: 0;
+      max-width: 680px;
+      color: #4f637c;
+      font-size: clamp(0.95rem, 1.05vw, 1.1rem);
+      line-height: 1.55;
+    }
+
+    body[data-page="index.html"] .home-axiom-intro__beta strong {
+      color: #102746;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
   </style>
 </head>
 <body data-locale="vi" data-page="index.html" data-root="../">
@@ -197,7 +218,8 @@
   <main class="site-main home-page">
     <section class="home-axiom-intro" aria-labelledby="home-axiom-title">
       <div class="container home-axiom-intro__inner">
-        <h1 id="home-axiom-title">The starting point is reasoning.</h1>
+        <h1 id="home-axiom-title">Khám phá khoa học vũ trụ và công nghệ không gian</h1>
+        <p class="home-axiom-intro__beta"><strong>Space-Verse Beta</strong> · Bản đồ định hướng dành cho người học Việt Nam. Nội dung đang tiếp tục được biên tập và phản biện trước khi phát hành chính thức.</p>
       </div>
     </section>
 
@@ -233,31 +255,30 @@
         </div>
 
         <div class="home-research__stack">
-          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(10, 38, 79, 0.92)" data-overlay-image="../image/crabglass.png" href="../vi/fields/astrophysics-&-cosmology.html">
+          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(10, 38, 79, 0.92)" data-overlay-image="../image/crabglass-1280.webp" href="../vi/fields/astrophysics-&-cosmology.html">
             <span class="home-circle-item__visual">
-              <img src="../image/crabglass.png" alt="Hình ảnh Crab cho mục vật lý thiên văn và vũ trụ học" />
+              <img src="../image/crabglass-448.webp" alt="Hình ảnh Tinh vân Con Cua cho mục vật lý thiên văn và vũ trụ học" width="448" height="250" loading="lazy" decoding="async" />
             </span>
             <span class="home-circle-item__title">Vật lý thiên văn và vũ trụ học</span>
           </a>
 
-          <button class="home-circle-item home-circle-item--coming" data-overlay-trigger data-research-state="coming-soon" data-overlay-color="rgba(22, 47, 92, 0.92)" data-overlay-image="../image/sate.png" type="button" aria-label="Công nghệ vệ tinh, đang phát triển">
+          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(22, 47, 92, 0.92)" data-overlay-image="../image/sate-1024.webp" href="../vi/fields/satellite-technology.html">
             <span class="home-circle-item__visual">
-              <img src="../image/sate.png" alt="Hình minh họa công nghệ vệ tinh" />
+              <img src="../image/sate-448.webp" alt="Hình minh họa công nghệ vệ tinh" width="448" height="448" loading="lazy" decoding="async" />
             </span>
             <span class="home-circle-item__title">Công nghệ vệ tinh</span>
-            <span class="home-circle-item__status">Đang phát triển</span>
-          </button>
+          </a>
 
-          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(15, 54, 97, 0.92)" data-overlay-image="../image/remote.png" href="../vi/fields/remote-sensing.html">
+          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(15, 54, 97, 0.92)" data-overlay-image="../image/remote-1280.webp" href="../vi/fields/remote-sensing.html">
             <span class="home-circle-item__visual">
-              <img src="../image/remote.png" alt="Viễn thám và khoa học Trái Đất" />
+              <img src="../image/remote-448.webp" alt="Viễn thám và khoa học Trái Đất" width="448" height="250" loading="lazy" decoding="async" />
             </span>
             <span class="home-circle-item__title">Viễn thám và khoa học Trái Đất</span>
           </a>
 
-          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(18, 48, 88, 0.92)" data-overlay-image="../image/heparea.jpg" href="../vi/fields/space-physics.html">
+          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(18, 48, 88, 0.92)" data-overlay-image="../image/heparea-1280.webp" href="../vi/fields/space-physics.html">
             <span class="home-circle-item__visual">
-              <img src="../image/heparea.jpg" alt="Hình minh họa vật lý không gian" />
+              <img src="../image/heparea-448.webp" alt="Hình minh họa vật lý không gian" width="448" height="325" loading="lazy" decoding="async" />
             </span>
             <span class="home-circle-item__title">Vật lý không gian</span>
           </a>
@@ -268,9 +289,9 @@
     <section class="home-band home-band--gray home-dual">
       <div class="container home-dual__grid">
         <article class="home-dual__cell">
-          <h2 class="section-title">Khám phá cơ hội</h2>
-          <p>Trang cơ hội giúp người học xác định nên theo dõi học bổng, chương trình sau đại học và internship ở đâu trước khi đi sâu vào từng đợt tuyển chọn cụ thể.</p>
-          <a class="home-text-link" href="../vi/opportunities.html">Đi tới cơ hội</a>
+          <h2 class="section-title">Hướng dẫn tìm cơ hội</h2>
+          <p>Tìm các cổng thông tin chính thức để theo dõi chương trình sau đại học, thực tập và học bổng; Space-Verse hiện chưa duy trì danh sách tuyển sinh theo thời gian thực.</p>
+          <a class="home-text-link" href="../vi/opportunities.html">Mở hướng dẫn</a>
         </article>
 
         <article class="home-dual__cell">
@@ -281,8 +302,8 @@
 
         <article class="home-dual__cell">
           <h2 class="section-title">Tin tức</h2>
-          <p>Theo dõi các bản tin không gian được tổng hợp từ nguồn chính thống, kết hợp bộ lọc theo lĩnh vực và chế độ demo khi backend chưa kết nối.</p>
-          <a class="home-text-link" href="../vi/news.html">Mở tin tức</a>
+          <p>Mục tin tức đang được chuẩn bị trong bản beta. Khi hoạt động, mỗi bản tin sẽ dẫn về nguồn công bố chính thức và ghi rõ ngày cập nhật.</p>
+          <a class="home-text-link" href="../vi/news.html">Xem trạng thái</a>
         </article>
 
         <article class="home-dual__cell">
@@ -296,7 +317,7 @@
   </main>
 
   <div id="site-footer"></div>
-  <script src="../assets/site-shell.js?v=20260519-news-guide" defer></script>
+  <script src="../assets/site-shell.js?v=20260712-ui1" defer></script>
   <script>
     function initResearchOverlay() {
       const section = document.querySelector(".home-research");

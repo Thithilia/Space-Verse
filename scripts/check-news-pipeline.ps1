@@ -29,7 +29,7 @@ $headers["x-spaceverse-secret"] = $NewsFunctionSecret
 
 $functions = @(
   "sync-news",
-  "draft-news?limit=10&publish=1&replace=1"
+  "draft-news?limit=10"
 )
 
 foreach ($functionName in $functions) {

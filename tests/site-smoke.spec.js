@@ -8,13 +8,13 @@ const pages = [
   { path: "/vi/news.html", title: /Tin/, checks: [[".news-toolbar", 1], ["[data-news-root]", 1]] },
   { path: "/vi/news.html?demo=1", title: /Tin/, checks: [[".news-card", 10], [".news-card__media img", 10]] },
   { path: "/vi/news/article.html?slug=demo-webb-exoplanet-atmosphere&demo=1", title: /Space-Verse/, checks: [[".news-article", 1]] },
-  { path: "/vi/news/article.html?slug=test", title: /Tin/, checks: [[".news-state", 1]] },
-  { path: "/vi/admin/news.html", title: /Tin/, checks: [["input[name='email']", 1]] },
+  { path: "/vi/news/article.html?slug=test", title: /Chi tiết bản tin/, checks: [[".news-state", 1]] },
+  { path: "/vi/admin/news.html", title: /Quản trị tin tức/, checks: [["input[name='email']", 1]] },
   { path: "/vi/research.html", title: /Space-Verse/, checks: [[".research-card", 4]] },
   {
     path: "/vi/fields/astrophysics-&-cosmology.html",
     title: /Space-Verse/,
-    checks: [["#astro-field-list-title", 1], [".taxonomy-group", 21], [".field-taxonomy-list li", 350], [".taxonomy-journal-table tbody tr", 10]]
+    checks: [["#astro-field-list-title", 1], [".atlas-section", 10], [".field-link-list--atlas li", 100], [".field-link-list--atlas a[href]", 3]]
   },
   {
     path: "/vi/fields/satellite-technology.html",
@@ -68,18 +68,71 @@ test.describe("site smoke checks", () => {
   test("hamburger navigation opens and exposes major links", async ({ page }) => {
     await page.goto("/vi/index.html", { waitUntil: "domcontentloaded" });
 
-    await expect(page.locator(".menu-toggle")).toHaveCount(1);
-    await page.locator(".menu-toggle").click();
+    const menuToggle = page.locator(".menu-toggle");
+    await expect(menuToggle).toHaveCount(1);
+    await expect(menuToggle).toHaveAttribute("aria-controls", "site-menu-panel");
+    await expect(menuToggle).toHaveAttribute("aria-expanded", "false");
+    await menuToggle.click();
 
     await expect(page.locator(".site-header[data-menu-open='true']")).toHaveCount(1);
+    await expect(menuToggle).toHaveAttribute("aria-expanded", "true");
     const panel = page.locator(".site-menu-panel");
     await expect(panel).toBeVisible();
     await expect(panel.locator('a[href$="/vi/news.html"]')).toBeVisible();
     await expect(panel.locator('a[href$="/vi/resources.html"]')).toBeVisible();
 
-    await panel.locator(".nav-item.has-submenu").filter({ has: page.locator('a[href$="/vi/fields/space-physics.html"]') }).locator("button").click();
+    const researchTrigger = panel.locator(".nav-item.has-submenu").filter({ has: page.locator('a[href$="/vi/fields/space-physics.html"]') }).locator("button");
+    await expect(researchTrigger).toHaveAttribute("aria-expanded", "false");
+    await researchTrigger.click();
+    await expect(researchTrigger).toHaveAttribute("aria-expanded", "true");
     await expect(panel.locator('a[href$="/vi/fields/astrophysics-&-cosmology.html"]')).toBeVisible();
     await expect(panel.locator('a[href$="/vi/fields/space-physics.html"]')).toBeVisible();
+
+    await page.keyboard.press("Escape");
+    await expect(researchTrigger).toHaveAttribute("aria-expanded", "false");
+    await expect(researchTrigger).toBeFocused();
+
+    await page.keyboard.press("Escape");
+    await expect(menuToggle).toHaveAttribute("aria-expanded", "false");
+    await expect(menuToggle).toBeFocused();
+  });
+
+  test("skip link and Vietnamese footer labels are available", async ({ page }) => {
+    await page.goto("/vi/index.html", { waitUntil: "domcontentloaded" });
+
+    const skipLink = page.locator(".skip-link");
+    await expect(skipLink).toHaveAttribute("href", "#main-content");
+    await expect(page.locator("main#main-content")).toHaveCount(1);
+    await expect(page.locator(".site-footer__primary-links")).toContainText("Tin tức");
+    await expect(page.locator(".site-footer__primary-links")).toContainText("Tài nguyên");
+    await expect(page.locator(".site-footer__secondary-links")).toContainText("Về chúng tôi");
+    await expect(page.locator(".site-footer__secondary-links a[href='https://github.com/Thithilia/New-Space-Verse']")).toHaveCount(1);
+  });
+
+  test("language choice is remembered for the root redirect", async ({ page }) => {
+    await page.goto("/vi/index.html", { waitUntil: "domcontentloaded" });
+    await page.locator(".menu-toggle").click();
+    await page.locator(".lang-trigger").click();
+    await page.locator('.lang-menu a[data-locale="en"]').click();
+
+    await expect(page).toHaveURL(/\/en\/index\.html$/);
+    await expect.poll(() => page.evaluate(() => localStorage.getItem("site_lang"))).toBe("en");
+  });
+
+  test("news page loads the safe browser config without asset failures", async ({ page }) => {
+    const failedPaths = [];
+    page.on("response", (response) => {
+      if (response.status() >= 400) failedPaths.push(new URL(response.url()).pathname);
+    });
+
+    await page.goto("/vi/news.html", { waitUntil: "networkidle" });
+    expect(failedPaths).toEqual([]);
+    await expect.poll(() => page.evaluate(() => window.SpaceVerseNewsConfig)).toEqual({
+      supabaseUrl: "",
+      supabaseAnonKey: "",
+      demoMode: false
+    });
+    await expect(page.locator("[data-news-root] .news-state")).toContainText("Mục Tin tức chưa mở trong bản beta");
   });
 
   test("news demo page uses a five by two card grid on desktop", async ({ page }) => {

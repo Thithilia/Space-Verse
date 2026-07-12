@@ -2,14 +2,14 @@
 
 ## What V2 adds
 
-- Public news pages can render demo articles before Supabase is configured.
+- Public news pages can render clearly labeled demo articles only with `?demo=1`.
 - Supabase migration and Edge Functions remain the production path.
 - GitHub Actions runs Playwright tests on pushes and pull requests.
-- A scheduled workflow refreshes the public page with 10 auto-published items daily when required secrets are present.
+- A scheduled workflow syncs sources and generates up to 10 drafts daily when required secrets are present; an authorized editor must publish them.
 
 ## Browser config
 
-Copy `assets/news-config.example.js` into `assets/news-config.js` and fill:
+`assets/news-config.js` is tracked with empty, safe defaults. For a deployment connected to Supabase, fill only:
 
 ```js
 window.SpaceVerseNewsConfig = window.SpaceVerseNewsConfig || {
@@ -19,7 +19,7 @@ window.SpaceVerseNewsConfig = window.SpaceVerseNewsConfig || {
 };
 ```
 
-Keep `demoMode: true` while designing the page without a backend.
+Use `vi/news.html?demo=1` while testing the layout without a backend. `demoMode` is retained for configuration compatibility but does not expose demo content on ordinary public URLs.
 
 ## Supabase setup
 
@@ -70,12 +70,12 @@ If the check returns `404`, the Edge Functions are not deployed for this Supabas
 The workflow `.github/workflows/news-pipeline.yml` runs at 17:15 UTC, which is 00:15 in Vietnam, and calls:
 
 - `sync-news`
-- `draft-news?limit=10&publish=1&replace=1`
+- `draft-news?limit=10`
 
 It skips safely when `SUPABASE_URL`, `SUPABASE_ANON_KEY`, or `NEWS_FUNCTION_SECRET` is not configured.
 
-The replacement mode only publishes after all 10 new briefs are created. If fewer than 10 pending items are available or one draft fails, the function returns an error and leaves the previous public batch in place. After a successful batch insert, old rows in `news_articles` and `news_raw_items` are deleted; `news_sources` stays intact.
+The scheduled request creates drafts and does not replace published rows. A news admin reviews source attribution, wording, image credit, and factual accuracy before publishing each item.
 
 ## Review policy
 
-The daily public pipeline auto-publishes. The admin dashboard remains available for manual review/editing workflows. Published briefs must keep source URL, date, field, and image credit.
+The daily pipeline never auto-publishes. Only an authorized admin may move a reviewed draft to `published`. Published briefs must keep source URL, date, field, and image credit.

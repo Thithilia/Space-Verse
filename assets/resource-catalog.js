@@ -58,21 +58,23 @@
 
   function renderSidebar() {
     const filtered = filterResources();
+    const groupLabels = { foundation: "Nền tảng", advanced: "Chuyên sâu" };
     const groupsHtml = groupedResources(filtered).map((group) => {
       if (!group.items.length) return "";
       const links = group.items.map((item) => {
         const activeClass = item.slug === currentSlug ? " is-active" : "";
-        return `<a class="resource-link${activeClass}" href="${root}vi/${item.href}"><span>${item.title}</span><span aria-hidden="true">›</span></a>`;
+        const current = item.slug === currentSlug ? ' aria-current="page"' : "";
+        return `<a class="resource-link${activeClass}" href="${root}vi/${item.href}"${current}><span>${item.title}</span><span aria-hidden="true">›</span></a>`;
       }).join("");
-      return `<div class="resource-list__group">${links}</div>`;
+      return `<div class="resource-list__group"><div class="resource-list__title">${groupLabels[group.key]}</div>${links}</div>`;
     }).join("");
 
     sidebarTarget.innerHTML = `
       <div class="resource-sidebar">
         <div class="resource-sidebar__heading">
-          <h2>Study Resources</h2>
+          <h2>Tài nguyên học tập</h2>
         </div>
-        <nav class="resource-list" aria-label="Study resources">
+        <nav class="resource-list" aria-label="Tài nguyên học tập">
           ${groupsHtml || '<div class="resource-empty">Không có mục nào khớp bộ lọc hiện tại.</div>'}
         </nav>
       </div>
