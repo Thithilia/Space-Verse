@@ -1,12 +1,30 @@
+body[data-page="resources.html"],
+body[data-page^="resources/"] {
+  --resource-page: var(--color-surface);
+  --resource-band: var(--color-surface-alt);
+  --resource-ink: var(--color-text);
+  --resource-muted: var(--color-muted);
+  --resource-link: var(--color-primary);
+  --resource-link-strong: var(--color-primary-strong);
+  --resource-accent: var(--color-accent);
+  --resource-border: var(--color-border);
+  background: var(--resource-page);
+}
+
+body[data-page="resources.html"] .site-main,
+body[data-page^="resources/"] .site-main {
+  background: var(--resource-page);
+}
+
 .resource-top-band {
   min-height: var(--header-height);
-  background: #eef1f4;
+  background: var(--resource-band);
 }
 
 .resource-breadcrumb-row {
   padding: 26px 0 34px;
-  border-bottom: 1px solid rgba(18, 32, 51, 0.12);
-  background: #eef1f4;
+  border-bottom: 1px solid var(--resource-border);
+  background: var(--resource-band);
 }
 
 .resource-breadcrumb-row .container {
@@ -14,18 +32,23 @@
   flex-wrap: wrap;
   gap: 22px;
   align-items: center;
-  color: #06284c;
+  color: var(--resource-muted);
   font-size: 1rem;
   line-height: 1.4;
 }
 
 .resource-breadcrumb-row a {
-  color: #0052a8;
+  color: var(--resource-link);
+}
+
+.resource-breadcrumb-row a:hover,
+.resource-breadcrumb-row a:focus-visible {
+  color: var(--resource-link-strong);
 }
 
 .resource-layout {
   padding-top: 70px;
-  background: #ffffff;
+  background: var(--resource-page);
 }
 
 .resource-sidebar {
@@ -51,11 +74,11 @@
   display: block;
   width: 100%;
   height: 4px;
-  background: #111111;
+  background: var(--resource-link-strong);
 }
 
 .resource-sidebar__heading h2 {
-  color: #000000;
+  color: var(--resource-ink);
   font-size: 1.45rem;
   font-weight: 800;
   line-height: 1.15;
@@ -74,7 +97,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-accent);
+  color: var(--resource-accent);
 }
 
 .resource-list__group + .resource-list__group .resource-list__title {
@@ -87,8 +110,8 @@
   justify-content: space-between;
   gap: 18px;
   padding: 15px 0;
-  border-bottom: 1px solid rgba(17, 17, 17, 0.14);
-  color: #111111;
+  border-bottom: 1px solid var(--resource-border);
+  color: var(--resource-ink);
   font-size: 1.05rem;
   line-height: 1.45;
 }
@@ -96,7 +119,7 @@
 .resource-link.is-active,
 .resource-link:hover,
 .resource-link:focus-visible {
-  color: #0052a8;
+  color: var(--resource-link);
 }
 
 .resource-link.is-active {
@@ -111,7 +134,7 @@
 }
 
 .resource-intro {
-  color: #111111;
+  color: var(--resource-ink);
 }
 
 .resource-intro .section-title {
@@ -124,50 +147,54 @@
 .resource-summary p {
   max-width: 74ch;
   margin: 0;
-  color: #111111;
+  color: var(--resource-ink);
   font-size: clamp(1.15rem, 1.35vw, 1.55rem);
   line-height: 1.58;
+}
+
+.resource-summary p {
+  color: var(--resource-muted);
 }
 
 .resource-overview-list {
   display: grid;
   gap: 0;
-  border-top: 1px solid rgba(17, 17, 17, 0.16);
+  border-top: 1px solid var(--resource-border);
 }
 
 .resource-overview-link {
   display: grid;
   gap: 6px;
   padding: 20px 0;
-  border-bottom: 1px solid rgba(17, 17, 17, 0.16);
-  color: #111111;
+  border-bottom: 1px solid var(--resource-border);
+  color: var(--resource-ink);
 }
 
 .resource-overview-link span:first-child {
-  color: #000000;
+  color: var(--resource-ink);
   font-size: clamp(1.2rem, 1.45vw, 1.7rem);
   font-weight: 600;
 }
 
 .resource-overview-link span:last-child {
-  color: #333333;
+  color: var(--resource-muted);
   font-size: 1rem;
   line-height: 1.5;
 }
 
 .resource-overview-link:hover,
 .resource-overview-link:focus-visible {
-  color: #0052a8;
+  color: var(--resource-link);
 }
 
 .resource-overview-link:hover span:first-child,
 .resource-overview-link:focus-visible span:first-child {
-  color: #0052a8;
+  color: var(--resource-link);
 }
 
 .resource-empty {
   padding: 18px 0;
-  color: var(--color-muted);
+  color: var(--resource-muted);
 }
 
 .detail-meta {
@@ -183,19 +210,20 @@
   padding: 4px 0;
   font-size: 0.82rem;
   font-weight: 600;
-  color: #0b5b55;
+  color: var(--resource-accent);
 }
 
 .resource-pill + .resource-pill::before {
   content: "/";
   margin-right: 10px;
-  color: rgba(17, 17, 17, 0.38);
+  color: var(--resource-muted);
+  opacity: 0.55;
 }
 
 .resource-detail {
   display: grid;
   gap: 28px;
-  color: #111111;
+  color: var(--resource-ink);
   font-size: clamp(1.15rem, 1.4vw, 1.55rem);
   line-height: 1.58;
   min-width: 0;
@@ -212,21 +240,21 @@
 }
 
 .resource-detail h1 {
-  color: #000000;
+  color: var(--resource-ink);
   font-size: clamp(2rem, 3vw, 3.65rem);
   font-weight: 600;
   line-height: 1.08;
 }
 
 .resource-detail h2 {
-  color: #000000;
+  color: var(--resource-ink);
   font-size: clamp(1.35rem, 1.7vw, 2.05rem);
   font-weight: 500;
   line-height: 1.22;
 }
 
 .resource-detail h3 {
-  color: #000000;
+  color: var(--resource-ink);
   font-size: clamp(1.1rem, 1.25vw, 1.4rem);
   font-weight: 600;
 }
@@ -237,14 +265,19 @@
 }
 
 .resource-detail a {
-  color: #0052a8;
+  color: var(--resource-link);
   overflow-wrap: anywhere;
+}
+
+.resource-detail a:hover,
+.resource-detail a:focus-visible {
+  color: var(--resource-link-strong);
 }
 
 .resource-detail pre {
   max-width: min(74ch, 100%);
   margin: 0;
-  color: #111111;
+  color: var(--resource-ink);
   font-family: var(--font-body);
   white-space: pre-wrap;
   overflow-wrap: anywhere;
@@ -264,11 +297,11 @@
   content: "";
   flex: 1;
   height: 2px;
-  background: linear-gradient(to right, rgba(20, 86, 193, 0.12), rgba(15, 118, 110, 0.36));
+  background: linear-gradient(to right, rgba(20, 86, 193, 0.1), rgba(20, 86, 193, 0.32));
 }
 
 .divider::after {
-  background: linear-gradient(to left, rgba(20, 86, 193, 0.12), rgba(15, 118, 110, 0.36));
+  background: linear-gradient(to left, rgba(20, 86, 193, 0.1), rgba(20, 86, 193, 0.32));
 }
 
 .divider .circle {
@@ -279,7 +312,7 @@
   margin: 0 12px;
   border-radius: 50%;
   color: #ffffff;
-  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+  background: linear-gradient(135deg, var(--resource-link), var(--resource-link-strong));
 }
 
 .divider .circle::before {
