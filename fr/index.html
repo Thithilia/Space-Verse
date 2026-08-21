@@ -5,36 +5,360 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
   <title>Space-Verse</title>
-  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="../assets/style.css?v=20260518-gray-dual">
+  <style>
+    body[data-page="index.html"] .home-circle-item::before {
+      content: none !important;
+    }
+
+    body[data-page="index.html"] .home-research {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    body[data-page="index.html"] .home-research__overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      background-color: #0f2748;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: opacity 0.24s ease, visibility 0.24s ease;
+    }
+
+    body[data-page="index.html"] .home-research__overlay::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(12, 33, 65, 0.16), rgba(12, 33, 65, 0.22));
+    }
+
+    body[data-page="index.html"] .home-research__overlay.is-active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    body[data-page="index.html"] .home-research__grid {
+      position: relative;
+      z-index: 2;
+    }
+
+    body[data-page="index.html"] .home-research__meteors {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    body[data-page="index.html"] .home-research__meteor {
+      position: absolute;
+      left: var(--meteor-left, 0%);
+      top: var(--meteor-top, 0%);
+      width: var(--meteor-length, 180px);
+      height: var(--meteor-width, 3px);
+      border-radius: 999px;
+      opacity: 0;
+      background: linear-gradient(
+        90deg,
+        rgba(9, 20, 36, 0) 0%,
+        rgba(9, 20, 36, 0.14) 40%,
+        rgba(9, 20, 36, 0.92) 100%
+      );
+      transform: translate3d(-18vw, -18vw, 0) rotate(45deg);
+      transform-origin: center;
+      animation: homeResearchMeteor var(--meteor-duration, 8s) linear infinite;
+      animation-delay: var(--meteor-delay, 0s);
+    }
+
+    body[data-page="index.html"] .home-research__ground-wind {
+      position: absolute;
+      inset: 44% -12% 0;
+      z-index: 1;
+      pointer-events: none;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 88%, transparent 100%);
+      mask-image: linear-gradient(180deg, transparent 0%, #000 18%, #000 88%, transparent 100%);
+    }
+
+    body[data-page="index.html"] .home-research__leaf {
+      --leaf-color: #6f8b4b;
+      position: absolute;
+      left: var(--leaf-left, 0%);
+      bottom: var(--leaf-bottom, 8%);
+      width: var(--leaf-size, 18px);
+      aspect-ratio: 1.8 / 1;
+      border-radius: 100% 0 100% 0;
+      opacity: 0;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.28), transparent 42%),
+        var(--leaf-color);
+      box-shadow: 0 1px 2px rgba(16, 39, 70, 0.16);
+      transform: translate3d(-18vw, 0, 0) rotate(var(--leaf-rotate, 18deg));
+      transform-origin: 50% 70%;
+      animation: homeResearchLeafGust var(--leaf-duration, 10s) ease-in-out infinite;
+      animation-delay: var(--leaf-delay, 0s);
+    }
+
+    body[data-page="index.html"] .home-research__leaf::after {
+      content: "";
+      position: absolute;
+      left: 12%;
+      top: 50%;
+      width: 72%;
+      height: 1px;
+      background: rgba(59, 70, 38, 0.42);
+      transform: rotate(-22deg);
+      transform-origin: left center;
+    }
+
+    @keyframes homeResearchLeafGust {
+      0% {
+        opacity: 0;
+        transform: translate3d(-18vw, 22px, 0) rotate(var(--leaf-rotate, 18deg));
+      }
+
+      12% {
+        opacity: 0.78;
+      }
+
+      38% {
+        transform: translate3d(24vw, -18px, 0) rotate(calc(var(--leaf-rotate, 18deg) + 190deg));
+      }
+
+      68% {
+        opacity: 0.72;
+        transform: translate3d(58vw, 16px, 0) rotate(calc(var(--leaf-rotate, 18deg) + 360deg));
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate3d(116vw, -10px, 0) rotate(calc(var(--leaf-rotate, 18deg) + 540deg));
+      }
+    }
+
+    @keyframes homeResearchMeteor {
+      0% {
+        opacity: 0;
+        transform: translate3d(-18vw, -18vw, 0) rotate(45deg);
+      }
+
+      10% {
+        opacity: 0.9;
+      }
+
+      75% {
+        opacity: 0.8;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translate3d(24vw, 24vw, 0) rotate(45deg);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      body[data-page="index.html"] .home-research__meteor,
+      body[data-page="index.html"] .home-research__leaf {
+        animation: none;
+        opacity: 0.34;
+      }
+    }
+
+    body[data-page="index.html"] .home-circle-item {
+      position: relative;
+    }
+
+    body[data-page="index.html"] .home-circle-item.is-overlay-source {
+      z-index: 30;
+    }
+
+    body[data-page="index.html"] .home-circle-item.is-overlay-source .home-circle-item__visual {
+      position: relative;
+      z-index: 31;
+      border-color: var(--home-accent);
+    }
+
+    body[data-page="index.html"] .home-circle-item.is-overlay-source .home-circle-item__title,
+    body[data-page="index.html"] .home-circle-item.is-overlay-source .home-circle-item__status {
+      opacity: 0;
+    }
+  </style>
 </head>
 <body data-locale="fr" data-page="index.html" data-root="../">
   <div id="site-header"></div>
 
-  <main class="site-main simple-hero">
-    <div class="container page-section content-stack">
-      <section class="panel-card content-card page-intro">
-        <span class="eyebrow">Ressources ouvertes</span>
-        <h1 class="section-title">Space-Verse rassemble des repères d'apprentissage et des ressources communautaires pour les étudiants vietnamiens en sciences spatiales.</h1>
-        <p>Les pages françaises donnent pour l'instant une vue d'ensemble du projet. Le contenu le plus complet reste disponible dans la section vietnamienne.</p>
-        <div class="cta-row">
-          <a class="btn dark" href="../vi/index.html">Ouvrir le site vietnamien</a>
-          <a class="btn light" href="../fr/about.html">Découvrir le projet</a>
+  <main class="site-main home-page">
+    <section class="home-axiom-intro" aria-labelledby="home-axiom-title">
+      <div class="container home-axiom-intro__inner">
+        <h1 id="home-axiom-title">Le raisonnement est le point de départ.</h1>
+      </div>
+    </section>
+
+    <section class="home-band home-band--light home-research home-grid-lines">
+      <div class="home-research__overlay" aria-hidden="true"></div>
+      <div class="home-research__meteors" aria-hidden="true">
+        <span class="home-research__meteor" style="--meteor-left: 4%; --meteor-top: 8%; --meteor-length: 170px; --meteor-width: 3px; --meteor-duration: 4.8s; --meteor-delay: -0.9s;"></span>
+        <span class="home-research__meteor" style="--meteor-left: 14%; --meteor-top: 18%; --meteor-length: 210px; --meteor-width: 4px; --meteor-duration: 5.2s; --meteor-delay: -2.2s;"></span>
+        <span class="home-research__meteor" style="--meteor-left: 24%; --meteor-top: 9%; --meteor-length: 155px; --meteor-width: 2px; --meteor-duration: 4.4s; --meteor-delay: -1.5s;"></span>
+        <span class="home-research__meteor" style="--meteor-left: 34%; --meteor-top: 24%; --meteor-length: 190px; --meteor-width: 3px; --meteor-duration: 5.7s; --meteor-delay: -3.1s;"></span>
+        <span class="home-research__meteor" style="--meteor-left: 44%; --meteor-top: 12%; --meteor-length: 175px; --meteor-width: 3px; --meteor-duration: 4.6s; --meteor-delay: -2.8s;"></span>
+        <span class="home-research__meteor" style="--meteor-left: 53%; --meteor-top: 30%; --meteor-length: 220px; --meteor-width: 4px; --meteor-duration: 5.9s; --meteor-delay: -1.1s;"></span>
+        <span class="home-research__meteor" style="--meteor-left: 62%; --meteor-top: 14%; --meteor-length: 165px; --meteor-width: 2px; --meteor-duration: 4.3s; --meteor-delay: -3.7s;"></span>
+        <span class="home-research__meteor" style="--meteor-left: 72%; --meteor-top: 26%; --meteor-length: 205px; --meteor-width: 3px; --meteor-duration: 5.1s; --meteor-delay: -4.4s;"></span>
+        <span class="home-research__meteor" style="--meteor-left: 81%; --meteor-top: 11%; --meteor-length: 150px; --meteor-width: 2px; --meteor-duration: 4.1s; --meteor-delay: -2.6s;"></span>
+        <span class="home-research__meteor" style="--meteor-left: 88%; --meteor-top: 34%; --meteor-length: 185px; --meteor-width: 3px; --meteor-duration: 5.4s; --meteor-delay: -0.4s;"></span>
+      </div>
+      <div class="home-research__ground-wind" aria-hidden="true">
+        <span class="home-research__leaf" style="--leaf-left: -8%; --leaf-bottom: 8%; --leaf-size: 16px; --leaf-color: #7c9151; --leaf-rotate: 16deg; --leaf-duration: 9.8s; --leaf-delay: -1.4s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: -2%; --leaf-bottom: 26%; --leaf-size: 20px; --leaf-color: #b48643; --leaf-rotate: -18deg; --leaf-duration: 11.2s; --leaf-delay: -5.8s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 8%; --leaf-bottom: 14%; --leaf-size: 14px; --leaf-color: #5f7e45; --leaf-rotate: 28deg; --leaf-duration: 8.7s; --leaf-delay: -3.1s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 16%; --leaf-bottom: 38%; --leaf-size: 18px; --leaf-color: #9a6f35; --leaf-rotate: -8deg; --leaf-duration: 12.4s; --leaf-delay: -7.3s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 28%; --leaf-bottom: 22%; --leaf-size: 15px; --leaf-color: #6b8847; --leaf-rotate: 22deg; --leaf-duration: 9.4s; --leaf-delay: -4.6s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 39%; --leaf-bottom: 10%; --leaf-size: 21px; --leaf-color: #c18a3f; --leaf-rotate: -24deg; --leaf-duration: 13.1s; --leaf-delay: -9.2s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 50%; --leaf-bottom: 32%; --leaf-size: 13px; --leaf-color: #536f3d; --leaf-rotate: 34deg; --leaf-duration: 8.9s; --leaf-delay: -6.1s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 63%; --leaf-bottom: 18%; --leaf-size: 17px; --leaf-color: #8f6f3c; --leaf-rotate: -14deg; --leaf-duration: 10.6s; --leaf-delay: -2.8s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 74%; --leaf-bottom: 42%; --leaf-size: 19px; --leaf-color: #6f8b4b; --leaf-rotate: 19deg; --leaf-duration: 12.1s; --leaf-delay: -8.5s;"></span>
+        <span class="home-research__leaf" style="--leaf-left: 86%; --leaf-bottom: 12%; --leaf-size: 14px; --leaf-color: #a67a3c; --leaf-rotate: -30deg; --leaf-duration: 9.1s; --leaf-delay: -5.2s;"></span>
+      </div>
+      <div class="container home-research__grid">
+        <div class="home-research__label-wrap">
+        <h2 class="home-research__label">Explorez les domaines de recherche sur l’espace et l’Univers.</h2>
         </div>
-      </section>
-      <section class="info-grid">
-        <article class="panel-card content-card info-card">
-          <h3>Ce que couvre le projet</h3>
-          <p>Ressources d'étude, présentation de domaines de recherche, compétences académiques et orientation vers les opportunités.</p>
+
+        <div class="home-research__stack">
+          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(10, 38, 79, 0.92)" data-overlay-image="../image/crabglass.png" href="../vi/fields/astrophysics-&-cosmology.html">
+            <span class="home-circle-item__visual">
+              <img src="../image/crabglass.png" alt="Nébuleuse du Crabe pour l’astrophysique et la cosmologie" />
+            </span>
+            <span class="home-circle-item__title">Astrophysique et cosmologie</span>
+          </a>
+
+          <button class="home-circle-item home-circle-item--coming" data-overlay-trigger data-research-state="coming-soon" data-overlay-color="rgba(22, 47, 92, 0.92)" data-overlay-image="../image/sate.png" type="button" aria-label="Technologies satellitaires, en développement">
+            <span class="home-circle-item__visual">
+              <img src="../image/sate.png" alt="Illustration des technologies satellitaires" />
+            </span>
+            <span class="home-circle-item__title">Technologies satellitaires</span>
+            <span class="home-circle-item__status">En développement</span>
+          </button>
+
+          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(15, 54, 97, 0.92)" data-overlay-image="../image/remote.png" href="../vi/fields/remote-sensing.html">
+            <span class="home-circle-item__visual">
+              <img src="../image/remote.png" alt="Télédétection et sciences de la Terre" />
+            </span>
+            <span class="home-circle-item__title">Télédétection et sciences de la Terre</span>
+          </a>
+
+          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(18, 48, 88, 0.92)" data-overlay-image="../image/heparea.jpg" href="../vi/fields/space-physics.html">
+            <span class="home-circle-item__visual">
+              <img src="../image/heparea.jpg" alt="Illustration de la physique spatiale" />
+            </span>
+            <span class="home-circle-item__title">Physique spatiale</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-band home-band--gray home-dual">
+      <div class="container home-dual__grid">
+        <article class="home-dual__cell">
+          <h2 class="section-title">Explorer les opportunités</h2>
+          <p>La rubrique Opportunités aide les étudiants à repérer les bourses, les formations de deuxième cycle et les stages avant d’examiner chaque appel en détail.</p>
+          <a class="home-text-link" href="../vi/opportunities.html">Explorer les opportunités</a>
         </article>
-        <article class="panel-card content-card info-card">
-          <h3>État actuel</h3>
-          <p>La version vietnamienne sert de référence. Les versions anglaise et française sont en cours d'alignement progressif.</p>
+
+        <article class="home-dual__cell">
+          <h2 class="section-title">Ressources académiques</h2>
+          <p>Le catalogue relie les disciplines fondamentales, les compétences académiques et les sujets avancés au sein d’un parcours d’apprentissage clair.</p>
+          <a class="home-text-link" href="../vi/resources.html">Parcourir les ressources</a>
         </article>
-      </section>
-    </div>
+
+        <article class="home-dual__cell">
+          <h2 class="section-title">Actualités</h2>
+          <p>Suivez une sélection d’actualités spatiales issues de sources officielles, avec des filtres thématiques et un mode de démonstration lorsque le backend n’est pas connecté.</p>
+          <a class="home-text-link" href="../vi/news.html">Lire les actualités</a>
+        </article>
+
+      </div>
+    </section>
+
   </main>
 
   <div id="site-footer"></div>
   <script src="../assets/site-shell.js?v=20260519-news-guide" defer></script>
+  <script>
+    function initResearchOverlay() {
+      const section = document.querySelector(".home-research");
+      const overlay = section ? section.querySelector(".home-research__overlay") : null;
+      const triggers = section ? section.querySelectorAll("[data-overlay-trigger]") : [];
+
+      if (!section || !overlay || !triggers.length) return;
+
+      let activeTrigger = null;
+
+      function activate(trigger) {
+        const image = trigger.dataset.overlayImage;
+        const color = trigger.dataset.overlayColor || "#0f2748";
+        const position = trigger.dataset.overlayPosition || "center center";
+
+        if (activeTrigger && activeTrigger !== trigger) {
+          activeTrigger.classList.remove("is-overlay-source");
+        }
+
+        activeTrigger = trigger;
+        activeTrigger.classList.add("is-overlay-source");
+        overlay.style.backgroundImage = image ? 'url("' + image + '")' : "none";
+        overlay.style.backgroundColor = color;
+        overlay.style.backgroundPosition = position;
+        overlay.classList.add("is-active");
+      }
+
+      function deactivate() {
+        overlay.classList.remove("is-active");
+        if (activeTrigger) {
+          activeTrigger.classList.remove("is-overlay-source");
+          activeTrigger = null;
+        }
+      }
+
+      triggers.forEach(function (trigger) {
+        trigger.addEventListener("mouseenter", function () {
+          activate(trigger);
+        });
+
+        trigger.addEventListener("mouseleave", function () {
+          deactivate();
+        });
+
+        trigger.addEventListener("focus", function () {
+          activate(trigger);
+        });
+
+        trigger.addEventListener("blur", function () {
+          deactivate();
+        });
+      });
+
+      section.addEventListener("mouseleave", function () {
+        deactivate();
+      });
+
+      window.addEventListener("scroll", function () {
+        deactivate();
+      }, { passive: true });
+    }
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initResearchOverlay);
+    } else {
+      initResearchOverlay();
+    }
+  </script>
 </body>
 </html>

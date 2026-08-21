@@ -7,38 +7,123 @@
   <title>Viễn thám | Space-Verse</title>
   <link rel="stylesheet" href="../../assets/style.css?v=20260516-audit2">
 </head>
-<body data-locale="vi" data-page="fields/remote-sensing.html" data-root="../../">
+<body class="section-ui" data-locale="vi" data-page="fields/remote-sensing.html" data-root="../../">
   <div id="site-header"></div>
 
-  <section class="field-hero" style="--field-hero-image: url('../../image/remote.png');" aria-labelledby="field-title">
-    <div class="container field-hero__inner">
-      <h1 id="field-title">Viễn thám</h1>
+  <section class="resource-top-band" aria-hidden="true"></section>
+
+  <nav class="resource-breadcrumb-row" aria-label="Breadcrumb">
+    <div class="container">
+      <a href="../../vi/index.html">Trang chủ</a>
+      <span>/</span>
+      <a href="../../vi/research.html">Nghiên cứu</a>
+      <span>/</span>
+      <span>Viễn thám</span>
     </div>
-  </section>
+  </nav>
 
   <main class="site-main field-page">
-    <div class="container field-page__inner">
-      <nav class="field-breadcrumb" aria-label="Breadcrumb">
-        <a href="../../vi/index.html">Trang chủ</a>
-        <span>/</span>
-        <a href="../../vi/research.html">Nghiên cứu</a>
-        <span>/</span>
-        <span>Viễn thám</span>
-      </nav>
-
+    <div class="container page-section resource-layout">
+      <div class="page-grid">
+        <aside id="research-sidebar"></aside>
+        <div class="field-page__inner">
+      <header class="resource-intro page-intro">
+        <span class="eyebrow">Research area</span>
+        <h1 class="section-title">Viễn thám</h1>
+      </header>
       <section class="field-copy field-copy--lead">
         <h2>Giới thiệu chung</h2>
-        <p>Viễn thám là lĩnh vực thu nhận và phân tích thông tin về bề mặt Trái Đất, khí quyển, đại dương và môi trường thông qua dữ liệu từ vệ tinh, máy bay, drone hoặc các cảm biến đặt ở khoảng cách xa đối tượng quan sát.</p>
+        <p>Viễn thám nghiên cứu cách thu nhận và diễn giải tín hiệu từ cảm biến ở xa để hiểu bề mặt đất, khí quyển, đại dương và các quá trình môi trường. Điểm cốt lõi của ngành không nằm ở việc “xem ảnh vệ tinh”, mà ở việc hiểu tín hiệu đo được đã đi qua khí quyển, hình học quan sát, nhiễu thiết bị và quy trình xử lý như thế nào trước khi trở thành sản phẩm khoa học.</p>
 
-        <p>Lĩnh vực này kết nối chặt chẽ với vật lý bức xạ, xử lý ảnh, GIS, khoa học dữ liệu và mô hình hóa môi trường. Người học thường cần làm quen với dữ liệu raster/vector, ảnh quang học, ảnh radar, chuỗi thời gian vệ tinh và các phương pháp phân loại, phát hiện thay đổi hoặc trích xuất thông tin từ ảnh.</p>
+        <p>Lĩnh vực này kết nối vật lý bức xạ với xử lý ảnh, GIS, thống kê, mô hình môi trường và khoa học dữ liệu. Người học phải làm quen với nhiều loại cảm biến khác nhau, từ quang học thụ động đến radar chủ động, từ ảnh độ phân giải cao đến chuỗi thời gian dài phục vụ giám sát biến động.</p>
 
-        <p>Viễn thám có nhiều ứng dụng thực tế trong quản lý tài nguyên, theo dõi biến đổi khí hậu, nông nghiệp, đô thị, rừng, nước, thiên tai và các hệ thống môi trường. Đây là một hướng nghiên cứu có tính liên ngành cao, vừa đòi hỏi kiến thức khoa học nền tảng, vừa cần kỹ năng lập trình và phân tích dữ liệu không gian.</p>
+        <p>Viễn thám đặc biệt quan trọng vì nó tạo ra góc nhìn lặp lại, quy mô lớn và có thể định lượng được. Điều đó làm cho nó trở thành một nền tảng thiết yếu cho quan trắc đất, rừng, nước, băng tuyết, cháy rừng, đô thị hóa, chất lượng khí quyển và nhiều bài toán climate services.</p>
       </section>
-      <section class="field-atlas" aria-labelledby="remote-map-title"><div class="atlas-heading"><span class="atlas-kicker">Remote sensing workflow</span><h3 id="remote-map-title">From sensor signal to usable map product.</h3></div><div class="cosmic-scale mission-scale"><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">01</span><span class="cosmic-node__title">Sensor physics</span><span class="cosmic-node__question">Spectrum, resolution and measurement noise.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">02</span><span class="cosmic-node__title">Acquisition</span><span class="cosmic-node__question">Optical, radar, thermal or weather data.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">03</span><span class="cosmic-node__title">Pre-processing</span><span class="cosmic-node__question">Geometry, atmosphere, cloud and time alignment.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">04</span><span class="cosmic-node__title">Features</span><span class="cosmic-node__question">Spectral indices, texture and spatial context.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">05</span><span class="cosmic-node__title">Modeling</span><span class="cosmic-node__question">Classification, regression and change detection.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">06</span><span class="cosmic-node__title">Validation</span><span class="cosmic-node__question">Ground truth, uncertainty and accuracy.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">07</span><span class="cosmic-node__title">Decision layer</span><span class="cosmic-node__question">Maps, dashboards and operational alerts.</span></article></div></section>
+      <section class="field-atlas" aria-labelledby="remote-map-title"><div class="atlas-heading"><span class="atlas-kicker">Luồng xử lý viễn thám</span><h3 id="remote-map-title">Từ tín hiệu cảm biến đến sản phẩm bản đồ có thể dùng được.</h3></div><div class="cosmic-scale mission-scale"><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">01</span><span class="cosmic-node__title">Vật lý cảm biến</span><span class="cosmic-node__question">Phổ đo, độ phân giải và nhiễu đo.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">02</span><span class="cosmic-node__title">Thu nhận</span><span class="cosmic-node__question">Dữ liệu quang học, radar, nhiệt hay khí tượng.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">03</span><span class="cosmic-node__title">Tiền xử lý</span><span class="cosmic-node__question">Hiệu chỉnh hình học, khí quyển, mây và căn thời gian.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">04</span><span class="cosmic-node__title">Đặc trưng</span><span class="cosmic-node__question">Chỉ số phổ, texture và ngữ cảnh không gian.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">05</span><span class="cosmic-node__title">Mô hình hóa</span><span class="cosmic-node__question">Phân loại, hồi quy và phát hiện thay đổi.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">06</span><span class="cosmic-node__title">Kiểm định</span><span class="cosmic-node__question">Ground truth, độ bất định và độ chính xác.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">07</span><span class="cosmic-node__title">Lớp quyết định</span><span class="cosmic-node__question">Bản đồ, dashboard và cảnh báo vận hành.</span></article></div></section>
+
+      <section class="field-columns" aria-label="Khung nội dung viễn thám">
+        <article class="field-copy">
+          <h3>Chủ đề nghiên cứu tiêu biểu</h3>
+          <ul>
+            <li>Quan trắc đất, rừng, nông nghiệp, đô thị và tài nguyên nước bằng chuỗi ảnh vệ tinh.</li>
+            <li>Radar khẩu độ tổng hợp (SAR) cho quan trắc mọi thời tiết, cả ngày lẫn đêm.</li>
+            <li>Nhiệt hồng ngoại, sounding khí quyển và quan trắc aerosol, mây, nhiệt độ bề mặt.</li>
+            <li>Phát hiện thay đổi, theo dõi thiên tai, cháy rừng, ngập lụt và biến động dài hạn.</li>
+            <li>Xây dựng sản phẩm bản đồ, chỉ số môi trường và hệ thống hỗ trợ quyết định.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nền tảng nên chuẩn bị</h3>
+          <ul>
+            <li>Vật lý bức xạ, quang học cơ bản, thống kê và xử lý tín hiệu.</li>
+            <li>GIS, dữ liệu raster/vector, hệ tọa độ và suy nghĩ theo không gian - thời gian.</li>
+            <li>Lập trình Python hoặc R để xử lý ảnh, trực quan hóa và tự động hóa pipeline.</li>
+            <li>Khả năng đọc metadata cảm biến, hiểu độ phân giải phổ, không gian, thời gian và bức xạ.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Phương pháp và dữ liệu">
+        <article class="field-copy">
+          <h3>Phương pháp, dữ liệu và công cụ</h3>
+          <ul>
+            <li>Phân biệt sensor thụ động và chủ động; hiểu giới hạn của quang học, radar và dữ liệu nhiệt.</li>
+            <li>Tiền xử lý gồm georeferencing, atmospheric correction, masking mây và đồng bộ chuỗi thời gian.</li>
+            <li>Phân tích chỉ số phổ, texture, segmentation, classification, regression và change detection.</li>
+            <li>Khai thác kho dữ liệu mở qua NASA Earthdata, USGS Landsat, Copernicus và NOAA products.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nhiệm vụ và bộ dữ liệu nên biết</h3>
+          <ul>
+            <li>Landsat là chuỗi ảnh đất dài hạn từ năm 1972, rất quan trọng cho bài toán biến đổi theo thời gian.</li>
+            <li>Copernicus Sentinel-1 cung cấp SAR mọi thời tiết; Sentinel-2 và Sentinel-3 cung cấp ảnh đa phổ và sản phẩm nhiệt, đại dương.</li>
+            <li>VIIRS trong hệ JPSS hỗ trợ quan trắc vận hành cho mây, aerosol, cháy rừng, nhiệt độ và nhiều sản phẩm môi trường.</li>
+            <li>LP DAAC phân phối nhiều bộ dữ liệu đất liền quan trọng như MODIS, VIIRS, ASTER, GEDI, ECOSTRESS và HLS.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Định hướng học">
+        <article class="field-copy">
+          <h3>Ngành này thường được thực hành ở đâu</h3>
+          <ul>
+            <li>Trung tâm dữ liệu và khoa học Trái Đất của NASA, USGS, Copernicus và NOAA.</li>
+            <li>Nhóm nghiên cứu môi trường, khí hậu, tài nguyên nước, nông nghiệp và thiên tai ở đại học.</li>
+            <li>Đơn vị vận hành sản phẩm bản đồ hoặc dịch vụ cảnh báo, nơi dữ liệu viễn thám đi vào quyết định thực tế.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Lộ trình nhập môn gợi ý</h3>
+          <ul>
+            <li>Bắt đầu từ sự khác nhau giữa dữ liệu quang học, radar và nhiệt thay vì học tool trước.</li>
+            <li>Tự làm một pipeline nhỏ với Landsat hoặc Sentinel cho một bài toán rõ ràng như NDVI, cháy rừng hay ngập lụt.</li>
+            <li>So sánh sản phẩm đầu ra với ground truth hoặc tài liệu xác thực để hiểu sai số.</li>
+            <li>Sau đó mới mở rộng sang chuỗi thời gian lớn, mô hình học máy hoặc sản phẩm vận hành.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-copy">
+        <h2>Nguồn bắt đầu đáng tin cậy</h2>
+        <ul class="field-link-list">
+          <li><a href="https://science.nasa.gov/earth/earth-observatory/remote-sensing/">NASA: Remote Sensing overview</a></li>
+          <li><a href="https://www.earthdata.nasa.gov/centers/lp-daac">NASA Earthdata: LP DAAC</a></li>
+          <li><a href="https://www.usgs.gov/landsat">USGS Landsat Missions</a></li>
+          <li><a href="https://www.esa.int/Enabling_Support/Operations/Copernicus_Sentinels">ESA: Copernicus Sentinels</a></li>
+          <li><a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Optical_missions">ESA: Optical missions</a></li>
+          <li><a href="https://www.esa.int/Our_Activities/Observing_the_Earth/Copernicus/SAR_missions">ESA: SAR missions</a></li>
+          <li><a href="https://ncc.nesdis.noaa.gov/VIIRS/aboutVIIRS.php">NOAA: About VIIRS</a></li>
+          <li><a href="https://www.ospo.noaa.gov/products/Suites/satellite_instruments.html">NOAA OSPO: Satellite instruments overview</a></li>
+        </ul>
+      </section>
+        </div>
+      </div>
     </div>
   </main>
 
   <div id="site-footer"></div>
   <script src="../../assets/site-shell.js?v=20260519-news-guide" defer></script>
+  <script src="../../assets/section-catalog.js" defer></script>
 </body>
 </html>

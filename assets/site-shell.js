@@ -6,7 +6,6 @@
       "index.html",
       "about.html",
       "disclaimer.html",
-      "guide.html",
       "news.html",
       "news/article.html",
       "admin/news.html",
@@ -48,7 +47,7 @@
   const localeConfig = {
     vi: {
       code: "VI",
-      flag: "🇻🇳",
+      flag: "vi.svg",
       topLinks: [
         { label: "GitHub", href: "https://github.com/Thithilia/Space-Verse" },
         { label: "Liên hệ", href: "mailto:contact.space-verse@gmail.com" }
@@ -75,8 +74,7 @@
           label: "Giới thiệu",
           items: [
             { label: "Về chúng tôi", href: "about.html" },
-            { label: "Tuyên bố miễn trừ trách nhiệm", href: "disclaimer.html" },
-            { label: "Hướng dẫn sử dụng website", href: "guide.html" }
+            { label: "Tuyên bố miễn trừ trách nhiệm", href: "disclaimer.html" }
           ]
         },
         { type: "link", label: "Tin tức", href: "news.html" },
@@ -106,7 +104,7 @@
     },
     en: {
       code: "EN",
-      flag: "🇬🇧",
+      flag: "gb.svg",
       topLinks: [
         { label: "GitHub", href: "https://github.com/Thithilia/Space-Verse" },
         { label: "Contact", href: "mailto:contact.space-verse@gmail.com" }
@@ -136,7 +134,7 @@
     },
     fr: {
       code: "FR",
-      flag: "🇫🇷",
+      flag: "fr.svg",
       topLinks: [
         { label: "GitHub", href: "https://github.com/Thithilia/Space-Verse" },
         { label: "Contact", href: "mailto:contact.space-verse@gmail.com" }
@@ -202,6 +200,7 @@
 
   function renderHeader() {
     if (!headerRoot) return;
+    const renderFlag = (item) => `<img class="lang-flag" src="${root}assets/flags/${item.flag}" alt="" width="24" height="16">`;
     const topLinks = config.topLinks.map((link) => `<a href="${link.href}">${link.label}</a>`).join("");
     const menu = renderNav(config.nav);
     const langMenu = Object.keys(localeConfig).map((key) => {
@@ -209,14 +208,16 @@
       const href = localeHref(key, targetPage);
       const current = key === locale ? ' aria-current="page"' : "";
       const fallbackLabel = targetPage === page ? "" : (key === "vi" ? "Trang chủ" : key === "fr" ? "Accueil" : "Home");
-      return `<li><a href="${href}" data-locale="${key}"${current}><span><span class="lang-flag">${localeConfig[key].flag}</span> <span class="lang-label">${localeConfig[key].code}</span></span><span>${fallbackLabel}</span></a></li>`;
+      return `<li><a href="${href}" data-locale="${key}"${current}><span class="lang-menu__identity">${renderFlag(localeConfig[key])}<span class="lang-label">${localeConfig[key].code}</span></span><span>${fallbackLabel}</span></a></li>`;
     }).join("");
 
     headerRoot.innerHTML = `
       <header class="site-header">
         <div class="site-header__bar">
           <a class="brand" href="${localeHref(locale, "index.html")}" aria-label="Space-Verse home">
-            <span class="brand__mark">SV</span>
+            <span class="brand__mark" aria-hidden="true">
+              <img src="${root}assets/space-verse-logo.png" alt="" width="1254" height="1254">
+            </span>
             <span class="brand__name">Space-Verse</span>
           </a>
           <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
@@ -229,7 +230,7 @@
           <nav class="top-links" aria-label="Quick links">${topLinks}</nav>
           <div class="lang-switcher">
             <button class="lang-trigger" type="button" aria-haspopup="true" aria-expanded="false">
-              <span class="lang-flag">${config.flag}</span>
+              ${renderFlag(config)}
               <span>${config.code}</span>
             </button>
             <ul class="lang-menu" aria-label="Language menu">${langMenu}</ul>
@@ -249,7 +250,9 @@
       <footer class="site-footer">
         <div class="site-footer__inner">
           <a class="site-footer__brand" href="${localeHref(locale, "index.html")}" aria-label="Space-Verse home">
-            <span class="site-footer__mark" aria-hidden="true"></span>
+            <span class="site-footer__mark" aria-hidden="true">
+              <img src="${root}assets/space-verse-logo.png" alt="" width="1254" height="1254">
+            </span>
             <span>Space-Verse</span>
           </a>
 

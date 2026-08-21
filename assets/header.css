@@ -28,18 +28,23 @@
 }
 
 .brand__mark {
-  inline-size: 36px;
-  block-size: 36px;
-  display: grid;
-  place-items: center;
-  border-radius: 4px 4px 2px 2px;
-  color: #ffffff;
-  background:
-    linear-gradient(165deg, transparent 0 38%, #abc3ff 39% 60%, transparent 61%),
-    linear-gradient(105deg, #101010 0 46%, #7fa2ff 47% 100%);
-  box-shadow: none;
-  font-size: 0;
-  transform: skewX(-8deg);
+  position: relative;
+  inline-size: 42px;
+  block-size: 42px;
+  flex: 0 0 42px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #ffffff;
+}
+
+.brand__mark img,
+.site-footer__mark img {
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 150%;
+  height: auto;
+  max-width: none;
+  transform: translate(-16.7%, -14.8%);
 }
 
 .brand__name {
@@ -231,7 +236,19 @@
 }
 
 .lang-flag {
-  font-size: 1rem;
+  display: block;
+  inline-size: 24px;
+  block-size: 16px;
+  flex: 0 0 24px;
+  border: 1px solid rgba(17, 17, 17, 0.18);
+  border-radius: 2px;
+  object-fit: cover;
+}
+
+.lang-menu__identity {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .lang-label {
@@ -248,8 +265,9 @@
   }
 
   .brand__mark {
-    inline-size: 32px;
-    block-size: 32px;
+    inline-size: 36px;
+    block-size: 36px;
+    flex-basis: 36px;
   }
 
   .site-menu-panel {

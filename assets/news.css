@@ -2,6 +2,10 @@
   background: #f3f5f7;
 }
 
+body[data-page="news.html"] .hero-banner {
+  display: none;
+}
+
 .news-page [hidden] {
   display: none !important;
 }

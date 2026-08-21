@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
+  <title>Quan trắc băng tuyết và cryosphere từ dữ liệu vệ tinh | Space-Verse</title>
+  <link rel="stylesheet" href="../../../assets/style.css?v=20260516-audit2">
+</head>
+<body data-locale="vi" data-page="fields/earth-sciences/cryosphere-monitoring.html" data-root="../../../">
+  <div id="site-header"></div>
+
+  <section class="field-hero" style="--field-hero-image: url('../../../image/remote.png');" aria-labelledby="field-title">
+    <div class="container field-hero__inner">
+      <h1 id="field-title">Quan trắc băng tuyết và cryosphere từ dữ liệu vệ tinh</h1>
+    </div>
+  </section>
+
+  <main class="site-main field-page">
+    <div class="container field-page__inner">
+      <nav class="field-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../vi/index.html">Trang chủ</a>
+        <span>/</span>
+        <a href="../../../vi/research.html">Nghiên cứu</a>
+        <span>/</span>
+        <a href="../../../vi/fields/remote-sensing-&-earth-sciences.html">Viễn thám và khoa học Trái Đất</a>
+        <span>/</span>
+        <span>Quan trắc băng tuyết và cryosphere từ dữ liệu vệ tinh</span>
+      </nav>
+
+      <section class="field-copy field-copy--lead">
+        <h2>Tổng quan</h2>
+        <p>Cryosphere là phần băng tuyết của hệ Trái Đất: băng biển, sông băng, chỏm băng, ice sheet, tuyết phủ theo mùa, băng hồ sông và cả đất đóng băng vĩnh cửu. Nghiên cứu nhánh này dùng dữ liệu vệ tinh để theo dõi nơi nào đang tích băng, nơi nào đang tan, độ dày thay đổi ra sao, và các thay đổi đó nối với khí hậu, mực nước biển, tài nguyên nước hay hệ sinh thái như thế nào.</p>
+        <p>Điểm hấp dẫn của cryosphere là không thể chỉ nhìn một loại ảnh rồi kết luận. Một câu hỏi tưởng đơn giản như "băng đang mất đi nhanh hay chậm" thường đòi hỏi ghép nhiều kiểu đo: ảnh quang học để thấy rìa băng, vi sóng để nhìn qua mây và đêm cực, altimetry để đo cao độ bề mặt, và đôi khi cả mô hình băng - đại dương để hiểu cơ chế đằng sau tín hiệu quan sát được.</p>
+        <p>Đây là hướng phù hợp nếu bạn thích những bài toán mà vật lý, dữ liệu không gian - thời gian và bất định đo đạc gắn rất chặt với nhau. Nó cũng là cầu nối tự nhiên giữa quan trắc khí hậu, chu trình nước lạnh, biến đổi mực nước biển, rủi ro vùng cực và môi trường núi cao.</p>
+      </section>
+
+      <section class="field-columns" aria-label="Các nhánh nghiên cứu chính">
+        <article class="field-copy">
+          <h3>Chủ đề tiêu biểu</h3>
+          <ul>
+            <li>Băng biển: diện tích, nồng độ, độ dày, tuổi băng và nhịp tan - đóng băng theo mùa.</li>
+            <li>Ice sheet và sông băng: thay đổi cao độ bề mặt, dòng chảy băng, tan chảy mép băng và đóng góp cho mực nước biển.</li>
+            <li>Tuyết phủ và snow water equivalent, đặc biệt ở lưu vực núi nơi tuyết là kho nước theo mùa.</li>
+            <li>Permafrost và các biểu hiện bề mặt liên quan như lún sụt, biến dạng hoặc thay đổi thủy văn vùng lạnh.</li>
+            <li>Tương tác băng - đại dương - khí quyển, nơi tín hiệu cryosphere vừa là chỉ báo khí hậu vừa phản hồi lại khí hậu.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nền tảng nên chuẩn bị</h3>
+          <ul>
+            <li>Khí hậu vùng cực và vùng núi cao ở mức nhập môn: cân bằng năng lượng, albedo, tuyết, băng và truyền nhiệt.</li>
+            <li>Viễn thám vi sóng, radar altimetry và lidar ở mức đủ để hiểu mỗi loại cảm biến thấy được gì và bỏ lỡ gì.</li>
+            <li>Phân tích chuỗi thời gian không gian, sai số đo, chồng ghép nhiều cảm biến và so sánh phiên bản dữ liệu.</li>
+            <li>Tư duy liên ngành vì cryosphere thường giao với hải dương học, thủy văn, khí hậu, địa mạo và hạ tầng vùng lạnh.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Phương pháp và hạ tầng dữ liệu">
+        <article class="field-copy">
+          <h3>Phương pháp, dữ liệu và công cụ</h3>
+          <ul>
+            <li>Dữ liệu vi sóng thụ động rất quan trọng cho băng biển vì có thể theo dõi đều đặn qua mây và trong mùa tối ở vùng cực.</li>
+            <li>Altimetry và lidar từ các nhiệm vụ như CryoSat hay ICESat-2 giúp suy ra biến đổi cao độ băng, freeboard hoặc hình học bề mặt.</li>
+            <li>Ảnh quang học và hồng ngoại hữu ích để lập bản đồ rìa băng, hồ tan trên bề mặt, tuyết phủ và bối cảnh địa hình.</li>
+            <li>Các chiến dịch như SnowEx cho thấy nhiều biến cryosphere, đặc biệt là tuyết, thường cần phối hợp cảm biến, đo đạc hiện trường và đồng hóa mô hình thay vì trông vào một phép đo duy nhất.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nhiệm vụ và hệ dữ liệu nên biết</h3>
+          <ul>
+            <li>NASA ICESat-2 là nhiệm vụ chủ lực cho đo cao độ bề mặt bằng laser, được dùng rộng trong băng biển, băng lục địa, tuyết và cả nước nội địa.</li>
+            <li>ESA CryoSat tập trung mạnh vào độ dày băng biển và thay đổi của Greenland, Antarctica, rất tiêu biểu cho nhánh radar altimetry vùng băng.</li>
+            <li>NSIDC là cửa vào rất tốt để hiểu các loại thành phần cryosphere, cách diễn giải dữ liệu và các chỉ số băng tuyết thường dùng.</li>
+            <li>NOAA vận hành và khai thác chuỗi vệ tinh môi trường để theo dõi băng biển và các điều kiện Bắc Cực gần vận hành, cho thấy mặt ứng dụng của nhánh này.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Cách lĩnh vực này được thực hành">
+        <article class="field-copy">
+          <h3>Nhóm nghiên cứu và ví dụ thực hành</h3>
+          <ul>
+            <li>Polar Science Center tại University of Washington là ví dụ rõ về cách quan trắc, mô hình và hải dương học vùng băng được nối với nhau trong nghiên cứu băng biển và ice sheet.</li>
+            <li>Penn State Ice and Climate Research Center cho thấy nhánh cryosphere cũng bao gồm đo thực địa, mô hình dòng băng và dự báo đóng góp mực nước biển.</li>
+            <li>Khi đọc trang của một nhóm, nên tách rõ đâu là bài toán nền của cả lĩnh vực như sea ice, ice sheet, snow, permafrost; đâu là thế mạnh cục bộ của nhóm đó.</li>
+            <li>Không nên đồng nhất cryosphere với chỉ một chủ đề "băng tan"; thực hành trong lĩnh vực trải từ đo cảm biến, xử lý dữ liệu, field campaign tới mô hình hóa và dịch vụ thông tin vùng cực.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Lộ trình nhập môn gợi ý</h3>
+          <ul>
+            <li>Bắt đầu bằng một thành phần cụ thể như băng biển, tuyết phủ hay ice sheet thay vì ôm toàn bộ cryosphere cùng lúc.</li>
+            <li>Đọc kỹ một trang mission và một trang dữ liệu để hiểu biến đo, độ phân giải, nhịp lặp và giới hạn diễn giải.</li>
+            <li>Tự làm một workflow nhỏ: ví dụ so sánh biến thiên băng biển theo mùa, hoặc đọc sản phẩm cao độ băng để hiểu nhiễu và bất định.</li>
+            <li>Sau đó mới mở rộng sang câu hỏi khó hơn như liên hệ với mực nước biển, nguồn nước từ tuyết, tương tác băng - đại dương hay rủi ro hạ tầng vùng permafrost.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-copy">
+        <h2>Điểm giao với các nhánh khác</h2>
+        <p>Cryosphere đứng ở giao điểm giữa khí hậu, thủy văn và rủi ro môi trường. Tuyết và băng là một phần của chu trình nước; băng biển và ice sheet là chỉ báo khí hậu mạnh; còn tan băng, lũ băng hồ hay biến dạng permafrost lại liên quan trực tiếp tới các bài toán thiên tai và hạ tầng. Vì thế đây là nhánh rất tốt để học cách một tín hiệu viễn thám đi từ "thấy băng" sang "hiểu hệ Trái Đất".</p>
+        <ul class="field-link-list">
+          <li><a href="../../../vi/fields/earth-sciences/climate-monitoring.html">Liên hệ với nhánh quan trắc khí hậu từ dữ liệu vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/water-cycle-monitoring.html">Liên hệ với nhánh theo dõi chu trình nước và thủy văn</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/disaster-monitoring.html">Liên hệ với nhánh giám sát thiên tai bằng dữ liệu vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/sea-level-coastal-change.html">Liên hệ với nhánh mực nước biển và tác động ven bờ của băng lục địa</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/permafrost-monitoring.html">Đi sâu vào nhánh theo dõi băng vĩnh cửu và biến dạng nền đất</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/mountain-permafrost.html">Đi sâu vào nhánh mountain permafrost, rock glacier và rủi ro sườn dốc vùng núi cao</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/thermokarst-lakes.html">Đi sâu vào nhánh hồ thermokarst, drained basins và hydrology đất băng tan</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/arctic-coastal-erosion.html">Đi sâu vào nhánh xói lở bờ Bắc Cực, sea ice loss và permafrost coast</a></li>
+        </ul>
+      </section>
+
+      <section class="field-copy">
+        <h2>Nguồn bắt đầu đáng tin cậy</h2>
+        <ul class="field-link-list">
+          <li><a href="https://nsidc.org/learn/what-cryosphere">NSIDC: What is the Cryosphere?</a></li>
+          <li><a href="https://science.nasa.gov/earth/earth-observatory/sea-ice">NASA Earth Observatory: Sea Ice</a></li>
+          <li><a href="https://science.nasa.gov/mission/icesat-2/">NASA Science: ICESat-2</a></li>
+          <li><a href="https://www.esa.int/Applications/Observing_the_Earth/FutureEO/CryoSat">ESA: CryoSat</a></li>
+          <li><a href="https://snow.nasa.gov/about-mission">NASA Snow: About the Mission</a></li>
+          <li><a href="https://www.nesdis.noaa.gov/our-environment/ice-snow/sea-ice">NOAA NESDIS: Sea Ice</a></li>
+          <li><a href="https://research.washington.edu/centers/polar-science-center">University of Washington: Polar Science Center</a></li>
+          <li><a href="https://www.psice.psu.edu/">Penn State Ice and Climate Research Center</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../../../assets/site-shell.js?v=20260519-news-guide" defer></script>
+</body>
+</html>

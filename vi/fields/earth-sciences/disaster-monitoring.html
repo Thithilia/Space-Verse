@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
+  <title>Giám sát thiên tai bằng dữ liệu vệ tinh | Space-Verse</title>
+  <link rel="stylesheet" href="../../../assets/style.css?v=20260516-audit2">
+</head>
+<body data-locale="vi" data-page="fields/earth-sciences/disaster-monitoring.html" data-root="../../../">
+  <div id="site-header"></div>
+
+  <section class="field-hero" style="--field-hero-image: url('../../../image/remote.png');" aria-labelledby="field-title">
+    <div class="container field-hero__inner">
+      <h1 id="field-title">Giám sát thiên tai bằng dữ liệu vệ tinh</h1>
+    </div>
+  </section>
+
+  <main class="site-main field-page">
+    <div class="container field-page__inner">
+      <nav class="field-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../vi/index.html">Trang chủ</a>
+        <span>/</span>
+        <a href="../../../vi/research.html">Nghiên cứu</a>
+        <span>/</span>
+        <a href="../../../vi/fields/remote-sensing-&-earth-sciences.html">Viễn thám và khoa học Trái Đất</a>
+        <span>/</span>
+        <span>Giám sát thiên tai bằng dữ liệu vệ tinh</span>
+      </nav>
+
+      <section class="field-copy field-copy--lead">
+        <h2>Tổng quan</h2>
+        <p>Đây là nhánh nghiên cứu và ứng dụng dùng ảnh vệ tinh, dữ liệu địa không gian và mô hình môi trường để theo dõi thiên tai trước, trong và sau sự kiện. Mục tiêu không chỉ là "nhìn thấy" thiên tai, mà là tạo thông tin đủ nhanh và đủ tin cậy để hỗ trợ cảnh báo, điều phối ứng cứu, đánh giá thiệt hại và phục hồi.</p>
+        <p>Điểm khó của lĩnh vực này là phải cân bằng giữa tốc độ và độ chắc chắn. Trong một trận lũ hoặc cháy rừng, người làm việc thường phải quyết định dùng cảm biến nào, sản phẩm nào đã qua xử lý tới đâu, độ trễ bao nhiêu giờ, và kết quả có thể tin ở mức nào khi mây che phủ, địa hình phức tạp hoặc dữ liệu tại chỗ còn thiếu.</p>
+        <p>Vì vậy đây là nơi rất tốt để học cách nối khoa học Trái Đất với nhu cầu vận hành thực tế: từ vật lý cảm biến, pipeline xử lý, bản đồ GIS cho tới giao tiếp với cơ quan ứng phó và cộng đồng người dùng cuối.</p>
+      </section>
+
+      <section class="field-columns" aria-label="Các nhánh bài toán chính">
+        <article class="field-copy">
+          <h3>Chủ đề tiêu biểu</h3>
+          <ul>
+            <li>Lũ lụt, bão, nước dâng và các tình huống cần bản đồ ngập nhanh.</li>
+            <li>Cháy rừng, vùng cháy, khói và theo dõi tác động sau cháy.</li>
+            <li>Động đất, núi lửa, sạt lở và biến dạng mặt đất bằng SAR/InSAR.</li>
+            <li>Hạn hán, stress thực vật và các chỉ báo môi trường cho rủi ro thiên tai kéo dài.</li>
+            <li>Đánh giá thiệt hại, mức phơi lộ và phục hồi sau sự kiện.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nền tảng nên chuẩn bị</h3>
+          <ul>
+            <li>Hiểu cơ bản về một vài nhóm hiểm họa: thủy văn, khí tượng, cháy rừng hoặc địa mạo.</li>
+            <li>GIS, raster/vector, reprojection và cách xử lý dữ liệu nhiều nguồn theo thời gian.</li>
+            <li>Lập trình Python hoặc môi trường phân tích địa không gian để dựng pipeline lặp lại được.</li>
+            <li>Tư duy về chất lượng dữ liệu, sai số, độ trễ sản phẩm và nhu cầu của người dùng vận hành.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Dữ liệu và phương pháp">
+        <article class="field-copy">
+          <h3>Phương pháp, dữ liệu và công cụ</h3>
+          <ul>
+            <li>Ảnh radar SAR đặc biệt quan trọng cho lũ và biến dạng mặt đất vì vẫn quan sát được khi có mây hoặc ban đêm.</li>
+            <li>Dữ liệu quang học và hồng ngoại nhiệt hữu ích cho cháy rừng, khói, vùng cháy, nhiệt độ bề mặt và các dấu hiệu thay đổi đất phủ.</li>
+            <li>Chuỗi ảnh trước - sau sự kiện, phát hiện thay đổi, bản đồ nước, burn scar, deformation map và chồng ghép với hạ tầng/phân bố dân cư là các workflow rất hay gặp.</li>
+            <li>Các pipeline tốt thường kết hợp dữ liệu vệ tinh với trạm đo, mô hình dự báo, DEM và dữ liệu hiện trường để giảm diễn giải sai.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nhiệm vụ và hệ dữ liệu nên biết</h3>
+          <ul>
+            <li>Copernicus Emergency Management Service là ví dụ vận hành điển hình: cảnh báo sớm, kích hoạt theo yêu cầu và bản đồ phơi lộ phục vụ ứng cứu.</li>
+            <li>NOAA GOES và JPSS hỗ trợ theo dõi thời tiết cực đoan, cháy rừng, mây, hơi nước và nhiều sản phẩm gần thời gian thực.</li>
+            <li>USGS EROS và HDDS cho thấy cách kho ảnh vệ tinh và dữ liệu địa không gian được tổ chức để hỗ trợ phản ứng thiên tai.</li>
+            <li>Nhánh radar của NASA/JPL như ARIA, OPERA và NISAR cho thấy vai trò ngày càng lớn của SAR/InSAR trong giám sát biến dạng, lũ và sạt lở.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Cách lĩnh vực này được thực hành">
+        <article class="field-copy">
+          <h3>Nhóm, hạ tầng và ví dụ thực hành</h3>
+          <ul>
+            <li>NASA Disasters Program là ví dụ rõ về cách dữ liệu quan sát Trái Đất được đưa vào toàn bộ chu trình giảm nhẹ rủi ro, ứng phó và phục hồi.</li>
+            <li>JPL Radar Science và ARIA cho thấy một nhánh rất mạnh về hazard science dùng SAR, GPS và các quan trắc mặt đất để tạo sản phẩm gần thời gian thực.</li>
+            <li>USGS EROS nhấn mạnh vai trò kho dữ liệu dài hạn, phân phối ảnh khẩn cấp và theo dõi thay đổi bề mặt phục vụ thiên tai.</li>
+            <li>NOAA vận hành chuỗi vệ tinh môi trường và sản phẩm quan trắc liên tục, rất quan trọng cho bão, cháy, lũ quét và khói.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Lộ trình nhập môn gợi ý</h3>
+          <ul>
+            <li>Bắt đầu bằng một loại thiên tai cụ thể, chẳng hạn lũ hoặc cháy rừng, thay vì cố ôm toàn bộ hazard cùng lúc.</li>
+            <li>Học đọc một sản phẩm vận hành có sẵn trước, ví dụ flood map, fire hotspot hoặc deformation map, để hiểu người dùng cuối cần gì.</li>
+            <li>Sau đó tự dựng một pipeline nhỏ với dữ liệu mở: chọn ảnh trước - sau sự kiện, tạo lớp thay đổi, so sánh với một nguồn tham chiếu.</li>
+            <li>Khi đã quen quy trình, mới mở rộng sang SAR/InSAR, tích hợp phơi lộ - dễ tổn thương hoặc thiết kế dashboard/hệ cảnh báo.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-copy">
+        <h2>Đọc tiếp từ đây</h2>
+        <ul class="field-link-list">
+          <li><a href="../../../vi/fields/earth-sciences/water-cycle-monitoring.html">Theo dõi chu trình nước và thủy văn từ dữ liệu vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/drought-ecosystem-stress.html">Đi sâu vào nhánh hạn, flash drought và stress hệ sinh thái từ dữ liệu vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/cryosphere-monitoring.html">Mở rộng sang nhánh quan trắc băng tuyết và cryosphere</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/sea-level-coastal-change.html">Mở rộng sang nhánh ngập ven biển, mực nước biển và biến đổi bờ biển</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/arctic-coastal-erosion.html">Đi sâu vào nhánh xói lở bờ Bắc Cực, flooding và permafrost ven biển</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/wildfire-permafrost.html">Đi sâu vào nhánh cháy rừng - permafrost, burn scar và biến dạng nền đất sau cháy</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/carbon-monitoring.html">Liên hệ với nhánh theo dõi carbon và khí nhà kính từ dữ liệu vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/permafrost-monitoring.html">Theo dõi băng vĩnh cửu, lún sụt và biến dạng nền đất</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/mountain-permafrost.html">Đi sâu vào nhánh mountain permafrost, rock glacier và mất ổn định sườn dốc vùng núi cao</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/thermokarst-lakes.html">Đi sâu vào nhánh hồ thermokarst, sụt lún cảnh quan và hồ thoát nước vùng lạnh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/drained-lake-basins.html">Đi sâu vào nhánh drained lake basins khi drainage đổi nguồn nước, mở rãnh xói hoặc tạo rủi ro hạ tầng địa phương</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/methane-super-emitters.html">Quan sát methane plume và các nguồn siêu phát thải cần cảnh báo hoặc can thiệp nhanh</a></li>
+          <li><a href="https://appliedsciences.nasa.gov/what-we-do/disasters/">NASA Applied Sciences: Disasters</a></li>
+          <li><a href="https://emergency.copernicus.eu/about/">Copernicus Emergency Management Service</a></li>
+          <li><a href="https://www.ncei.noaa.gov/products/satellite">NOAA NCEI: Satellite</a></li>
+          <li><a href="https://www.usgs.gov/tools/hazards-data-distribution-system-hdds-explorer">USGS: Hazards Data Distribution System (HDDS) Explorer</a></li>
+          <li><a href="https://www.usgs.gov/centers/eros/about">USGS EROS Center</a></li>
+          <li><a href="https://www.jpl.nasa.gov/go/radar-science/hazards/">NASA JPL Radar Science: Hazards</a></li>
+          <li><a href="https://aria.jpl.nasa.gov/">NASA JPL / Caltech ARIA</a></li>
+          <li><a href="https://science.nasa.gov/nisar">NASA Science: NISAR</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../../../assets/site-shell.js?v=20260519-news-guide" defer></script>
+</body>
+</html>
