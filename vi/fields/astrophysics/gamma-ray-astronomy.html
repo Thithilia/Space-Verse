@@ -3,12 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="../../../favicon.svg" type="image/svg+xml">
-  <meta name="description" content="Giới thiệu thiên văn học tia gamma, các nguồn năng lượng cao, phương pháp quan sát và kiến thức nền để bắt đầu học lĩnh vực này.">
-  <link rel="canonical" href="https://thithilia.github.io/New-Space-Verse/vi/fields/astrophysics/gamma-ray-astronomy.html">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
   <title>Thiên văn học tia gamma | Space-Verse</title>
-  <link rel="stylesheet" href="../../../assets/style.css?v=20260712-ui1">
+  <link rel="stylesheet" href="../../../assets/style.css?v=20260516-audit2">
 </head>
 <body data-locale="vi" data-page="fields/astrophysics/gamma-ray-astronomy.html" data-root="../../../">
   <div id="site-header"></div>
@@ -32,39 +29,141 @@
       </nav>
 
       <section class="field-copy field-copy--lead">
-        <h2>Lĩnh vực này nghiên cứu gì?</h2>
-        <p>Thiên văn học tia gamma quan sát các photon ở miền năng lượng cao nhất của phổ điện từ. Chúng thường được tạo ra gần các môi trường cực đoan, nơi hạt mang điện được gia tốc đến năng lượng rất lớn.</p>
-        <p><strong>Trang định hướng beta:</strong> nội dung dưới đây cung cấp bản đồ nhập môn, chưa phải một bài học đầy đủ.</p>
+        <h2>Giới thiệu chung</h2>
+        <p>Thiên văn học tia gamma nghiên cứu những photon có năng lượng cao nhất trong phổ điện từ. Đây là cửa sổ quan sát dành cho các môi trường cực đoan, nơi vật chất bị gia tốc mạnh, từ trường rất lớn hoặc các phản ứng hạt nhân diễn ra với cường độ cao.</p>
+
+        <p>Nếu quang học giúp ta nhìn hình dạng sao và thiên hà, thì tia gamma thường cho thấy nơi năng lượng đang được giải phóng dữ dội: tàn dư siêu tân tinh, pulsar, vùng quanh lỗ đen, nhân thiên hà hoạt động hay gamma-ray burst. Vì khí quyển Trái Đất hấp thụ phần lớn tia gamma, ngành này phải dựa vào đài quan sát không gian và các hệ kính Cherenkov mặt đất.</p>
+
+        <p>Đây là một hướng phù hợp nếu bạn thích vật lý năng lượng cao, plasma thiên văn, hiện tượng biến đổi theo thời gian và bài toán ghép nhiều bước sóng hoặc nhiều “sứ giả” quan sát lại với nhau. Trong thực hành, nhà nghiên cứu thường phải kết hợp mô hình hóa nguồn phát, xử lý tín hiệu yếu và so sánh dữ liệu từ nhiều thiết bị có dải năng lượng rất khác nhau.</p>
       </section>
 
-      <section class="field-copy field-copy--lead">
-        <h2>Nguồn tia gamma tiêu biểu</h2>
-        <ul>
-          <li>Pulsar, tinh vân gió pulsar và tàn dư siêu tân tinh.</li>
-          <li>Lỗ đen bồi tụ trong nhân thiên hà hoạt động và hệ sao đôi tia X.</li>
-          <li>Bùng nổ tia gamma, nova và các sự kiện thoáng qua.</li>
-          <li>Phát xạ khuếch tán do tia vũ trụ tương tác với khí và trường bức xạ.</li>
-        </ul>
+      <section class="field-atlas" aria-labelledby="gamma-pipeline-title">
+        <div class="atlas-heading">
+          <span class="atlas-kicker">Luồng nghiên cứu</span>
+          <h3 id="gamma-pipeline-title">Từ photon năng lượng cao đến mô hình cho nguồn phát cực đoan.</h3>
+        </div>
+        <div class="cosmic-scale mission-scale">
+          <article class="cosmic-node">
+            <span class="cosmic-node__dot"></span>
+            <span class="cosmic-node__scale">01</span>
+            <span class="cosmic-node__title">Nguồn phát</span>
+            <span class="cosmic-node__question">Tàn dư siêu tân tinh, pulsar, AGN, gamma-ray burst hay vùng quanh lỗ đen.</span>
+          </article>
+          <article class="cosmic-node">
+            <span class="cosmic-node__dot"></span>
+            <span class="cosmic-node__scale">02</span>
+            <span class="cosmic-node__title">Thu nhận</span>
+            <span class="cosmic-node__question">Kính không gian ghi photon trực tiếp; đài mặt đất ghi ánh sáng Cherenkov do mưa hạt tạo ra.</span>
+          </article>
+          <article class="cosmic-node">
+            <span class="cosmic-node__dot"></span>
+            <span class="cosmic-node__scale">03</span>
+            <span class="cosmic-node__title">Tái dựng sự kiện</span>
+            <span class="cosmic-node__question">Ước lượng năng lượng, hướng đến và phân biệt tín hiệu thật với nền nhiễu hạt tích điện.</span>
+          </article>
+          <article class="cosmic-node">
+            <span class="cosmic-node__dot"></span>
+            <span class="cosmic-node__scale">04</span>
+            <span class="cosmic-node__title">Ghép ngữ cảnh</span>
+            <span class="cosmic-node__question">So dữ liệu gamma với radio, quang học, tia X, neutrino hay sóng hấp dẫn.</span>
+          </article>
+          <article class="cosmic-node">
+            <span class="cosmic-node__dot"></span>
+            <span class="cosmic-node__scale">05</span>
+            <span class="cosmic-node__title">Diễn giải vật lý</span>
+            <span class="cosmic-node__question">Kiểm tra cơ chế gia tốc hạt, shock, jet tương đối tính hoặc quá trình hạt nhân.</span>
+          </article>
+          <article class="cosmic-node">
+            <span class="cosmic-node__dot"></span>
+            <span class="cosmic-node__scale">06</span>
+            <span class="cosmic-node__title">Mở rộng bài toán</span>
+            <span class="cosmic-node__question">Đi sang multimessenger astronomy, vật lý hạt thiên văn và nghiên cứu biến thiên nhanh.</span>
+          </article>
+        </div>
       </section>
 
-      <section class="field-copy field-copy--lead">
-        <h2>Quan sát được thực hiện như thế nào?</h2>
-        <p>Khí quyển Trái Đất hấp thụ tia gamma, vì vậy kính trên vệ tinh ghi nhận photon trực tiếp. Ở năng lượng cao hơn, các đài quan sát mặt đất đo gián tiếp thác hạt trong khí quyển, chẳng hạn qua ánh sáng Cherenkov hoặc các hạt tới mặt đất. Phân tích phải tái tạo năng lượng và hướng tới, đồng thời tách tín hiệu khỏi nền tia vũ trụ.</p>
+      <section class="field-columns" aria-label="Khung nội dung thiên văn học tia gamma">
+        <article class="field-copy">
+          <h3>Chủ đề nghiên cứu tiêu biểu</h3>
+          <ul>
+            <li>Pulsar, magnetar và các sao neutron phát bức xạ năng lượng cao.</li>
+            <li>Tàn dư siêu tân tinh và câu hỏi về nguồn gốc tia vũ trụ năng lượng cao trong Ngân Hà.</li>
+            <li>Gamma-ray burst, transient ngắn hạn và các sự kiện đi cùng sóng hấp dẫn hoặc neutrino.</li>
+            <li>Nhân thiên hà hoạt động, blazar và jet tương đối tính từ lỗ đen siêu khối lượng lớn.</li>
+            <li>Đường phát xạ hạt nhân, phản vật chất trong Ngân Hà và các câu hỏi giao giữa thiên văn với vật lý hạt.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nền tảng nên chuẩn bị</h3>
+          <ul>
+            <li>Cơ học tương đối, bức xạ điện từ, vật lý hạt và các quá trình tán xạ cơ bản.</li>
+            <li>Thiên văn học năng lượng cao, plasma thiên văn và trực giác về shock, từ trường, jet.</li>
+            <li>Thống kê, suy luận khả dĩ và xử lý dữ liệu đếm photon có nền nhiễu lớn.</li>
+            <li>Lập trình Python và thói quen làm việc với catalog, light curve, phổ năng lượng và dữ liệu theo thời gian.</li>
+          </ul>
+        </article>
       </section>
 
-      <section class="field-copy field-copy--lead">
-        <h2>Nền tảng nên học</h2>
-        <ul>
-          <li>Điện động lực học, thuyết tương đối hẹp và vật lý hạt.</li>
-          <li>Các cơ chế bức xạ không nhiệt: synchrotron, Compton ngược và tạo pion.</li>
-          <li>Thống kê Poisson, mô hình likelihood, xử lý sự kiện và Python.</li>
-          <li>Vật lý nguồn năng lượng cao và truyền bức xạ qua môi trường liên sao.</li>
+      <section class="field-columns" aria-label="Phương pháp và hạ tầng tia gamma">
+        <article class="field-copy">
+          <h3>Phương pháp, dữ liệu và công cụ</h3>
+          <ul>
+            <li>Thiết bị không gian như Fermi quan sát toàn bầu trời ở miền gamma năng lượng cao, thuận lợi cho catalog nguồn và hiện tượng biến thiên.</li>
+            <li>Swift đặc biệt mạnh cho follow-up nhanh các gamma-ray burst và các nguồn biến đổi theo thời gian ở nhiều bước sóng.</li>
+            <li>INTEGRAL và các nhiệm vụ soft gamma-ray giúp truy dấu những quá trình hạt nhân, annihilation và nguồn phát trong dải năng lượng thấp hơn.</li>
+            <li>Đài Cherenkov mặt đất như CTAO mở rộng sang miền very-high-energy, nơi cần tái dựng mưa hạt khí quyển thay vì ghi photon trực tiếp.</li>
+            <li>Công việc phân tích thường gồm light curve, phổ năng lượng, định vị nguồn, ghép catalog và kiểm tra tín hiệu trùng thời gian với quan sát ngoài dải gamma.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nhiệm vụ, đài quan sát và nhóm nghiên cứu nên biết</h3>
+          <ul>
+            <li>NASA Fermi Gamma-ray Space Telescope là hạ tầng cốt lõi cho nhiều bài toán gamma-ray sky, pulsar, AGN và gamma-ray burst.</li>
+            <li>Neil Gehrels Swift Observatory cho thấy cách ngành này làm time-domain astronomy và phối hợp follow-up rất nhanh.</li>
+            <li>ESA INTEGRAL là ví dụ tiêu biểu cho khoa học gamma mềm và vật lý hạt nhân thiên văn ở quỹ đạo.</li>
+            <li>COSI là nhiệm vụ NASA tương lai cho soft gamma-ray, nhấn mạnh phân cực, nucleosynthesis và multimessenger follow-up.</li>
+            <li>CTAO đại diện cho hướng quan sát gamma năng lượng rất cao từ mặt đất và cho thấy ngành này gắn chặt với phân tích mở, phần mềm khoa học và phối hợp đa đài quan sát.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Định hướng học thiên văn tia gamma">
+        <article class="field-copy">
+          <h3>Ngành này thường được thực hành ở đâu</h3>
+          <ul>
+            <li>Tại các mission team và science center của NASA, nơi dữ liệu khảo sát, cảnh báo transient và sản phẩm mức cao được công bố rộng rãi.</li>
+            <li>Tại các trung tâm ESA và các nhóm gắn với INTEGRAL hoặc hạ tầng gamma mềm, nơi bài toán nguồn phát và vật lý hạt nhân được nối với dữ liệu không gian.</li>
+            <li>Tại các consortium đài Cherenkov mặt đất như CTAO, nơi phần cứng, mô phỏng shower và phân tích dữ liệu đều là phần cốt lõi của nghiên cứu.</li>
+            <li>Tại các nhóm đại học làm high-energy astrophysics, multimessenger astronomy hoặc time-domain astronomy, thường phối hợp dữ liệu gamma với X-ray, radio và quang học.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Lộ trình nhập môn gợi ý</h3>
+          <ul>
+            <li>Bắt đầu bằng việc nắm rõ dải năng lượng gamma, cơ chế phát xạ và lý do ngành này cần đài quan sát ngoài khí quyển hoặc kính Cherenkov.</li>
+            <li>Đọc overview của NASA và ESA trước để phân biệt các loại nguồn phát chính thay vì lao ngay vào một catalog chuyên biệt.</li>
+            <li>Chọn một nguồn quen thuộc như pulsar, supernova remnant hoặc gamma-ray burst rồi theo dõi cách nó xuất hiện ở nhiều bước sóng.</li>
+            <li>Sau đó mới mở rộng sang các chủ đề khó hơn như jet tương đối tính, multimessenger alerts, phân cực gamma hay bài toán về phản vật chất và dark matter.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-copy">
+        <h2>Nguồn bắt đầu đáng tin cậy</h2>
+        <ul class="field-link-list">
+          <li><a href="https://science.nasa.gov/ems/12_gammarays/">NASA Science: Gamma Rays</a></li>
+          <li><a href="https://science.nasa.gov/mission/fermi">NASA Science: Fermi Gamma-ray Space Telescope</a></li>
+          <li><a href="https://science.nasa.gov/mission/swift/science/">NASA Science: Swift's Science</a></li>
+          <li><a href="https://science.nasa.gov/mission/cosi/">NASA Science: COSI</a></li>
+          <li><a href="https://sci.esa.int/web/astrophysics/-/35909-gamma-ray">ESA Science: Gamma ray astronomy</a></li>
+          <li><a href="https://www.esa.int/Science_Exploration/Space_Science/Integral/Why_do_we_observe_gamma_rays">ESA: Why do we observe gamma rays?</a></li>
+          <li><a href="https://virtualexhibition.cta-observatory.org/wp-content/uploads/CTAO_Science_English_2021.pdf">CTAO Science overview (official PDF)</a></li>
         </ul>
       </section>
     </div>
   </main>
 
   <div id="site-footer"></div>
-  <script src="../../../assets/site-shell.js?v=20260712-ui1" defer></script>
+  <script src="../../../assets/site-shell.js?v=20260519-news-guide" defer></script>
 </body>
 </html>

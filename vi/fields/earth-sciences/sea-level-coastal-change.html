@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
+  <title>Nghiên cứu mực nước biển và biến đổi bờ biển | Space-Verse</title>
+  <link rel="stylesheet" href="../../../assets/style.css?v=20260516-audit2">
+</head>
+<body data-locale="vi" data-page="fields/earth-sciences/sea-level-coastal-change.html" data-root="../../../">
+  <div id="site-header"></div>
+
+  <section class="field-hero" style="--field-hero-image: url('../../../image/remote.png');" aria-labelledby="field-title">
+    <div class="container field-hero__inner">
+      <h1 id="field-title">Nghiên cứu mực nước biển và biến đổi bờ biển</h1>
+    </div>
+  </section>
+
+  <main class="site-main field-page">
+    <div class="container field-page__inner">
+      <nav class="field-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../vi/index.html">Trang chủ</a>
+        <span>/</span>
+        <a href="../../../vi/research.html">Nghiên cứu</a>
+        <span>/</span>
+        <a href="../../../vi/fields/remote-sensing-&-earth-sciences.html">Viễn thám và khoa học Trái Đất</a>
+        <span>/</span>
+        <span>Nghiên cứu mực nước biển và biến đổi bờ biển</span>
+      </nav>
+
+      <section class="field-copy field-copy--lead">
+        <h2>Tổng quan</h2>
+        <p>Nhánh này dùng dữ liệu vệ tinh, trạm thủy triều, đo cao độ ven bờ và mô hình động lực biển để theo dõi mực nước biển đang đổi ra sao theo thời gian và điều đó tác động thế nào lên bờ biển, cửa sông, đầm phá, vùng ngập thấp và cộng đồng ven biển. Câu hỏi trung tâm không chỉ là "biển dâng bao nhiêu", mà còn là nơi nào dâng nhanh hơn mức trung bình, nơi nào đang lún đất, bờ biển nào đang xói lở, và tín hiệu nào do khí hậu dài hạn khác với tín hiệu do bão, triều cường hay dao động nội mùa.</p>
+        <p>Đây là lĩnh vực rất tốt để học cách nối một chỉ báo khí hậu toàn cầu với bài toán địa phương. Một đường cong global mean sea level nói lên bức tranh lớn, nhưng khi đi vào một đô thị ven biển hay một cửa sông cụ thể, bạn phải ghép thêm thủy triều, sóng, sụt lún đất, bồi xói, địa hình và lịch sử xây dựng hạ tầng mới hiểu đúng rủi ro.</p>
+        <p>Hướng này hợp với người thích giao điểm giữa hải dương học, khí hậu, viễn thám, địa mạo bờ biển và hazard science. Nó cũng là nơi rất rõ để thấy vì sao chuỗi quan trắc dài hạn, chuẩn hóa đo đạc và tài liệu hóa bất định quan trọng không kém bản thân dữ liệu ảnh.</p>
+      </section>
+
+      <section class="field-columns" aria-label="Các nhánh nghiên cứu chính">
+        <article class="field-copy">
+          <h3>Chủ đề tiêu biểu</h3>
+          <ul>
+            <li>Global mean sea level, sea level budget và khác biệt giữa xu thế toàn cầu với biến thiên khu vực.</li>
+            <li>Relative sea level ở từng bờ biển, nơi mực nước biển phải được đọc cùng với lún đất hoặc nâng đất.</li>
+            <li>Xói lở bờ biển, lùi bờ, ngập mặn, thay đổi cửa sông, đầm phá và bãi triều.</li>
+            <li>Coastal flooding do tổ hợp của mực nước nền cao hơn, triều, nước dâng do bão, sóng và mưa lớn.</li>
+            <li>Tác động của tan băng lục địa, giãn nở nhiệt đại dương, dòng chảy sông và dòng hải lưu lên mực nước biển.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nền tảng nên chuẩn bị</h3>
+          <ul>
+            <li>Hải dương học và khí hậu nhập môn: giãn nở nhiệt, tuần hoàn đại dương, băng lục địa và cân bằng nước.</li>
+            <li>Khái niệm thủy triều, nước dâng do bão, sóng, setup và các dạng ngập ven biển cơ bản.</li>
+            <li>GIS, DEM, datum cao độ, hệ quy chiếu và tư duy về vertical land motion.</li>
+            <li>Phân tích chuỗi thời gian, xu thế, seasonality và cách tách tín hiệu dài hạn khỏi dao động ngắn hạn.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Phương pháp và hạ tầng dữ liệu">
+        <article class="field-copy">
+          <h3>Phương pháp, dữ liệu và công cụ</h3>
+          <ul>
+            <li>Radar altimetry là xương sống cho theo dõi mực nước biển toàn cầu ngoài khơi, đặc biệt khi cần chuỗi dài và hiệu chuẩn ổn định giữa nhiều thế hệ nhiệm vụ.</li>
+            <li>Trạm thủy triều và GNSS giúp chuyển từ câu chuyện "biển đang cao lên" sang câu chuyện "nước so với mặt đất địa phương đang thay đổi thế nào".</li>
+            <li>Ảnh quang học, lidar, DEM ven bờ và bản đồ shoreline change hữu ích cho xói lở, bồi tụ, ngập thấp và dịch chuyển đường bờ.</li>
+            <li>Các nhiệm vụ mới như SWOT bổ sung chi tiết hơn cho hải dương ven bờ và mực nước mặt, nhưng vẫn phải đọc cùng tài liệu chất lượng dữ liệu và giới hạn giải thích gần bờ.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nhiệm vụ và hệ dữ liệu nên biết</h3>
+          <ul>
+            <li>Chuỗi TOPEX/Poseidon, Jason và Sentinel-6 là backbone cho altimetry mực nước biển toàn cầu từ đầu thập niên 1990 tới nay.</li>
+            <li>NASA Sea Level Change Portal là điểm vào tốt để hiểu các chỉ báo như global mean sea level, ocean mass, steric height và mối liên hệ với băng lục địa.</li>
+            <li>ESA Sea Level CCI cho thấy cách cộng đồng xây Sea Level Essential Climate Variable có thể dùng cho phân tích khí hậu nhiều thập kỷ.</li>
+            <li>NOAA CO-OPS và NOAA Digital Coast cung cấp bối cảnh ven bờ thực dụng hơn: xu thế trạm địa phương, kịch bản ngập và công cụ truyền thông rủi ro.</li>
+            <li>USGS Coastal Change Hazards Portal là ví dụ rõ về cách nối sea-level rise với shoreline change, storm impacts và xác suất xói lở.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Cách lĩnh vực này được thực hành">
+        <article class="field-copy">
+          <h3>Nhóm nghiên cứu và ví dụ thực hành</h3>
+          <ul>
+            <li>NASA Sea Level Change Team cho thấy cách ghép altimetry, băng, khối lượng đại dương, mô hình và nhu cầu của cộng đồng ven biển trong một chương trình liên ngành.</li>
+            <li>UW Coastal Lab là ví dụ tốt cho nhánh tập trung vào sóng, vận chuyển trầm tích, hydrodynamics và hazard cho cộng đồng ven biển.</li>
+            <li>Stanford Coastal Dynamics Laboratory cho thấy nghiên cứu ven bờ cũng có thể nghiêng mạnh về quá trình vật lý, quan trắc thực địa và mô hình số thay vì chỉ làm bản đồ ngập.</li>
+            <li>Khi đọc trang của một lab, nên tách rõ đâu là hạ tầng chung của lĩnh vực như altimetry, tide gauge hay shoreline mapping; đâu là thế mạnh cục bộ như sóng, đầm phá, cửa sông hay coastal resilience.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Lộ trình nhập môn gợi ý</h3>
+          <ul>
+            <li>Bắt đầu bằng một câu hỏi hẹp: xu thế mực nước biển khu vực, xói lở bờ biển, hay ngập triều ở một đô thị ven biển.</li>
+            <li>Đọc kỹ một nguồn về chỉ báo toàn cầu và một nguồn về dữ liệu địa phương để hiểu vì sao global sea level không tự động chuyển thành local hazard.</li>
+            <li>Tự dựng một workflow nhỏ: xem chuỗi sea level toàn cầu, sau đó đối chiếu với một trạm thủy triều địa phương hoặc một bản đồ shoreline change.</li>
+            <li>Sau đó mới mở rộng sang bài toán khó hơn như sea level budget, coastal compound flooding, saltwater intrusion hay thích ứng hạ tầng.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-copy">
+        <h2>Điểm giao với các nhánh khác</h2>
+        <p>Nhánh này nằm đúng chỗ giao nhau giữa khí hậu, cryosphere, hải dương học, thủy văn cửa sông và thiên tai ven biển. Tan băng lục địa và giãn nở nhiệt đi vào bài toán mực nước biển; nước sông, mưa cực đoan và dao động đại dương làm thay đổi bức tranh ngập; còn xói lở, bồi tụ và lún đất quyết định việc cộng đồng ven biển thực sự cảm nhận rủi ro ra sao. Vì vậy đây là nơi rất tốt để học cách một chỉ báo khí hậu "đúng" vẫn có thể bị diễn giải sai nếu bỏ qua bối cảnh địa phương.</p>
+        <ul class="field-link-list">
+          <li><a href="../../../vi/fields/earth-sciences/climate-monitoring.html">Liên hệ với nhánh quan trắc khí hậu từ dữ liệu vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/water-cycle-monitoring.html">Liên hệ với nhánh theo dõi chu trình nước và thủy văn</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/cryosphere-monitoring.html">Liên hệ với nhánh quan trắc băng tuyết và cryosphere</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/disaster-monitoring.html">Liên hệ với nhánh giám sát thiên tai và ngập ven biển</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/permafrost-monitoring.html">Liên hệ với nhánh băng vĩnh cửu, xói lở bờ lạnh và biến dạng nền đất</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/arctic-coastal-erosion.html">Đi sâu vào nhánh xói lở bờ Bắc Cực, shoreline retreat và rủi ro cộng đồng ven bờ lạnh</a></li>
+        </ul>
+      </section>
+
+      <section class="field-copy">
+        <h2>Nguồn bắt đầu đáng tin cậy</h2>
+        <ul class="field-link-list">
+          <li><a href="https://sealevel.nasa.gov/understanding-sea-level/key-indicators/global-mean-sea-level/">NASA Sea Level Change Portal: Global Mean Sea Level</a></li>
+          <li><a href="https://sealevel.nasa.gov/science-team/overview">NASA Sea Level Change Team</a></li>
+          <li><a href="https://climate.esa.int/en/projects/sea-level/">ESA Climate Office: Sea Level</a></li>
+          <li><a href="https://sentinels.copernicus.eu/web/sentinel/missions/sentinel-6/overview">Copernicus Sentinel-6 Overview</a></li>
+          <li><a href="https://swot.jpl.nasa.gov/science/">NASA SWOT: Science</a></li>
+          <li><a href="https://www.tidesandcurrents.noaa.gov/sltrends/sltrends_us.html">NOAA CO-OPS: Sea Level Trends</a></li>
+          <li><a href="https://coast.noaa.gov/digitalcoast/tools/slr.html">NOAA Digital Coast: Sea Level Rise Viewer</a></li>
+          <li><a href="https://www.usgs.gov/tools/coastal-change-hazards-portal">USGS Coastal Change Hazards Portal</a></li>
+          <li><a href="https://uwcoastallab.com/">University of Washington: UW Coastal Lab</a></li>
+          <li><a href="https://coastaldynamics.stanford.edu/">Stanford University: Coastal Dynamics Laboratory</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../../../assets/site-shell.js?v=20260519-news-guide" defer></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
+  <title>Theo dõi carbon và khí nhà kính từ dữ liệu vệ tinh | Space-Verse</title>
+  <link rel="stylesheet" href="../../../assets/style.css?v=20260516-audit2">
+</head>
+<body data-locale="vi" data-page="fields/earth-sciences/carbon-monitoring.html" data-root="../../../">
+  <div id="site-header"></div>
+
+  <section class="field-hero" style="--field-hero-image: url('../../../image/remote.png');" aria-labelledby="field-title">
+    <div class="container field-hero__inner">
+      <h1 id="field-title">Theo dõi carbon và khí nhà kính từ dữ liệu vệ tinh</h1>
+    </div>
+  </section>
+
+  <main class="site-main field-page">
+    <div class="container field-page__inner">
+      <nav class="field-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../vi/index.html">Trang chủ</a>
+        <span>/</span>
+        <a href="../../../vi/research.html">Nghiên cứu</a>
+        <span>/</span>
+        <a href="../../../vi/fields/remote-sensing-&-earth-sciences.html">Viễn thám và khoa học Trái Đất</a>
+        <span>/</span>
+        <span>Theo dõi carbon và khí nhà kính từ dữ liệu vệ tinh</span>
+      </nav>
+
+      <section class="field-copy field-copy--lead">
+        <h2>Tổng quan</h2>
+        <p>Nhánh này dùng dữ liệu vệ tinh để theo dõi cách carbon di chuyển giữa khí quyển, thảm thực vật, đại dương, đất và các nguồn phát thải do con người. Câu hỏi trung tâm không chỉ là nồng độ CO2 hay CH4 đang cao tới đâu, mà là nguồn nào đang phát thêm, bể hấp thụ nào đang hút bớt, và tín hiệu quan sát được có đủ chắc để suy ra dòng carbon ở quy mô vùng hay không.</p>
+        <p>Điểm khó của lĩnh vực là tín hiệu cần đo thường rất nhỏ so với nền khí quyển và dễ bị nhiễu bởi mây, aerosol, góc chiếu, địa hình hay sai lệch hiệu chuẩn. Vì vậy, theo dõi carbon từ vệ tinh gần như luôn phải đi cùng mạng quan trắc tại chỗ, dữ liệu kiểm chuẩn và các mô hình nghịch đảo để biến nồng độ đo được thành suy luận về phát thải và hấp thụ.</p>
+        <p>Đây là hướng phù hợp nếu bạn thích giao điểm giữa vật lý bức xạ, hóa học khí quyển, sinh quyển, xử lý chuỗi dữ liệu dài và mô hình hóa hệ Trái Đất. Nó cũng là nhánh rất tốt để học cách đi từ phép đo viễn thám tới câu hỏi chính sách hoặc quản lý tài nguyên mà vẫn phải giữ kỷ luật về bất định.</p>
+      </section>
+
+      <section class="field-columns" aria-label="Các nhánh nghiên cứu chính">
+        <article class="field-copy">
+          <h3>Chủ đề tiêu biểu</h3>
+          <ul>
+            <li>CO2 và CH4 trong cột khí quyển: theo dõi phân bố không gian, biến thiên theo mùa và xu thế dài hạn.</li>
+            <li>Trao đổi carbon giữa sinh quyển và khí quyển, bao gồm quang hợp, hô hấp hệ sinh thái và phản hồi với hạn, nóng hoặc cháy.</li>
+            <li>Phát thải từ đô thị, công nghiệp, nhiên liệu hóa thạch, đốt sinh khối và các nguồn methane khuếch tán hay tập trung.</li>
+            <li>Carbon đại dương, vận chuyển khí nhà kính và bài toán ghép quan trắc khí quyển với bề mặt đất - biển.</li>
+            <li>Xây dựng các bộ dữ liệu khí nhà kính ổn định, kiểm chuẩn được và đủ tin cậy cho phân tích khí hậu hay kiểm kê phát thải.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nền tảng nên chuẩn bị</h3>
+          <ul>
+            <li>Chu trình carbon cơ bản, hiệu ứng nhà kính, khí quyển tầng đối lưu và trực giác về các bể chứa carbon lớn của hệ Trái Đất.</li>
+            <li>Vật lý bức xạ và phổ hấp thụ ở mức nhập môn để hiểu vì sao đo CO2 hay CH4 từ không gian là bài toán khó.</li>
+            <li>Thống kê chuỗi thời gian, đánh giá sai số, bias correction và tư duy về retrieval thay vì chỉ đọc bản đồ thành phẩm.</li>
+            <li>Dữ liệu geospatial, netCDF/HDF, và khả năng nối vệ tinh với đo mặt đất, máy bay hoặc mô hình nghịch đảo.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Phương pháp và hạ tầng dữ liệu">
+        <article class="field-copy">
+          <h3>Phương pháp, dữ liệu và công cụ</h3>
+          <ul>
+            <li>Các nhiệm vụ như OCO-2, OCO-3 hay GOSAT đo phổ phản xạ để suy ra nồng độ cột khí quyển của CO2 hoặc CH4, chứ không đo trực tiếp "dòng phát thải" trên mặt đất.</li>
+            <li>Dữ liệu vệ tinh thường phải ghép với mạng kiểm chuẩn như TCCON và các chuỗi quan trắc khí nhà kính dài hạn của NOAA để đánh giá độ lệch, độ ổn định và khả năng dùng cho xu thế.</li>
+            <li>Mô hình nghịch đảo như CarbonTracker giúp nối các quan trắc khí quyển với ước lượng nguồn - bể carbon, nên đây là nơi rất tốt để học cách dữ liệu và mô hình phụ thuộc lẫn nhau.</li>
+            <li>Nếu đi sang nhánh hệ sinh thái, bạn cũng sẽ gặp các phép đo fluorescence, cấu trúc thảm thực vật, cháy và lớp phủ đất để giải thích vì sao tín hiệu carbon biến động.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nhiệm vụ và hệ dữ liệu nên biết</h3>
+          <ul>
+            <li>NASA OCO-2 là một nhiệm vụ lõi cho theo dõi CO2 khí quyển ở quy mô toàn cầu và nghiên cứu nguồn - bể carbon.</li>
+            <li>NASA OCO-3 bổ sung góc nhìn từ Trạm Vũ trụ Quốc tế, hữu ích cho các bài toán đô thị, hệ sinh thái và biến thiên theo thời điểm trong ngày.</li>
+            <li>JAXA GOSAT/GOSAT-2 là ví dụ rất điển hình của chuỗi nhiệm vụ tập trung vào khí nhà kính và hiệu chuẩn - kiểm chuẩn dài hạn.</li>
+            <li>ESA Greenhouse Gases CCI cho thấy cách cộng đồng châu Âu xây dựng các hồ sơ khí nhà kính khí hậu-ready từ nhiều nhiệm vụ khác nhau.</li>
+            <li>NOAA Global Greenhouse Gas Reference Network và CarbonTracker là hạ tầng quan trọng để hiểu phần "reference" và "inference" đứng sau nhiều kết quả carbon.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Cách lĩnh vực này được thực hành">
+        <article class="field-copy">
+          <h3>Nhóm nghiên cứu và ví dụ thực hành</h3>
+          <ul>
+            <li>NOAA Global Monitoring Laboratory cho thấy mặt nền của lĩnh vực: mạng đo chuẩn, kiểm chuẩn quốc tế, chuỗi dài hạn và các sản phẩm suy luận như CarbonTracker.</li>
+            <li>TCCON là ví dụ rất rõ về hạ tầng cộng đồng dùng để kiểm chứng nhiều nhiệm vụ khí nhà kính từ không gian thay vì để mỗi nhóm tự xác nhận dữ liệu của mình.</li>
+            <li>Max Planck Institute for Biogeochemistry cho thấy một nhánh thực hành nơi đo tại chỗ, viễn thám và mô hình được ghép lại để lượng hóa nguồn - bể khí nhà kính.</li>
+            <li>Khi đọc trang lab hay network, nên tách rõ đâu là hạ tầng chung của lĩnh vực, đâu là thế mạnh cục bộ như methane, biosphere hay inversion, để không suy rộng từ một nhóm đơn lẻ.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Lộ trình nhập môn gợi ý</h3>
+          <ul>
+            <li>Bắt đầu bằng một câu hỏi hẹp, ví dụ CO2 cột khí quyển, methane hay mối liên hệ giữa quang hợp và carbon, thay vì ôm toàn bộ chu trình carbon cùng lúc.</li>
+            <li>Đọc kỹ một trang mission và một trang data/validation để hiểu biến đo, độ phân giải, lọc chất lượng và giới hạn diễn giải.</li>
+            <li>Tự dựng một workflow nhỏ: tải dữ liệu nhiệm vụ, xem seasonal cycle hoặc anomaly của một vùng, rồi so với một nguồn tham chiếu độc lập hoặc tài liệu mission.</li>
+            <li>Sau đó mới mở rộng sang mô hình nghịch đảo, kiểm kê phát thải, bài toán đô thị hoặc liên hệ với hệ sinh thái, cháy và tài nguyên nước.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-copy">
+        <h2>Điểm giao với các nhánh khác</h2>
+        <p>Carbon monitoring đứng giữa quan trắc khí hậu, hệ sinh thái và giám sát rủi ro môi trường. Tín hiệu carbon thường gắn chặt với hạn hán, nhiệt độ, cháy rừng, sinh trưởng thực vật và chu trình nước. Vì vậy đây là nhánh rất tốt để học cách một chỉ số khí quyển chỉ thật sự có ý nghĩa khi được đặt vào bối cảnh vật lý và sinh thái rộng hơn.</p>
+        <ul class="field-link-list">
+          <li><a href="../../../vi/fields/earth-sciences/climate-monitoring.html">Liên hệ với nhánh quan trắc khí hậu từ dữ liệu vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/drought-ecosystem-stress.html">Liên hệ với nhánh hạn và stress hệ sinh thái khi thiếu nước bắt đầu tác động đến trao đổi carbon</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/water-cycle-monitoring.html">Liên hệ với nhánh theo dõi chu trình nước và thủy văn</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/disaster-monitoring.html">Liên hệ với nhánh giám sát thiên tai bằng dữ liệu vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/cryosphere-monitoring.html">Liên hệ với nhánh quan trắc băng tuyết và cryosphere</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/permafrost-monitoring.html">Liên hệ với nhánh theo dõi băng vĩnh cửu, thermokarst và carbon đất lạnh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/thermokarst-lakes.html">Đi sâu vào nhánh hồ thermokarst, carbon cổ và methane từ cảnh quan đất băng tan</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/drained-lake-basins.html">Theo dõi riêng drained lake basins khi muốn tách câu chuyện peat, basin age và carbon hậu drainage</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/wildfire-permafrost.html">Đi sâu vào nhánh cháy rừng - permafrost và phản hồi carbon sau cháy ở miền lạnh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/methane-super-emitters.html">Đi sâu vào nhánh methane siêu phát thải, plume nguồn điểm và theo dõi rò rỉ bằng vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/vegetation-productivity-fluorescence.html">Đi sâu vào nhánh năng suất thảm thực vật, quang hợp và huỳnh quang diệp lục</a></li>
+        </ul>
+      </section>
+
+      <section class="field-copy">
+        <h2>Nguồn bắt đầu đáng tin cậy</h2>
+        <ul class="field-link-list">
+          <li><a href="https://science.nasa.gov/mission/oco-2">NASA Science: OCO-2</a></li>
+          <li><a href="https://science.nasa.gov/mission/oco-3">NASA Science: OCO-3</a></li>
+          <li><a href="https://earth.jaxa.jp/en/research/projects/gosat/index.html">JAXA: GOSAT Project</a></li>
+          <li><a href="https://climate.esa.int/projects/ghgs/">ESA Climate Office: Greenhouse Gases</a></li>
+          <li><a href="https://climate.esa.int/en/about-us-new/climate-change-initiative/">ESA Climate Change Initiative</a></li>
+          <li><a href="https://gml.noaa.gov/ccgg/ggrn.php">NOAA GML: Global Greenhouse Gas Reference Network</a></li>
+          <li><a href="https://gml.noaa.gov/ccgg/carbontracker/index.php">NOAA GML: CarbonTracker</a></li>
+          <li><a href="https://tccon.caltech.edu/">TCCON: Total Carbon Column Observing Network</a></li>
+          <li><a href="https://www.bgc-jena.mpg.de/en/bsy">Max Planck Institute for Biogeochemistry: Biogeochemical Systems</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../../../assets/site-shell.js?v=20260519-news-guide" defer></script>
+</body>
+</html>

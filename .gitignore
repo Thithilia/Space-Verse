@@ -4,7 +4,7 @@ test-results/
 npm-debug.log*
 .env
 .env.*
-assets/news-config.local.js
+assets/news-config.js
 supabase/.env
 supabase/.env.*
 supabase/.temp/

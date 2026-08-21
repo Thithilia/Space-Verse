@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
+  <title>Theo dõi năng suất thảm thực vật và huỳnh quang diệp lục | Space-Verse</title>
+  <link rel="stylesheet" href="../../../assets/style.css?v=20260516-audit2">
+</head>
+<body data-locale="vi" data-page="fields/earth-sciences/vegetation-productivity-fluorescence.html" data-root="../../../">
+  <div id="site-header"></div>
+
+  <section class="field-hero" style="--field-hero-image: url('../../../image/remote.png');" aria-labelledby="field-title">
+    <div class="container field-hero__inner">
+      <h1 id="field-title">Theo dõi năng suất thảm thực vật và huỳnh quang diệp lục</h1>
+    </div>
+  </section>
+
+  <main class="site-main field-page">
+    <div class="container field-page__inner">
+      <nav class="field-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../vi/index.html">Trang chủ</a>
+        <span>/</span>
+        <a href="../../../vi/research.html">Nghiên cứu</a>
+        <span>/</span>
+        <a href="../../../vi/fields/remote-sensing-&-earth-sciences.html">Viễn thám và khoa học Trái Đất</a>
+        <span>/</span>
+        <span>Theo dõi năng suất thảm thực vật và huỳnh quang diệp lục</span>
+      </nav>
+
+      <section class="field-copy field-copy--lead">
+        <h2>Tổng quan</h2>
+        <p>Nhánh này dùng dữ liệu vệ tinh để hỏi thực vật đang quang hợp mạnh tới đâu, năng suất sinh học thay đổi thế nào theo mùa hay theo stress, và những thay đổi đó đi vào chu trình carbon, nước và khí hậu ra sao. Trọng tâm không chỉ là cây “xanh hơn hay ít xanh hơn”, mà là chức năng sinh học của thảm thực vật: hấp thụ carbon, thoát hơi nước, phản ứng với nóng, hạn, khói bụi hay quản lý đất.</p>
+        <p>Một điểm quan trọng cho người mới là tách rõ các loại tín hiệu. NDVI hay EVI cho biết trạng thái “greenness” hoặc cấu trúc tán lá, còn solar-induced fluorescence cho tín hiệu gần hơn với hoạt động quang hợp. Không có chỉ số nào tự mình kể trọn câu chuyện, nên nghiên cứu tốt thường ghép chỉ số quang phổ, nhiệt độ bề mặt, khí quyển, dòng trao đổi tại trạm và đôi khi cả mô hình sinh quyển.</p>
+        <p>Đây là hướng phù hợp nếu bạn thích giao điểm giữa sinh thái học, khí hậu, viễn thám quang học - quang phổ và phân tích chuỗi thời gian. Nó cũng là nhánh tốt để học cách một tín hiệu rất hấp dẫn về mặt vật lý vẫn phải được đọc cùng bối cảnh đất, nước, cấu trúc thảm thực vật và kiểm chứng tại chỗ trước khi suy rộng sang năng suất hay bể hấp thụ carbon.</p>
+      </section>
+
+      <section class="field-columns" aria-label="Các nhánh nghiên cứu chính">
+        <article class="field-copy">
+          <h3>Chủ đề tiêu biểu</h3>
+          <ul>
+            <li>Năng suất sơ cấp gộp và năng suất sơ cấp thuần ở quy mô ô lưới, lưu vực, biome hay toàn cầu.</li>
+            <li>Mùa sinh trưởng, stress hạn - nóng, phản hồi sau cháy và khác biệt giữa rừng, cây trồng, đồng cỏ hay đất ngập nước.</li>
+            <li>Solar-induced fluorescence như một cửa sổ vào hoạt động quang hợp, đặc biệt khi “độ xanh” chưa đổi nhiều nhưng hệ quang hợp đã bị stress.</li>
+            <li>Liên hệ giữa quang hợp, thoát hơi nước, hiệu quả sử dụng nước và phản hồi khí hậu - sinh quyển.</li>
+            <li>Ghép dữ liệu vệ tinh với trạm flux, khí tượng, lớp phủ đất và mô hình để diễn giải nguồn biến động của tín hiệu.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nền tảng nên chuẩn bị</h3>
+          <ul>
+            <li>Sinh lý thực vật ở mức nhập môn: quang hợp, stress nước, sắc tố, cấu trúc tán lá và hô hấp hệ sinh thái.</li>
+            <li>Phổ phản xạ thực vật, NDVI/EVI, nhiệt độ bề mặt và trực giác về vì sao fluorescence khác với greenness.</li>
+            <li>Thống kê chuỗi thời gian theo mùa, anomaly, khác biệt giữa biến động liên niên và nhiễu do mây hay góc quan sát.</li>
+            <li>Dữ liệu geospatial, netCDF/HDF, resampling và kỷ luật đọc metadata sản phẩm trước khi tính chỉ số hay so sánh vùng.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Phương pháp và hạ tầng dữ liệu">
+        <article class="field-copy">
+          <h3>Phương pháp, dữ liệu và công cụ</h3>
+          <ul>
+            <li>Các chuỗi chỉ số thực vật từ MODIS hay Sentinel-3 hữu ích để theo dõi phenology, stress và biến động greenness trên diện rộng.</li>
+            <li>Các phép đo solar-induced fluorescence từ OCO-2 và những nhiệm vụ liên quan cho tín hiệu gần hơn với hoạt động quang hợp, nhưng vẫn cần đọc cùng mây, aerosol, góc nhìn và lọc chất lượng.</li>
+            <li>Trạm eddy covariance trong FLUXNET cung cấp dòng trao đổi CO2, nước và năng lượng để kiểm tra xem tín hiệu vệ tinh có thực sự phản ánh chức năng hệ sinh thái hay không.</li>
+            <li>Mô hình năng suất, lớp phủ đất, khí tượng bề mặt và nhiệt độ bề mặt thường được ghép vào để tránh diễn giải quá mức một chỉ số đơn lẻ.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nhiệm vụ và hệ dữ liệu nên biết</h3>
+          <ul>
+            <li>NASA MODIS là cửa vào quen thuộc cho gross primary productivity và các chỉ số thực vật dài hạn ở quy mô toàn cầu.</li>
+            <li>NASA OCO-2 không chỉ phục vụ CO2 khí quyển mà còn mở ra các bản đồ solar-induced fluorescence dùng rộng trong nghiên cứu quang hợp quy mô lớn.</li>
+            <li>ESA FLEX được thiết kế riêng để đo huỳnh quang thực vật và sẽ bay cùng Sentinel-3 để ghép fluorescence với bối cảnh khí quyển, nhiệt độ và đặc trưng bề mặt.</li>
+            <li>ORNL DAAC và Earthdata là những cổng quan trọng để tìm dữ liệu hệ sinh thái trên mặt đất dùng cho kiểm chứng và ghép phân tích.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Cách lĩnh vực này được thực hành">
+        <article class="field-copy">
+          <h3>Nhóm nghiên cứu và ví dụ thực hành</h3>
+          <ul>
+            <li>Nhóm Carbon Cycle and Ecosystems của NASA JPL cho thấy nhánh này thường pha trộn radiometry, spectroscopy, fluorescence, lidar, radar và đo thực địa thay vì chỉ làm một chỉ số ảnh.</li>
+            <li>FLUXNET là ví dụ rất rõ về hạ tầng cộng đồng mà gần như mọi nghiên cứu vệ tinh về năng suất hệ sinh thái đều phải đối chiếu ở mức nào đó.</li>
+            <li>Max Planck Institute for Biogeochemistry cho thấy cách ghép sinh quyển, khí quyển và mô hình hóa dài hạn để hỏi các câu lớn hơn về trao đổi carbon đất - khí quyển.</li>
+            <li>Khi đọc trang của một lab, nên tách rõ đâu là hạ tầng chung của lĩnh vực như flux towers, retrieval quang phổ, phenology; đâu là thế mạnh cục bộ như rừng, cây trồng, hạn hay fluorescence.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Lộ trình nhập môn gợi ý</h3>
+          <ul>
+            <li>Bắt đầu bằng một câu hỏi hẹp như mùa sinh trưởng của một biome, phản ứng thực vật với hạn, hay so sánh greenness với fluorescence.</li>
+            <li>Đọc kỹ một trang chỉ số thực vật cơ bản rồi một trang về fluorescence để thấy vì sao hai loại tín hiệu này bổ sung chứ không thay thế nhau.</li>
+            <li>Tự dựng một workflow nhỏ: tải chuỗi NDVI/EVI hoặc GPP cho một vùng, sau đó so với một nguồn flux hoặc tài liệu mission để kiểm tra diễn giải.</li>
+            <li>Sau đó mới mở rộng sang câu hỏi khó hơn như hiệu quả sử dụng nước, stress cây trồng, bất thường carbon theo năm El Nino hay nối với mô hình sinh quyển.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-copy">
+        <h2>Điểm giao với các nhánh khác</h2>
+        <p>Nhánh này đứng giữa climate monitoring, carbon monitoring, water-cycle science và một phần của hazard science như hạn hay cháy. Một thay đổi trong fluorescence có thể báo stress sớm hơn thay đổi màu lá, nhưng để hiểu vì sao stress xuất hiện bạn thường phải nhìn thêm nhiệt, nước, khí quyển và đôi khi cả lịch sử canh tác hay cháy. Vì vậy đây là nơi rất tốt để học cách nối “tín hiệu đẹp từ vệ tinh” với cơ chế sinh thái thật sự.</p>
+        <ul class="field-link-list">
+          <li><a href="../../../vi/fields/earth-sciences/climate-monitoring.html">Liên hệ với nhánh quan trắc khí hậu từ dữ liệu vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/drought-ecosystem-stress.html">Đi sâu vào nhánh hạn, stress nước và phản ứng hệ sinh thái trước khi màu lá đổi mạnh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/carbon-monitoring.html">Liên hệ với nhánh theo dõi carbon và khí nhà kính</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/water-cycle-monitoring.html">Liên hệ với nhánh theo dõi chu trình nước và thủy văn</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/disaster-monitoring.html">Liên hệ với nhánh giám sát hạn, cháy và rủi ro môi trường</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/wildfire-permafrost.html">Đi sâu vào nhánh cháy rừng - permafrost, phục hồi sau cháy và phản hồi sinh thái vùng lạnh</a></li>
+        </ul>
+      </section>
+
+      <section class="field-copy">
+        <h2>Nguồn bắt đầu đáng tin cậy</h2>
+        <ul class="field-link-list">
+          <li><a href="https://science.nasa.gov/earth/earth-observatory/measuring-vegetation-ndvi-evi/">NASA Earth Observatory: Measuring Vegetation (NDVI &amp; EVI)</a></li>
+          <li><a href="https://science.nasa.gov/earth/earth-observatory/gross-primary-productivity-636">NASA Earth Observatory: Gross Primary Productivity</a></li>
+          <li><a href="https://science.nasa.gov/earth/earth-observatory/faint-glow-clear-signal-from-plants-146956/">NASA Earth Observatory: Faint Glow, Clear Signal from Plants</a></li>
+          <li><a href="https://science.nasa.gov/mission/oco-2/">NASA Science: OCO-2</a></li>
+          <li><a href="https://www.esa.int/Applications/Observing_the_Earth/FutureEO/FLEX">ESA: FLEX</a></li>
+          <li><a href="https://www.esa.int/Applications/Observing_the_Earth/FutureEO/FLEX/ESA_s_photosynthesis_mission">ESA: ESA's photosynthesis mission</a></li>
+          <li><a href="https://fluxnet.org/about/">FLUXNET: About the network</a></li>
+          <li><a href="https://daac.ornl.gov/FLUXNET/fluxnet.shtml">ORNL DAAC: FLUXNET</a></li>
+          <li><a href="https://science.jpl.nasa.gov/division/earth-science/carbon-cycle-and-ecosystems/">NASA JPL: Carbon Cycle and Ecosystems</a></li>
+          <li><a href="https://www.bgc-jena.mpg.de/en/about-us/profile">Max Planck Institute for Biogeochemistry: Scientific profile</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../../../assets/site-shell.js?v=20260519-news-guide" defer></script>
+</body>
+</html>

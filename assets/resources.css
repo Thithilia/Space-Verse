@@ -1,30 +1,12 @@
-body[data-page="resources.html"],
-body[data-page^="resources/"] {
-  --resource-page: var(--color-surface);
-  --resource-band: var(--color-surface-alt);
-  --resource-ink: var(--color-text);
-  --resource-muted: var(--color-muted);
-  --resource-link: var(--color-primary);
-  --resource-link-strong: var(--color-primary-strong);
-  --resource-accent: var(--color-accent);
-  --resource-border: var(--color-border);
-  background: var(--resource-page);
-}
-
-body[data-page="resources.html"] .site-main,
-body[data-page^="resources/"] .site-main {
-  background: var(--resource-page);
-}
-
 .resource-top-band {
   min-height: var(--header-height);
-  background: var(--resource-band);
+  background: #eef1f4;
 }
 
 .resource-breadcrumb-row {
   padding: 26px 0 34px;
-  border-bottom: 1px solid var(--resource-border);
-  background: var(--resource-band);
+  border-bottom: 1px solid rgba(18, 32, 51, 0.12);
+  background: #eef1f4;
 }
 
 .resource-breadcrumb-row .container {
@@ -32,23 +14,18 @@ body[data-page^="resources/"] .site-main {
   flex-wrap: wrap;
   gap: 22px;
   align-items: center;
-  color: var(--resource-muted);
+  color: #06284c;
   font-size: 1rem;
   line-height: 1.4;
 }
 
 .resource-breadcrumb-row a {
-  color: var(--resource-link);
-}
-
-.resource-breadcrumb-row a:hover,
-.resource-breadcrumb-row a:focus-visible {
-  color: var(--resource-link-strong);
+  color: #0052a8;
 }
 
 .resource-layout {
   padding-top: 70px;
-  background: var(--resource-page);
+  background: #ffffff;
 }
 
 .resource-sidebar {
@@ -74,11 +51,11 @@ body[data-page^="resources/"] .site-main {
   display: block;
   width: 100%;
   height: 4px;
-  background: var(--resource-link-strong);
+  background: #111111;
 }
 
 .resource-sidebar__heading h2 {
-  color: var(--resource-ink);
+  color: #000000;
   font-size: 1.45rem;
   font-weight: 800;
   line-height: 1.15;
@@ -97,11 +74,7 @@ body[data-page^="resources/"] .site-main {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--resource-accent);
-}
-
-.resource-list__group + .resource-list__group .resource-list__title {
-  padding-top: 28px;
+  color: var(--color-accent);
 }
 
 .resource-link {
@@ -110,8 +83,8 @@ body[data-page^="resources/"] .site-main {
   justify-content: space-between;
   gap: 18px;
   padding: 15px 0;
-  border-bottom: 1px solid var(--resource-border);
-  color: var(--resource-ink);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.14);
+  color: #111111;
   font-size: 1.05rem;
   line-height: 1.45;
 }
@@ -119,11 +92,7 @@ body[data-page^="resources/"] .site-main {
 .resource-link.is-active,
 .resource-link:hover,
 .resource-link:focus-visible {
-  color: var(--resource-link);
-}
-
-.resource-link.is-active {
-  font-weight: 600;
+  color: #0052a8;
 }
 
 .resource-main,
@@ -134,7 +103,7 @@ body[data-page^="resources/"] .site-main {
 }
 
 .resource-intro {
-  color: var(--resource-ink);
+  color: #111111;
 }
 
 .resource-intro .section-title {
@@ -143,58 +112,54 @@ body[data-page^="resources/"] .site-main {
   line-height: 1.08;
 }
 
+.field-page .resource-intro .section-title {
+  max-width: none;
+  white-space: nowrap;
+}
+
 .resource-intro p,
 .resource-summary p {
   max-width: 74ch;
   margin: 0;
-  color: var(--resource-ink);
+  color: #111111;
   font-size: clamp(1.15rem, 1.35vw, 1.55rem);
   line-height: 1.58;
-}
-
-.resource-summary p {
-  color: var(--resource-muted);
 }
 
 .resource-overview-list {
   display: grid;
   gap: 0;
-  border-top: 1px solid var(--resource-border);
+  border-top: 1px solid rgba(17, 17, 17, 0.16);
 }
 
 .resource-overview-link {
   display: grid;
   gap: 6px;
   padding: 20px 0;
-  border-bottom: 1px solid var(--resource-border);
-  color: var(--resource-ink);
+  border-bottom: 1px solid rgba(17, 17, 17, 0.16);
+  color: #111111;
 }
 
 .resource-overview-link span:first-child {
-  color: var(--resource-ink);
+  color: #000000;
   font-size: clamp(1.2rem, 1.45vw, 1.7rem);
   font-weight: 600;
 }
 
 .resource-overview-link span:last-child {
-  color: var(--resource-muted);
+  color: #333333;
   font-size: 1rem;
   line-height: 1.5;
 }
 
 .resource-overview-link:hover,
 .resource-overview-link:focus-visible {
-  color: var(--resource-link);
-}
-
-.resource-overview-link:hover span:first-child,
-.resource-overview-link:focus-visible span:first-child {
-  color: var(--resource-link);
+  color: #0052a8;
 }
 
 .resource-empty {
   padding: 18px 0;
-  color: var(--resource-muted);
+  color: var(--color-muted);
 }
 
 .detail-meta {
@@ -210,20 +175,19 @@ body[data-page^="resources/"] .site-main {
   padding: 4px 0;
   font-size: 0.82rem;
   font-weight: 600;
-  color: var(--resource-accent);
+  color: #0b5b55;
 }
 
 .resource-pill + .resource-pill::before {
   content: "/";
   margin-right: 10px;
-  color: var(--resource-muted);
-  opacity: 0.55;
+  color: rgba(17, 17, 17, 0.38);
 }
 
 .resource-detail {
   display: grid;
   gap: 28px;
-  color: var(--resource-ink);
+  color: #111111;
   font-size: clamp(1.15rem, 1.4vw, 1.55rem);
   line-height: 1.58;
   min-width: 0;
@@ -240,21 +204,21 @@ body[data-page^="resources/"] .site-main {
 }
 
 .resource-detail h1 {
-  color: var(--resource-ink);
+  color: #000000;
   font-size: clamp(2rem, 3vw, 3.65rem);
   font-weight: 600;
   line-height: 1.08;
 }
 
 .resource-detail h2 {
-  color: var(--resource-ink);
+  color: #000000;
   font-size: clamp(1.35rem, 1.7vw, 2.05rem);
   font-weight: 500;
   line-height: 1.22;
 }
 
 .resource-detail h3 {
-  color: var(--resource-ink);
+  color: #000000;
   font-size: clamp(1.1rem, 1.25vw, 1.4rem);
   font-weight: 600;
 }
@@ -265,23 +229,120 @@ body[data-page^="resources/"] .site-main {
 }
 
 .resource-detail a {
-  color: var(--resource-link);
+  color: #0052a8;
   overflow-wrap: anywhere;
-}
-
-.resource-detail a:hover,
-.resource-detail a:focus-visible {
-  color: var(--resource-link-strong);
 }
 
 .resource-detail pre {
   max-width: min(74ch, 100%);
   margin: 0;
-  color: var(--resource-ink);
+  color: #111111;
   font-family: var(--font-body);
   white-space: pre-wrap;
   overflow-wrap: anywhere;
   word-break: break-word;
+}
+
+.scholarship-table-note {
+  font-size: 1rem;
+  color: #4a4a4a;
+}
+
+.scholarship-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  border-top: 2px solid #111111;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.22);
+}
+
+.scholarship-table-wrap:focus-visible {
+  outline: 2px solid #0052a8;
+  outline-offset: 4px;
+}
+
+.scholarship-table {
+  width: 100%;
+  min-width: 800px;
+  border-collapse: collapse;
+  table-layout: fixed;
+  color: #111111;
+  font-size: 0.98rem;
+  line-height: 1.45;
+}
+
+.scholarship-table__programme {
+  width: 29%;
+}
+
+.scholarship-table__field {
+  width: 22%;
+}
+
+.scholarship-table__status {
+  width: 31%;
+}
+
+.scholarship-table__source {
+  width: 18%;
+}
+
+.scholarship-table th,
+.scholarship-table td {
+  padding: 16px 14px;
+  border-bottom: 1px solid rgba(17, 17, 17, 0.14);
+  text-align: left;
+  vertical-align: top;
+  overflow-wrap: anywhere;
+}
+
+.scholarship-table th {
+  background: #f5f5f5;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.scholarship-table td:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.scholarship-table td:first-child strong {
+  color: #000000;
+  font-size: 1.02rem;
+}
+
+.scholarship-table td:first-child span {
+  color: #4a4a4a;
+  font-size: 0.9rem;
+}
+
+.scholarship-table a {
+  color: #0052a8;
+  font-weight: 600;
+}
+
+body.section-ui .brand,
+body.section-ui .menu-toggle {
+  color: #0d0f14;
+}
+
+body[data-page="fields/astrophysics-&-cosmology.html"] .resource-top-band {
+  background: #f5f5f5;
+}
+
+.field-page .resource-layout {
+  padding-bottom: 118px;
+}
+
+.field-page .page-grid > .field-page__inner {
+  width: 100%;
+  gap: 72px;
+  padding: 0;
+}
+
+.field-page .page-grid > .field-page__inner--wide {
+  width: 100%;
 }
 
 .divider {
@@ -297,11 +358,11 @@ body[data-page^="resources/"] .site-main {
   content: "";
   flex: 1;
   height: 2px;
-  background: linear-gradient(to right, rgba(20, 86, 193, 0.1), rgba(20, 86, 193, 0.32));
+  background: linear-gradient(to right, rgba(20, 86, 193, 0.12), rgba(15, 118, 110, 0.36));
 }
 
 .divider::after {
-  background: linear-gradient(to left, rgba(20, 86, 193, 0.1), rgba(20, 86, 193, 0.32));
+  background: linear-gradient(to left, rgba(20, 86, 193, 0.12), rgba(15, 118, 110, 0.36));
 }
 
 .divider .circle {
@@ -312,23 +373,25 @@ body[data-page^="resources/"] .site-main {
   margin: 0 12px;
   border-radius: 50%;
   color: #ffffff;
-  background: linear-gradient(135deg, var(--resource-link), var(--resource-link-strong));
-}
-
-.divider .circle::before {
-  content: "";
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  background: #ffffff;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
 }
 
 @media (max-width: 960px) {
-  .resource-layout .page-grid > .content-stack {
-    order: -1;
-  }
-
   .resource-sidebar {
     position: static;
+  }
+}
+
+@media (max-width: 720px) {
+  .field-page .resource-intro .section-title {
+    white-space: normal;
+  }
+
+  .field-page .resource-layout {
+    padding-bottom: 82px;
+  }
+
+  .field-page .page-grid > .field-page__inner {
+    gap: 54px;
   }
 }

@@ -3,45 +3,126 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="../../favicon.svg" type="image/svg+xml">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
   <title>Vật lý không gian | Space-Verse</title>
-  <meta name="description" content="Tổng quan vật lý không gian và thời tiết không gian, từ hoạt động Mặt Trời, gió Mặt Trời đến từ quyển, tầng điện ly và tác động công nghệ.">
-  <link rel="canonical" href="https://thithilia.github.io/New-Space-Verse/vi/fields/space-physics.html">
-  <link rel="stylesheet" href="../../assets/style.css?v=20260712-ui1">
+  <link rel="stylesheet" href="../../assets/style.css?v=20260516-audit2">
 </head>
-<body data-locale="vi" data-page="fields/space-physics.html" data-root="../../">
+<body class="section-ui" data-locale="vi" data-page="fields/space-physics.html" data-root="../../">
   <div id="site-header"></div>
 
-  <section class="field-hero" style="--field-hero-image: url('../../image/heparea-1280.webp');" aria-labelledby="field-title">
-    <div class="container field-hero__inner">
-      <h1 id="field-title">Vật lý không gian</h1>
+  <section class="resource-top-band" aria-hidden="true"></section>
+
+  <nav class="resource-breadcrumb-row" aria-label="Breadcrumb">
+    <div class="container">
+      <a href="../../vi/index.html">Trang chủ</a>
+      <span>/</span>
+      <a href="../../vi/research.html">Nghiên cứu</a>
+      <span>/</span>
+      <span>Vật lý không gian</span>
     </div>
-  </section>
+  </nav>
 
   <main class="site-main field-page">
-    <div class="container field-page__inner field-page__inner--wide">
-      <nav class="field-breadcrumb" aria-label="Breadcrumb">
-        <a href="../../vi/index.html">Trang chủ</a>
-        <span>/</span>
-        <a href="../../vi/research.html">Nghiên cứu</a>
-        <span>/</span>
-        <span>Vật lý không gian</span>
-      </nav>
-
+    <div class="container page-section resource-layout">
+      <div class="page-grid">
+        <aside id="research-sidebar"></aside>
+        <div class="field-page__inner">
+      <header class="resource-intro page-intro">
+        <span class="eyebrow">Research area</span>
+        <h1 class="section-title">Vật lý không gian</h1>
+      </header>
       <section class="field-copy field-copy--lead">
         <h2>Giới thiệu chung</h2>
-        <p>Vật lý không gian nghiên cứu môi trường plasma và các quá trình vật lý diễn ra trong không gian gần Trái Đất, trong hệ Mặt Trời và trong tương tác giữa gió Mặt Trời với từ quyển, tầng điện ly và khí quyển trên cao.</p>
+        <p>Vật lý không gian nghiên cứu môi trường plasma trong hệ Mặt Trời, đặc biệt là cách Mặt Trời truyền năng lượng và hạt ra môi trường liên hành tinh rồi tương tác với từ quyển, tầng điện ly và khí quyển trên cao của Trái Đất. Trong cách dùng hiện nay, lĩnh vực này thường giao thoa mạnh với heliophysics, vật lý plasma và thời tiết không gian.</p>
 
-        <p>Lĩnh vực này có liên hệ trực tiếp với plasma, điện từ học, cơ học chất lưu, vật lý Mặt Trời, dữ liệu vệ tinh và mô phỏng số. Các hiện tượng như bão địa từ, cực quang, nhiễu loạn tầng điện ly hay thời tiết không gian đều là những chủ đề quan trọng vì chúng có thể ảnh hưởng đến vệ tinh, hệ thống định vị, truyền thông và lưới điện.</p>
+        <p>Trọng tâm của ngành không chỉ là mô tả các hiện tượng đẹp như cực quang, mà còn là hiểu chuỗi nguyên nhân từ flare, coronal mass ejection và gió Mặt Trời đến nhiễu GPS, gián đoạn thông tin vô tuyến, tăng bức xạ cho vệ tinh hay dòng cảm ứng địa từ ảnh hưởng tới lưới điện. Vì vậy đây là một hướng nghiên cứu cơ bản nhưng có giá trị ứng dụng rất trực tiếp.</p>
 
-        <p>Người học quan tâm đến vật lý không gian thường cần nền tảng tốt về toán, cơ học, điện từ học, vật lý plasma, lập trình và phân tích dữ liệu. Đây là hướng nghiên cứu nằm giữa khoa học cơ bản và ứng dụng công nghệ không gian, rất phù hợp với những ai muốn hiểu môi trường mà các hệ thống vệ tinh đang hoạt động.</p>
+        <p>Người học theo hướng này thường phải kết hợp điện từ học, cơ học chất lưu, vật lý plasma, xử lý dữ liệu vệ tinh và mô hình số. Đây là một lựa chọn phù hợp nếu bạn thích làm việc với cả quan sát in-situ, dữ liệu thời gian thực và các bài toán dự báo môi trường không gian gần Trái Đất.</p>
       </section>
-      <section class="field-atlas" aria-labelledby="space-weather-title"><div class="atlas-heading"><span class="atlas-kicker">Space weather map</span><h2 id="space-weather-title">From solar activity to technology impacts near Earth.</h2></div><div class="space-weather-map" aria-label="Space physics map"><div class="space-weather-map__sun"></div><div class="space-weather-map__wind"></div><div class="space-weather-map__magnetosphere"></div><div class="space-weather-map__earth"></div><article class="space-weather-node space-weather-node--solar"><span class="space-weather-node__kicker">01</span><span class="space-weather-node__title">Solar drivers</span><span class="space-weather-node__text">Flares and coronal mass ejections.</span></article><article class="space-weather-node space-weather-node--wind"><span class="space-weather-node__kicker">02</span><span class="space-weather-node__title">Solar wind</span><span class="space-weather-node__text">Plasma and interplanetary magnetic field.</span></article><article class="space-weather-node space-weather-node--shield"><span class="space-weather-node__kicker">03</span><span class="space-weather-node__title">Magnetosphere</span><span class="space-weather-node__text">Earth's magnetic shield responds to solar forcing.</span></article><article class="space-weather-node space-weather-node--belts"><span class="space-weather-node__kicker">04</span><span class="space-weather-node__title">Radiation belts</span><span class="space-weather-node__text">Energetic particles affect spacecraft electronics.</span></article><article class="space-weather-node space-weather-node--ionosphere"><span class="space-weather-node__kicker">05</span><span class="space-weather-node__title">Ionosphere</span><span class="space-weather-node__text">Radio, GNSS and communication disturbances.</span></article><article class="space-weather-node space-weather-node--impact"><span class="space-weather-node__kicker">06</span><span class="space-weather-node__title">Technology impact</span><span class="space-weather-node__text">Risk to satellites, aviation, grids and navigation.</span></article></div></section>
+      <section class="field-atlas" aria-labelledby="space-weather-title"><div class="atlas-heading"><span class="atlas-kicker">Bản đồ thời tiết không gian</span><h3 id="space-weather-title">Từ hoạt động Mặt Trời đến tác động công nghệ gần Trái Đất.</h3></div><div class="space-weather-map" aria-label="Space physics map"><div class="space-weather-map__sun"></div><div class="space-weather-map__wind"></div><div class="space-weather-map__magnetosphere"></div><div class="space-weather-map__earth"></div><article class="space-weather-node space-weather-node--solar"><span class="space-weather-node__kicker">01</span><span class="space-weather-node__title">Nguồn kích hoạt</span><span class="space-weather-node__text">Solar flare và coronal mass ejection.</span></article><article class="space-weather-node space-weather-node--wind"><span class="space-weather-node__kicker">02</span><span class="space-weather-node__title">Gió Mặt Trời</span><span class="space-weather-node__text">Plasma và từ trường liên hành tinh.</span></article><article class="space-weather-node space-weather-node--shield"><span class="space-weather-node__kicker">03</span><span class="space-weather-node__title">Từ quyển</span><span class="space-weather-node__text">Lá chắn từ của Trái Đất phản ứng với ép nén từ bên ngoài.</span></article><article class="space-weather-node space-weather-node--belts"><span class="space-weather-node__kicker">04</span><span class="space-weather-node__title">Đai bức xạ</span><span class="space-weather-node__text">Hạt năng lượng cao ảnh hưởng điện tử tàu vũ trụ.</span></article><article class="space-weather-node space-weather-node--ionosphere"><span class="space-weather-node__kicker">05</span><span class="space-weather-node__title">Tầng điện ly</span><span class="space-weather-node__text">Nhiễu thông tin vô tuyến và định vị GNSS.</span></article><article class="space-weather-node space-weather-node--impact"><span class="space-weather-node__kicker">06</span><span class="space-weather-node__title">Tác động</span><span class="space-weather-node__text">Rủi ro cho vệ tinh, hàng không, lưới điện và dẫn đường.</span></article></div></section>
+
+      <section class="field-columns" aria-label="Khung nội dung vật lý không gian">
+        <article class="field-copy">
+          <h3>Chủ đề nghiên cứu tiêu biểu</h3>
+          <ul>
+            <li>Vật lý Mặt Trời và nguồn gốc của flare, coronal mass ejection, solar wind.</li>
+            <li>Từ quyển Trái Đất, tái kết nối từ, sóng plasma, đai bức xạ và cực quang.</li>
+            <li>Tầng điện ly, tầng nhiệt và các ảnh hưởng lên liên lạc vô tuyến, radar, GNSS.</li>
+            <li>Thời tiết không gian và các bài toán dự báo tác động lên hạ tầng công nghệ.</li>
+            <li>Môi trường plasma quanh các hành tinh khác và so sánh các từ quyển hành tinh.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nền tảng nên chuẩn bị</h3>
+          <ul>
+            <li>Điện từ học, cơ học chất lưu, vật lý plasma và phương trình vi phân.</li>
+            <li>Lập trình Python hoặc MATLAB để xử lý chuỗi thời gian, phổ, vector trường.</li>
+            <li>Thống kê cơ bản, trực quan hóa dữ liệu và đọc dữ liệu vệ tinh nhiều định dạng.</li>
+            <li>Kiến thức nền về vật lý Mặt Trời, quỹ đạo vệ tinh và môi trường near-Earth space.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Phương pháp và dữ liệu">
+        <article class="field-copy">
+          <h3>Phương pháp, dữ liệu và công cụ</h3>
+          <ul>
+            <li>Đo in-situ bằng magnetometer, particle detector, electric-field instrument và plasma analyzer trên tàu vũ trụ.</li>
+            <li>Kết hợp quan sát Mặt Trời, đo upstream ở điểm L1, dữ liệu từ quyển và dữ liệu tầng điện ly trên mặt đất.</li>
+            <li>Mô hình MHD, mô hình ionosphere-thermosphere và các chuỗi dự báo của cộng đồng space weather.</li>
+            <li>Khai thác kho dữ liệu mở như NASA SPDF/CDAWeb, NOAA SWPC và dữ liệu nhiệm vụ ESA.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nhiệm vụ và hạ tầng nên biết</h3>
+          <ul>
+            <li>NASA Heliophysics theo dõi toàn chuỗi Sun-Earth system, từ Mặt Trời tới tầng điện ly.</li>
+            <li>Parker Solar Probe và Solar Orbiter giúp truy dấu nguồn gốc solar wind gần Mặt Trời.</li>
+            <li>Các nhiệm vụ magnetosphere như MMS hay THEMIS giúp nghiên cứu tái kết nối từ và động lực plasma gần Trái Đất.</li>
+            <li>NOAA SWPC cung cấp sản phẩm quan trắc, cảnh báo và dự báo tác động cho người dùng vận hành.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Định hướng học">
+        <article class="field-copy">
+          <h3>Ngành này thường được thực hành ở đâu</h3>
+          <ul>
+            <li>Các trung tâm heliophysics của NASA và ESA, nơi gắn khoa học với phát triển nhiệm vụ.</li>
+            <li>Các nhóm space weather vận hành như NOAA SWPC, nơi dữ liệu phải chuyển thành sản phẩm cảnh báo.</li>
+            <li>Các nhóm plasma không gian ở đại học hoặc viện nghiên cứu, thường làm song song quan sát, mô hình và dự báo.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Lộ trình nhập môn gợi ý</h3>
+          <ul>
+            <li>Bắt đầu từ điện từ học, plasma cơ bản và cấu trúc Sun-Earth system.</li>
+            <li>Đọc các trang tổng quan của NASA Heliophysics và NOAA SWPC để nắm ngôn ngữ ngành.</li>
+            <li>Tập xử lý một chuỗi thời gian thật: solar wind, Kp, electron density hoặc dữ liệu magnetometer.</li>
+            <li>Sau đó mới chuyển sang mô hình số, dự báo hoặc nghiên cứu sâu về magnetosphere và ionosphere.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-copy">
+        <h2>Nguồn bắt đầu đáng tin cậy</h2>
+        <ul class="field-link-list">
+          <li><a href="https://science.nasa.gov/heliophysics/">NASA Heliophysics overview</a></li>
+          <li><a href="https://science.nasa.gov/science-research/planetary-science/earths-magnetosphere/">NASA: Earth's Magnetosphere</a></li>
+          <li><a href="https://science.nasa.gov/heliophysics/data/">NASA Heliophysics Data</a></li>
+          <li><a href="https://www.esa.int/Science_Exploration/Space_Science/Space_weather">ESA: Space weather</a></li>
+          <li><a href="https://www.esa.int/Science_Exploration/Space_Science/The_solar_wind">ESA: The solar wind</a></li>
+          <li><a href="https://www.swpc.noaa.gov/about-space-weather">NOAA SWPC: About Space Weather</a></li>
+          <li><a href="https://www.swpc.noaa.gov/index.php/phenomena/ionosphere">NOAA SWPC: Ionosphere</a></li>
+        </ul>
+      </section>
+        </div>
+      </div>
     </div>
   </main>
 
   <div id="site-footer"></div>
-  <script src="../../assets/site-shell.js?v=20260712-ui1" defer></script>
+  <script src="../../assets/site-shell.js?v=20260519-news-guide" defer></script>
+  <script src="../../assets/section-catalog.js" defer></script>
 </body>
 </html>

@@ -14,11 +14,6 @@
   gap: 18px;
 }
 
-.hero-banner .page-intro .section-title {
-  max-width: 24ch;
-  font-size: clamp(1.9rem, 3vw, 3.2rem);
-}
-
 .breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -78,7 +73,6 @@
   background: linear-gradient(180deg, #ffffff, #f6f9ff);
 }
 
-.info-card h2,
 .info-card h3 {
   margin: 0 0 10px;
   font-size: 1.15rem;
@@ -141,7 +135,7 @@ body[data-page="about.html"] {
   background: #ffffff;
 }
 
-.site-main.about-page {
+body[data-page="about.html"] .site-main {
   padding-bottom: 0;
 }
 
@@ -151,7 +145,7 @@ body[data-page="about.html"] {
 }
 
 .about-hero {
-  min-height: clamp(500px, 62vh, 640px);
+  min-height: 72vh;
   padding: calc(var(--header-height) + 110px) 0 86px;
   display: grid;
   align-items: start;
@@ -429,6 +423,129 @@ body[data-page^="fields/"] .menu-toggle {
   gap: 10px;
 }
 
+.taxonomy-intro p {
+  max-width: 74ch;
+  margin: 0;
+  color: #35506d;
+  font-size: clamp(1rem, 1.08vw, 1.18rem);
+  line-height: 1.6;
+}
+
+.taxonomy-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.taxonomy-grid--compact {
+  gap: 22px;
+}
+
+.taxonomy-group {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
+  border: 1px solid rgba(6, 40, 76, 0.14);
+  border-radius: 8px;
+  background: #ffffff;
+}
+
+.taxonomy-group h4 {
+  margin: 0;
+  color: #061b33;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(1.04rem, 1.15vw, 1.34rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.taxonomy-group p {
+  margin: 0;
+  color: #35506d;
+  font-size: clamp(0.96rem, 1vw, 1.08rem);
+  line-height: 1.5;
+}
+
+.taxonomy-code {
+  color: #061b33;
+}
+
+.field-taxonomy-list,
+.field-taxonomy-sources {
+  display: grid;
+  gap: 10px 24px;
+  margin: 0;
+  padding-left: 1.15em;
+  color: #35506d;
+  font-size: clamp(0.96rem, 1vw, 1.08rem);
+  line-height: 1.45;
+}
+
+.field-taxonomy-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.field-taxonomy-list--numbered {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.field-taxonomy-list--compact {
+  grid-template-columns: 1fr;
+}
+
+.field-taxonomy-list li,
+.field-taxonomy-sources li {
+  padding-right: 8px;
+}
+
+.field-taxonomy-link,
+.field-taxonomy-sources a {
+  color: #0052a8;
+  overflow-wrap: anywhere;
+}
+
+.field-taxonomy-link:hover,
+.field-taxonomy-link:focus-visible,
+.field-taxonomy-sources a:hover,
+.field-taxonomy-sources a:focus-visible {
+  color: #06284c;
+}
+
+.taxonomy-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid rgba(6, 40, 76, 0.14);
+  border-radius: 8px;
+}
+
+.taxonomy-journal-table {
+  width: 100%;
+  min-width: 820px;
+  border-collapse: collapse;
+  background: #ffffff;
+  color: #06284c;
+  font-size: 0.96rem;
+  line-height: 1.45;
+}
+
+.taxonomy-journal-table th,
+.taxonomy-journal-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(6, 40, 76, 0.12);
+  text-align: left;
+  vertical-align: top;
+}
+
+.taxonomy-journal-table th {
+  color: #061b33;
+  background: #f4f8fb;
+  font-weight: 700;
+}
+
+.taxonomy-journal-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
 .atlas-kicker {
   color: #0f766e;
   font-size: 0.84rem;
@@ -437,7 +554,6 @@ body[data-page^="fields/"] .menu-toggle {
   text-transform: uppercase;
 }
 
-.atlas-heading h2,
 .atlas-heading h3 {
   max-width: 740px;
   margin: 0;
@@ -1148,7 +1264,7 @@ body[data-page^="fields/"] .menu-toggle {
   }
 
   .about-hero {
-    min-height: 56vh;
+    min-height: 62vh;
     padding: calc(var(--header-height) + 76px) 0 64px;
   }
 
@@ -1188,6 +1304,16 @@ body[data-page^="fields/"] .menu-toggle {
 
   .atlas-section {
     gap: 22px;
+  }
+
+  .taxonomy-grid,
+  .field-taxonomy-list,
+  .field-taxonomy-list--numbered {
+    grid-template-columns: 1fr;
+  }
+
+  .taxonomy-group {
+    padding: 18px;
   }
 
   .field-copy {

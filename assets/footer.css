@@ -28,14 +28,13 @@
 }
 
 .site-footer__mark {
-  inline-size: 38px;
-  block-size: 38px;
-  display: block;
-  border-radius: 4px 4px 2px 2px;
-  background:
-    linear-gradient(165deg, transparent 0 38%, #cfcfcf 39% 60%, transparent 61%),
-    linear-gradient(105deg, #101010 0 46%, #d7d7d7 47% 100%);
-  transform: skewX(-8deg);
+  position: relative;
+  inline-size: 44px;
+  block-size: 44px;
+  flex: 0 0 44px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #ffffff;
 }
 
 .site-footer__nav {

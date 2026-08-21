@@ -31,14 +31,14 @@ jobs:
             --header "x-spaceverse-secret: ${{ secrets.NEWS_FUNCTION_SECRET }}" \
             "${{ secrets.SUPABASE_URL }}/functions/v1/sync-news"
 
-      - name: Generate daily Vietnamese drafts
+      - name: Publish daily Vietnamese briefs
         if: steps.config.outputs.enabled == 'true'
         run: |
           curl --fail --show-error --request POST \
             --header "apikey: ${{ secrets.SUPABASE_ANON_KEY }}" \
             --header "Authorization: Bearer ${{ secrets.SUPABASE_ANON_KEY }}" \
             --header "x-spaceverse-secret: ${{ secrets.NEWS_FUNCTION_SECRET }}" \
-            "${{ secrets.SUPABASE_URL }}/functions/v1/draft-news?limit=10"
+            "${{ secrets.SUPABASE_URL }}/functions/v1/draft-news?limit=10&publish=1&replace=1"
 
       - name: Skip notice
         if: steps.config.outputs.enabled != 'true'

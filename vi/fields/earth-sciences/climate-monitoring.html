@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
+  <title>Quan trắc khí hậu từ dữ liệu vệ tinh | Space-Verse</title>
+  <link rel="stylesheet" href="../../../assets/style.css?v=20260516-audit2">
+</head>
+<body data-locale="vi" data-page="fields/earth-sciences/climate-monitoring.html" data-root="../../../">
+  <div id="site-header"></div>
+
+  <section class="field-hero" style="--field-hero-image: url('../../../image/remote.png');" aria-labelledby="field-title">
+    <div class="container field-hero__inner">
+      <h1 id="field-title">Quan trắc khí hậu từ dữ liệu vệ tinh</h1>
+    </div>
+  </section>
+
+  <main class="site-main field-page">
+    <div class="container field-page__inner">
+      <nav class="field-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../vi/index.html">Trang chủ</a>
+        <span>/</span>
+        <a href="../../../vi/research.html">Nghiên cứu</a>
+        <span>/</span>
+        <a href="../../../vi/fields/remote-sensing-&-earth-sciences.html">Viễn thám và khoa học Trái Đất</a>
+        <span>/</span>
+        <span>Quan trắc khí hậu từ dữ liệu vệ tinh</span>
+      </nav>
+
+      <section class="field-copy field-copy--lead">
+        <h2>Tổng quan</h2>
+        <p>Nhánh này dùng dữ liệu vệ tinh để theo dõi các biến của hệ khí hậu trong thời gian đủ dài để nhận ra xu thế, dao động và những thay đổi có ý nghĩa vật lý. Trọng tâm không còn là một ảnh đẹp hay một sự kiện đơn lẻ, mà là tạo ra chuỗi dữ liệu đủ ổn định để so sánh năm này với năm khác và liên hệ với các quá trình trong khí quyển, đại dương, băng tuyết, đất liền và chu trình carbon.</p>
+        <p>Vì vậy, câu hỏi trung tâm của lĩnh vực thường là: phép đo này có đủ nhất quán theo thời gian không, sai số giữa các thế hệ cảm biến đã được xử lý tới đâu, và dữ liệu có thực sự phù hợp cho suy luận khí hậu thay vì chỉ cho quan sát thời tiết hoặc ứng dụng ngắn hạn hay chưa. Điều này khiến quan trắc khí hậu đòi hỏi kỷ luật mạnh về hiệu chuẩn, tái xử lý, dữ liệu tham chiếu và tài liệu hóa provenance.</p>
+        <p>Đây là hướng phù hợp với người thích làm việc với chuỗi dữ liệu dài, đánh giá độ bất định, nối dữ liệu vệ tinh với mô hình khí hậu và xây dựng các bộ chỉ báo có thể dùng lại cho nghiên cứu, dịch vụ khí hậu hoặc hoạch định chính sách.</p>
+      </section>
+
+      <section class="field-columns" aria-label="Các nhánh nghiên cứu chính">
+        <article class="field-copy">
+          <h3>Chủ đề tiêu biểu</h3>
+          <ul>
+            <li>Nhiệt độ bề mặt đất và biển, bức xạ, mây, aerosol và cân bằng năng lượng.</li>
+            <li>Băng biển, sông băng, tuyết phủ, độ ẩm đất và các thành phần của chu trình nước.</li>
+            <li>Thảm thực vật, carbon, cháy rừng, biến động lớp phủ đất và phản hồi sinh quyển - khí hậu.</li>
+            <li>Mực nước biển, màu nước biển, động lực đại dương và các chỉ báo của hệ đại dương toàn cầu.</li>
+            <li>Tạo climate data records và essential climate variables đủ ổn định cho phân tích nhiều thập kỷ.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nền tảng nên chuẩn bị</h3>
+          <ul>
+            <li>Vật lý bức xạ, khí tượng - khí hậu cơ bản và trực giác về hệ Trái Đất liên kết nhiều thành phần.</li>
+            <li>Thống kê chuỗi thời gian, phát hiện xu thế, kiểm định bất định và đánh giá sai lệch cảm biến.</li>
+            <li>Hiểu cấu trúc dữ liệu geospatial và netCDF/HDF, metadata, lưới không gian - thời gian và regridding.</li>
+            <li>Lập trình để xử lý dữ liệu quy mô lớn, tái lập pipeline và so sánh với quan trắc tại chỗ hay tái phân tích.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Phương pháp và hạ tầng dữ liệu">
+        <article class="field-copy">
+          <h3>Phương pháp, dữ liệu và công cụ</h3>
+          <ul>
+            <li>Xây dựng và dùng các climate data records thay vì chỉ dựa vào ảnh tức thời hay sản phẩm chưa ổn định theo thời gian.</li>
+            <li>Kết hợp quan trắc vệ tinh với dữ liệu tại chỗ, tái phân tích và mô hình để kiểm tra tính nhất quán vật lý.</li>
+            <li>Dùng các cổng dữ liệu mở như NASA Earthdata, NOAA NCEI và Copernicus Climate Data Store để truy cập sản phẩm khí hậu.</li>
+            <li>Quan tâm đặc biệt tới calibration, validation, inter-sensor harmonization, reprocessing và version control của dữ liệu.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nhiệm vụ và bộ dữ liệu nên biết</h3>
+          <ul>
+            <li>Landsat cung cấp chuỗi quan sát đất liền nhiều thập kỷ, rất quan trọng cho thay đổi sử dụng đất, băng tuyết, nước mặt và sinh quyển.</li>
+            <li>NASA Earth Science Data Systems là cửa vào cho nhiều bộ dữ liệu khí hậu và quan sát Trái Đất mở cho nghiên cứu lẫn ứng dụng.</li>
+            <li>NOAA NCEI quản lý dữ liệu vệ tinh và các Climate Data Records cho khí quyển, đại dương và đất liền.</li>
+            <li>Copernicus Climate Change Service và ESA Climate Change Initiative cho thấy cách châu Âu xây dựng dịch vụ khí hậu và bộ dữ liệu dài hạn từ vệ tinh.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Cách lĩnh vực này được thực hành">
+        <article class="field-copy">
+          <h3>Nhóm nghiên cứu và hạ tầng tiêu biểu</h3>
+          <ul>
+            <li>NCEO ở Anh là ví dụ tốt cho nhánh dùng Earth observation để phát triển dữ liệu khí hậu, đánh giá mô hình và hỗ trợ quyết định.</li>
+            <li>ESSIC tại University of Maryland cho thấy cách nhiều nhóm ghép quan trắc từ xa, dữ liệu tại chỗ và mô hình đại dương - khí quyển - đất liền để nghiên cứu biến thiên khí hậu, carbon và chu trình nước.</li>
+            <li>Các chương trình như ESA CCI nhấn mạnh việc cộng đồng nhiều viện cùng xây dữ liệu climate-ready thay vì mỗi lab tự giữ một pipeline riêng.</li>
+            <li>Khi đọc trang lab, nên tách rõ đâu là hạ tầng chung của lĩnh vực và đâu là thế mạnh cục bộ của từng nhóm như aerosol, water cycle hay carbon.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Lộ trình nhập môn gợi ý</h3>
+          <ul>
+            <li>Bắt đầu từ một biến khí hậu cụ thể, ví dụ nhiệt độ bề mặt, băng biển hay độ ẩm đất, thay vì ôm toàn bộ hệ khí hậu.</li>
+            <li>Đọc kỹ tài liệu của một sản phẩm lâu năm để hiểu định nghĩa biến, chất lượng dữ liệu, hạn chế và phiên bản xử lý.</li>
+            <li>Tự dựng một workflow nhỏ: tải chuỗi dữ liệu, tính seasonal cycle hoặc anomaly, rồi so với một nguồn tham chiếu độc lập.</li>
+            <li>Sau đó mới mở rộng sang attribution, đánh giá mô hình, data assimilation hoặc tích hợp nhiều cảm biến qua nhiều thập kỷ.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-copy">
+        <h2>Điểm khác với bài toán ứng phó ngắn hạn</h2>
+        <p>Trong giám sát thiên tai, tốc độ ra sản phẩm thường là ưu tiên lớn. Trong quan trắc khí hậu, ưu tiên lại là độ ổn định dài hạn và khả năng so sánh xuyên thế hệ cảm biến. Một bộ dữ liệu khí hậu tốt không chỉ trả lời chuyện gì đang xảy ra hôm nay, mà còn cho phép bạn hỏi liệu xu thế vài thập kỷ qua có đáng tin hay không.</p>
+        <ul class="field-link-list">
+          <li><a href="../../../vi/fields/earth-sciences/water-cycle-monitoring.html">Nối sang nhánh theo dõi chu trình nước và thủy văn từ dữ liệu vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/drought-ecosystem-stress.html">Nối sang nhánh hạn, flash drought và stress hệ sinh thái khi anomaly khí hậu đi vào sinh quyển</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/disaster-monitoring.html">So sánh với nhánh giám sát thiên tai bằng dữ liệu vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/cryosphere-monitoring.html">Mở rộng sang nhánh quan trắc băng tuyết và cryosphere</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/sea-level-coastal-change.html">Mở rộng sang nhánh nghiên cứu mực nước biển và biến đổi bờ biển</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/permafrost-monitoring.html">Mở rộng sang nhánh theo dõi băng vĩnh cửu và biến dạng nền đất</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/wildfire-permafrost.html">Mở rộng sang nhánh cháy rừng - permafrost và disturbance ở miền Arctic-boreal</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/carbon-monitoring.html">Mở rộng sang nhánh theo dõi carbon và khí nhà kính từ dữ liệu vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/methane-super-emitters.html">Mở rộng sang nhánh methane siêu phát thải và các nguồn điểm cần hành động nhanh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/vegetation-productivity-fluorescence.html">Mở rộng sang nhánh năng suất thảm thực vật và huỳnh quang diệp lục</a></li>
+        </ul>
+      </section>
+
+      <section class="field-copy">
+        <h2>Nguồn bắt đầu đáng tin cậy</h2>
+        <ul class="field-link-list">
+          <li><a href="https://science.nasa.gov/earth/data/">NASA Science: Earth Science Data</a></li>
+          <li><a href="https://science.nasa.gov/mission/landsat/data-overview/">NASA Science: Landsat Data Overview</a></li>
+          <li><a href="https://www.ncei.noaa.gov/products/satellite">NOAA NCEI: Satellite</a></li>
+          <li><a href="https://climate.copernicus.eu/about-us">Copernicus Climate Change Service: About us</a></li>
+          <li><a href="https://www.esa.int/Applications/Observing_the_Earth/Space_for_our_climate/Climate_Change_Initiative">ESA: Climate Change Initiative</a></li>
+          <li><a href="https://climate.esa.int/en/about-us-new/climate-change-initiative/essential-climate-variables/">ESA Climate Office: Essential Climate Variables</a></li>
+          <li><a href="https://www.nceo.ac.uk/our-research/climate-analysis/">NCEO: Climate Analysis</a></li>
+          <li><a href="https://essic.umd.edu/research/">ESSIC: Research</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../../../assets/site-shell.js?v=20260519-news-guide" defer></script>
+</body>
+</html>

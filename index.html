@@ -3,38 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <meta name="description" content="Space-Verse là bản đồ định hướng mở về khoa học vũ trụ, công nghệ không gian, tài nguyên học tập và cơ hội học thuật.">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
-  <link rel="canonical" href="https://thithilia.github.io/New-Space-Verse/">
-  <title>Space-Verse | Khoa học vũ trụ và công nghệ không gian</title>
-  <noscript><meta http-equiv="refresh" content="0; url=./vi/index.html"></noscript>
+  <title>Redirecting…</title>
   <script>
     (function () {
       const locales = ["en", "vi", "fr"];
-      let saved = "";
-      try {
-        saved = (localStorage.getItem("site_lang") || "").toLowerCase();
-      } catch (error) {
-        saved = "";
-      }
+      const saved = (localStorage.getItem("site_lang") || "").toLowerCase();
       const guess = (navigator.language || "en").slice(0, 2).toLowerCase();
       const target = locales.includes(saved) ? saved : (locales.includes(guess) ? guess : "en");
 
-      const targetUrl = new URL("./" + target + "/index.html", location.href);
       if (location.protocol === "file:") {
-        location.href = targetUrl.href;
-      } else {
-        location.replace(targetUrl.href);
+        location.href = "./" + target + "/index.html";
+        return;
       }
+
+      const parts = location.pathname.split("/").filter(Boolean);
+      const localeIndex = parts.findIndex((part) => locales.includes(part));
+      if (localeIndex >= 0) {
+        parts[localeIndex] = target;
+      } else {
+        parts.push(target, "index.html");
+      }
+      location.replace("/" + parts.join("/"));
     })();
   </script>
 </head>
 <body>
-  <main>
-    <h1>Space-Verse</h1>
-    <p>Đang chuyển tới phiên bản ngôn ngữ phù hợp.</p>
-    <p><a href="./vi/index.html">Tiếp tục tới trang tiếng Việt</a></p>
-  </main>
+  <p>Redirecting…</p>
 </body>
 </html>

@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
+  <title>Theo dõi chu trình nước và thủy văn từ dữ liệu vệ tinh | Space-Verse</title>
+  <link rel="stylesheet" href="../../../assets/style.css?v=20260516-audit2">
+</head>
+<body data-locale="vi" data-page="fields/earth-sciences/water-cycle-monitoring.html" data-root="../../../">
+  <div id="site-header"></div>
+
+  <section class="field-hero" style="--field-hero-image: url('../../../image/remote.png');" aria-labelledby="field-title">
+    <div class="container field-hero__inner">
+      <h1 id="field-title">Theo dõi chu trình nước và thủy văn từ dữ liệu vệ tinh</h1>
+    </div>
+  </section>
+
+  <main class="site-main field-page">
+    <div class="container field-page__inner">
+      <nav class="field-breadcrumb" aria-label="Breadcrumb">
+        <a href="../../../vi/index.html">Trang chủ</a>
+        <span>/</span>
+        <a href="../../../vi/research.html">Nghiên cứu</a>
+        <span>/</span>
+        <a href="../../../vi/fields/remote-sensing-&-earth-sciences.html">Viễn thám và khoa học Trái Đất</a>
+        <span>/</span>
+        <span>Theo dõi chu trình nước và thủy văn từ dữ liệu vệ tinh</span>
+      </nav>
+
+      <section class="field-copy field-copy--lead">
+        <h2>Tổng quan</h2>
+        <p>Nhánh này tập trung vào cách dữ liệu vệ tinh được dùng để theo dõi nước trong khí quyển, trên mặt đất, trong tuyết băng, trong đất và trong các hồ chứa, sông ngòi hay tầng nước ngầm. Mục tiêu không chỉ là thấy "đang có nước ở đâu", mà là hiểu nước đang di chuyển, tích trữ và trao đổi ra sao giữa các phần của hệ Trái Đất.</p>
+        <p>Vì vậy đây là một lĩnh vực rất liên ngành. Người làm việc thường phải nối dữ liệu mưa, độ ẩm đất, tuyết, nước mặt, nước ngầm và đôi khi cả mô hình thủy văn để trả lời các câu hỏi như: lưu vực đang thiếu nước hay đang tích nước, đất đã đủ ẩm để tăng rủi ro lũ quét chưa, hồ chứa và đồng bằng ngập biến đổi theo mùa ra sao, hoặc tín hiệu khí hậu dài hạn đang đi qua những kho nước nào.</p>
+        <p>Đây là hướng phù hợp nếu bạn thích vừa có vật lý hệ Trái Đất, vừa có phân tích dữ liệu không gian - thời gian. Nó cũng là cầu nối rất tự nhiên giữa khoa học khí hậu, tài nguyên nước, thủy văn vận hành, giám sát hạn hán và ứng phó thiên tai.</p>
+      </section>
+
+      <section class="field-columns" aria-label="Các nhánh nghiên cứu chính">
+        <article class="field-copy">
+          <h3>Chủ đề tiêu biểu</h3>
+          <ul>
+            <li>Mưa và tuyết ở quy mô toàn cầu, từ cường độ từng trận tới phân bố theo mùa và theo năm.</li>
+            <li>Độ ẩm đất, trạng thái đóng băng - tan băng, liên kết giữa bề mặt đất với khí quyển và sinh quyển.</li>
+            <li>Nước mặt trên sông, hồ, vùng ngập, hồ chứa và các thay đổi về mực nước hoặc diện tích mặt nước.</li>
+            <li>Tồn trữ nước tổng cộng và nước ngầm, đặc biệt trong các bài toán suy giảm nguồn nước dài hạn.</li>
+            <li>Tuyết, băng và các thành phần của chu trình nước lạnh trong lưu vực núi hoặc vùng cực.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nền tảng nên chuẩn bị</h3>
+          <ul>
+            <li>Thủy văn cơ bản: cân bằng nước, dòng chảy mặt, thấm, bốc thoát hơi, lưu vực và hồ chứa.</li>
+            <li>Khí tượng - khí hậu ở mức đủ để hiểu mưa, mây, vận chuyển ẩm và tương tác đất - khí quyển.</li>
+            <li>Viễn thám vi sóng, radar altimetry hoặc radar khẩu độ tổng hợp ở mức nhập môn, vì nhiều biến nước không thể dựa vào ảnh quang học đơn thuần.</li>
+            <li>Phân tích chuỗi thời gian, dữ liệu geospatial, netCDF/HDF và khả năng ghép dữ liệu vệ tinh với mô hình hay quan trắc tại chỗ.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Phương pháp và hạ tầng dữ liệu">
+        <article class="field-copy">
+          <h3>Phương pháp, dữ liệu và công cụ</h3>
+          <ul>
+            <li>Dữ liệu mưa vệ tinh như GPM được dùng để theo dõi trường mưa toàn cầu và làm đầu vào cho nhiều workflow thủy văn.</li>
+            <li>Dữ liệu vi sóng thụ động như SMAP mạnh cho độ ẩm đất và trạng thái đóng băng - tan băng, đặc biệt hữu ích khi cần nhìn xuyên mây và theo dõi đều đặn ở quy mô lớn.</li>
+            <li>Trọng lực vệ tinh từ GRACE và GRACE-FO cho góc nhìn hiếm có về thay đổi tồn trữ nước tổng cộng, trong đó có tín hiệu liên quan tới nước ngầm.</li>
+            <li>Các nhiệm vụ mới như SWOT bổ sung lớp quan sát trực tiếp hơn cho nước mặt, còn dữ liệu vận hành của NOAA như SMOPS cho thấy cách nhiều cảm biến được hợp nhất thành sản phẩm dùng nhanh.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Nhiệm vụ và hệ dữ liệu nên biết</h3>
+          <ul>
+            <li>NASA - JAXA GPM là nguồn cốt lõi cho mưa và tuyết toàn cầu, rất quan trọng cho thủy văn, khí hậu và cảnh báo cực đoan.</li>
+            <li>NASA SMAP là một trong những nhiệm vụ nền cho độ ẩm đất và trạng thái freeze/thaw, nối trực tiếp với dự báo hạn, lũ và tương tác đất - khí quyển.</li>
+            <li>GRACE/GRACE-FO được dùng rộng rãi để theo dõi thay đổi tồn trữ nước ở quy mô vùng lớn, nhất là nơi mạng quan trắc dưới đất thưa.</li>
+            <li>SWOT mở ra khả năng quan sát tốt hơn mặt nước nội địa và hình học nước mặt, rất đáng chú ý nếu bạn quan tâm sông, hồ, floodplain và hồ chứa.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-columns" aria-label="Cách lĩnh vực này được thực hành">
+        <article class="field-copy">
+          <h3>Nhóm nghiên cứu và ví dụ thực hành</h3>
+          <ul>
+            <li>Water Cycle group tại Byrd Polar and Climate Research Center là ví dụ tốt cho nhánh dùng vệ tinh để nghiên cứu sông, tuyết và các quá trình thủy văn bề mặt.</li>
+            <li>HyDROS Lab của University of Oklahoma cho thấy cách remote sensing, nước, thời tiết và khí hậu được nối vào các bài toán mô hình hóa và dự báo.</li>
+            <li>Khi xem các nhóm nghiên cứu, nên phân biệt rõ đâu là nghiên cứu nền về đo đạc và thuật toán, đâu là bài toán ứng dụng như lũ, hạn hay quản lý hồ chứa.</li>
+            <li>Không nên lấy một lab đơn lẻ làm đại diện cho toàn bộ lĩnh vực; cùng một nhánh thủy văn vệ tinh có thể nghiêng về tuyết, nước mặt, đất ẩm hay cảnh báo sớm rất khác nhau.</li>
+          </ul>
+        </article>
+        <article class="field-copy">
+          <h3>Lộ trình nhập môn gợi ý</h3>
+          <ul>
+            <li>Bắt đầu từ một kho nước cụ thể: mưa, đất ẩm, nước mặt hay nước ngầm, thay vì cố học toàn bộ chu trình nước cùng lúc.</li>
+            <li>Chọn một nhiệm vụ chính và đọc kỹ trang mission + data của nó để hiểu biến đo, độ phân giải, độ trễ và giới hạn giải thích.</li>
+            <li>Tự dựng một workflow nhỏ: ví dụ lấy chuỗi GPM cho một lưu vực, hoặc SMAP cho một mùa khô, rồi so với một nguồn độc lập như số liệu trạm hay sản phẩm vận hành.</li>
+            <li>Sau đó mới mở rộng sang ghép nhiều cảm biến, đồng hóa vào mô hình, hoặc đặt câu hỏi dài hạn hơn về khí hậu và tài nguyên nước.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="field-copy">
+        <h2>Điểm giao với các nhánh khác</h2>
+        <p>Theo dõi chu trình nước nằm giữa hai kiểu nhu cầu rất khác nhau. Một mặt, nó đóng góp cho các chuỗi quan trắc dài hạn về khí hậu và tài nguyên nước. Mặt khác, các biến như mưa, đất ẩm hay nước mặt cũng là đầu vào rất quan trọng cho giám sát lũ, hạn, sạt lở và các bài toán vận hành. Vì thế nhánh này thường là nơi tốt để học cách đi từ dữ liệu nền sang sản phẩm quyết định.</p>
+        <ul class="field-link-list">
+          <li><a href="../../../vi/fields/earth-sciences/climate-monitoring.html">Liên hệ với nhánh quan trắc khí hậu từ dữ liệu vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/drought-ecosystem-stress.html">Nối sang nhánh hạn và stress hệ sinh thái khi thiếu nước bắt đầu hiện lên ở cây và đất</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/disaster-monitoring.html">Liên hệ với nhánh giám sát thiên tai bằng dữ liệu vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/cryosphere-monitoring.html">Mở rộng sang nhánh quan trắc băng tuyết và cryosphere</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/sea-level-coastal-change.html">Mở rộng sang nhánh mực nước biển, cửa sông và biến đổi bờ biển</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/drained-lake-basins.html">Đi sâu vào nhánh drained lake basins khi muốn theo dõi cách nước mặt rút đi và lưu trữ chuyển sang dòng chảy mới</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/carbon-monitoring.html">Nối sang nhánh theo dõi carbon và khí nhà kính từ dữ liệu vệ tinh</a></li>
+          <li><a href="../../../vi/fields/earth-sciences/vegetation-productivity-fluorescence.html">Nối sang nhánh năng suất thảm thực vật, thoát hơi nước và huỳnh quang diệp lục</a></li>
+        </ul>
+      </section>
+
+      <section class="field-copy">
+        <h2>Nguồn bắt đầu đáng tin cậy</h2>
+        <ul class="field-link-list">
+          <li><a href="https://science.nasa.gov/earth/earth-observatory/the-water-cycle">NASA Earth Observatory: The Water Cycle</a></li>
+          <li><a href="https://gpm.nasa.gov/GPM">NASA-JAXA GPM Mission</a></li>
+          <li><a href="https://science.nasa.gov/mission/smap">NASA Science: SMAP</a></li>
+          <li><a href="https://science.nasa.gov/earth/earth-observatory/the-gravity-of-water">NASA Earth Observatory: The Gravity of Water</a></li>
+          <li><a href="https://science.nasa.gov/mission/swot">NASA Science: SWOT</a></li>
+          <li><a href="https://www.ospo.noaa.gov/products/land/smops/">NOAA OSPO: Soil Moisture Products</a></li>
+          <li><a href="https://www.nesdis.noaa.gov/hydrology-initiative">NOAA NESDIS: Hydrology Initiative</a></li>
+          <li><a href="https://www.esa.int/Applications/Observing_the_Earth/FutureEO/HydroGNSS">ESA: HydroGNSS</a></li>
+          <li><a href="https://byrd.osu.edu/research/groups/water-cycle">Byrd Polar and Climate Research Center: Water Cycle</a></li>
+          <li><a href="https://www.ou.edu/coe/labs/hydros">University of Oklahoma: HyDROS Lab</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="../../../assets/site-shell.js?v=20260519-news-guide" defer></script>
+</body>
+</html>
