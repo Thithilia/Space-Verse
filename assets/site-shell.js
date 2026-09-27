@@ -22,7 +22,9 @@
       "fields/satellite-technology.html",
       "fields/remote-sensing.html",
       "fields/remote-sensing-&-earth-sciences.html",
+      "fields/earth-sciences.html",
       "fields/space-physics.html",
+      "fields/particle-physics.html",
       "resources/skills.html",
       "resources/profile-building.html",
       "resources/scientific-programming.html",
@@ -53,7 +55,7 @@
         { label: "Liên hệ", href: "mailto:contact.space-verse@gmail.com" }
       ],
       footer: {
-        title: "Space-Verse",
+        title: "Hub for Exploration Opportunities",
         summary: "Nền tảng tài nguyên mở dành cho học sinh, sinh viên Việt Nam quan tâm đến khoa học vũ trụ và công nghệ không gian.",
         quickTitle: "Khám phá",
         contactTitle: "Liên hệ",
@@ -66,7 +68,7 @@
           "Email: contact.space-verse@gmail.com",
           "GitHub: github.com/Thithilia/Space-Verse"
         ],
-        copyright: "Space-Verse. Nội dung được cập nhật cho cộng đồng học thuật Việt Nam."
+        copyright: "Hub for Exploration Opportunities. Nội dung được cập nhật cho cộng đồng học thuật Việt Nam."
       },
       nav: [
         {
@@ -86,7 +88,9 @@
             { label: "Vật lý thiên văn và vũ trụ học", href: "fields/astrophysics-&-cosmology.html" },
             { label: "Công nghệ vệ tinh", href: "fields/satellite-technology.html" },
             { label: "Viễn thám", href: "fields/remote-sensing.html" },
-            { label: "Vật lý không gian", href: "fields/space-physics.html" }
+            { label: "Khoa học Trái Đất", href: "fields/earth-sciences.html" },
+            { label: "Vật lý không gian", href: "fields/space-physics.html" },
+            { label: "Vật lý hạt", href: "fields/particle-physics.html" }
           ]
         },
         {
@@ -110,7 +114,7 @@
         { label: "Contact", href: "mailto:contact.space-verse@gmail.com" }
       ],
       footer: {
-        title: "Space-Verse",
+        title: "Hub for Exploration Opportunities",
         summary: "Open learning resources for Vietnamese students exploring space science, astrophysics, Earth observation, and satellite technology.",
         quickTitle: "Explore",
         contactTitle: "Contact",
@@ -123,7 +127,7 @@
           "Email: contact.space-verse@gmail.com",
           "GitHub: github.com/Thithilia/Space-Verse"
         ],
-        copyright: "Space-Verse. Shared openly for the student community."
+        copyright: "Hub for Exploration Opportunities. Shared openly for the student community."
       },
       nav: [
         { type: "link", label: "Home", href: "index.html" },
@@ -140,7 +144,7 @@
         { label: "Contact", href: "mailto:contact.space-verse@gmail.com" }
       ],
       footer: {
-        title: "Space-Verse",
+        title: "Hub for Exploration Opportunities",
         summary: "Une plateforme de ressources ouvertes pour les étudiantes et étudiants vietnamiens intéressés par les sciences et technologies spatiales.",
         quickTitle: "Explorer",
         contactTitle: "Contact",
@@ -153,7 +157,7 @@
           "Email: contact.space-verse@gmail.com",
           "GitHub: github.com/Thithilia/Space-Verse"
         ],
-        copyright: "Space-Verse. Ressources ouvertes pour la communauté étudiante."
+        copyright: "Hub for Exploration Opportunities. Ressources ouvertes pour la communauté étudiante."
       },
       nav: [
         { type: "link", label: "Accueil", href: "index.html" },
@@ -171,6 +175,14 @@
   const headerRoot = document.getElementById("site-header");
   const footerRoot = document.getElementById("site-footer");
   const config = localeConfig[locale] || localeConfig.en;
+
+  function renderFavicon() {
+    const favicon = document.querySelector('link[rel~="icon"]') || document.createElement("link");
+    favicon.rel = "icon";
+    favicon.type = "image/png";
+    favicon.href = `${root}assets/favicon.png?v=20260821`;
+    if (!favicon.parentNode) document.head.appendChild(favicon);
+  }
 
   function localeHref(targetLocale, targetPage) {
     return root + targetLocale + "/" + targetPage;
@@ -190,7 +202,8 @@
           return `<a href="${href}"${current}>${subItem.label}</a>`;
         }).join("");
         const href = item.href ? ` data-href="${localeHref(locale, item.href)}"` : "";
-        return `<div class="nav-item has-submenu"><button type="button"${href}>${item.label}</button><div class="submenu">${submenu}</div></div>`;
+        const active = item.href === page || (item.href === "research.html" && page.startsWith("fields/")) || (item.href === "opportunities.html" && page.startsWith("opportunities/"));
+        return `<div class="nav-item has-submenu" data-active="${active}"><button type="button" aria-expanded="false"${href}>${item.label}</button><div class="submenu">${submenu}</div></div>`;
       }
       const href = localeHref(locale, item.href);
       const current = item.href === page ? ' aria-current="page"' : "";
@@ -201,7 +214,6 @@
   function renderHeader() {
     if (!headerRoot) return;
     const renderFlag = (item) => `<img class="lang-flag" src="${root}assets/flags/${item.flag}" alt="" width="24" height="16">`;
-    const topLinks = config.topLinks.map((link) => `<a href="${link.href}">${link.label}</a>`).join("");
     const menu = renderNav(config.nav);
     const langMenu = Object.keys(localeConfig).map((key) => {
       const targetPage = resolveLocaleTarget(key);
@@ -214,11 +226,11 @@
     headerRoot.innerHTML = `
       <header class="site-header">
         <div class="site-header__bar">
-          <a class="brand" href="${localeHref(locale, "index.html")}" aria-label="Space-Verse home">
+          <a class="brand" href="${localeHref(locale, "index.html")}" aria-label="Hub for Exploration Opportunities home">
             <span class="brand__mark" aria-hidden="true">
               <img src="${root}assets/space-verse-logo.png" alt="" width="1254" height="1254">
             </span>
-            <span class="brand__name">Space-Verse</span>
+            <span class="brand__name">Hub for Exploration Opportunities - HEO</span>
           </a>
           <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
             <span></span>
@@ -227,7 +239,6 @@
         </div>
         <div class="site-menu-panel">
           <nav class="main-nav" aria-label="Main navigation">${menu}</nav>
-          <nav class="top-links" aria-label="Quick links">${topLinks}</nav>
           <div class="lang-switcher">
             <button class="lang-trigger" type="button" aria-haspopup="true" aria-expanded="false">
               ${renderFlag(config)}
@@ -249,12 +260,15 @@
     footerRoot.innerHTML = `
       <footer class="site-footer">
         <div class="site-footer__inner">
-          <a class="site-footer__brand" href="${localeHref(locale, "index.html")}" aria-label="Space-Verse home">
+          <div class="site-footer__identity">
+          <a class="site-footer__brand" href="${localeHref(locale, "index.html")}" aria-label="Hub for Exploration Opportunities home">
             <span class="site-footer__mark" aria-hidden="true">
               <img src="${root}assets/space-verse-logo.png" alt="" width="1254" height="1254">
             </span>
-            <span>Space-Verse</span>
+            <span>Hub for Exploration Opportunities</span>
           </a>
+            <img class="site-footer__mascot" src="${root}image/coolheo.png" alt="HEO đeo kính râm" width="1254" height="1254" loading="lazy">
+          </div>
 
           <div class="site-footer__nav">
             <div class="site-footer__primary-links" aria-label="Footer primary links">
@@ -270,7 +284,7 @@
           </div>
 
           <div class="site-footer__copyright">
-            Copyright © <span id="footer-year"></span> Space-Verse - All Rights Reserved.
+            Copyright © <span id="footer-year"></span> Hub for Exploration Opportunities - All Rights Reserved.
           </div>
         </div>
       </footer>
@@ -323,9 +337,13 @@
         }
         const open = item.dataset.open === "true";
         submenuParents.forEach((other) => {
-          if (other !== item) other.dataset.open = "false";
+          if (other !== item) {
+            other.dataset.open = "false";
+            other.querySelector("button").setAttribute("aria-expanded", "false");
+          }
         });
         item.dataset.open = open ? "false" : "true";
+        trigger.setAttribute("aria-expanded", String(!open));
       });
     });
   }
@@ -342,6 +360,7 @@
     });
   }
 
+  renderFavicon();
   renderHeader();
   renderFooter();
   enhanceInteractions();

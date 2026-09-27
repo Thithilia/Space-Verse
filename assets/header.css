@@ -255,6 +255,108 @@
   font-weight: 600;
 }
 
+@media (min-width: 1200px) {
+  .site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    min-height: var(--header-height);
+    padding: 0 28px;
+    border-bottom: 1px solid #dedede;
+    background: #ffffff;
+  }
+
+  .site-header__bar {
+    min-height: 0;
+    padding: 0;
+    flex: 0 1 auto;
+  }
+
+  body .site-header .brand {
+    color: #0d0f14;
+    font-size: clamp(1.1rem, 1.4vw, 1.5rem);
+    line-height: 1.2;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .site-menu-panel {
+    position: static;
+    width: auto;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    flex-shrink: 0;
+  }
+
+  .main-nav,
+  .top-links {
+    display: flex;
+    align-items: center;
+    gap: clamp(14px, 1.6vw, 30px);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .main-nav > a,
+  .main-nav > .nav-item > button,
+  .top-links > a {
+    width: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: var(--header-height);
+    padding: 0;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+  }
+
+  .main-nav > a[aria-current="page"],
+  .main-nav > .nav-item:has(a[aria-current="page"]) > button,
+  .main-nav > .nav-item[data-active="true"] > button {
+    border-bottom-color: #9cb8ff;
+    color: #111111;
+  }
+
+  .site-header .nav-item.has-submenu > button::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-right: 1px solid currentColor;
+    border-bottom: 1px solid currentColor;
+    transform: rotate(45deg);
+    margin-top: -4px;
+  }
+
+  .submenu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    min-width: 260px;
+    max-width: 340px;
+    padding: 12px 18px;
+    background: #ffffff;
+    border: 1px solid #dedede;
+    box-shadow: 0 12px 28px rgba(15, 23, 42, 0.1);
+  }
+
+  .lang-menu {
+    left: auto;
+    right: 0;
+  }
+}
+
 @media (max-width: 720px) {
   .site-header__bar {
     padding: 0 18px;

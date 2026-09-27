@@ -275,7 +275,7 @@
   padding: var(--header-height) 0 36px;
   display: grid;
   place-items: center;
-  background: #f5f5f5;
+  background: #ffffff;
 }
 
 .home-axiom-intro__inner {
@@ -367,30 +367,6 @@
 .home-band--dark h3,
 .home-band--dark .section-title {
   color: #ffffff;
-}
-
-.home-band--gray {
-  --band-bg: #eef1f4;
-  --band-fg: var(--home-ink);
-  --band-muted: #536273;
-  border-top-color: rgba(16, 39, 70, 0.12);
-  color: var(--band-fg);
-}
-
-.home-band--gray::before {
-  background: #eef1f4;
-}
-
-.home-band--gray p,
-.home-band--gray .home-text-link {
-  color: var(--band-muted);
-}
-
-.home-band--gray h1,
-.home-band--gray h2,
-.home-band--gray h3,
-.home-band--gray .section-title {
-  color: var(--home-dark-strong);
 }
 
 .home-hero {
@@ -723,32 +699,6 @@
   opacity: 0;
 }
 
-.home-dual {
-  padding: 78px 0;
-  border-bottom: 1px solid var(--home-line);
-}
-
-.home-dual__grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-top: 1px solid var(--home-line);
-  border-left: 1px solid var(--home-line);
-}
-
-.home-dual__cell {
-  display: grid;
-  gap: 18px;
-  min-height: 280px;
-  padding: 34px 34px 36px;
-  border-right: 1px solid var(--home-line);
-  border-bottom: 1px solid var(--home-line);
-}
-
-.home-dual__cell p,
-.home-dual__cell h2 {
-  margin: 0;
-}
-
 .research-highlight {
   display: grid;
   gap: 18px;
@@ -821,7 +771,6 @@
   .home-hero__grid,
   .home-programs__grid,
   .home-research__grid,
-  .home-dual__grid,
   .research-grid {
     grid-template-columns: 1fr;
   }
@@ -846,14 +795,6 @@
     letter-spacing: 0;
   }
 
-  .home-dual__grid {
-    border-left: 0;
-  }
-
-  .home-dual__cell {
-    min-height: 0;
-    border-left: 1px solid var(--home-line);
-  }
 }
 
 @media (max-width: 720px) {
@@ -863,8 +804,7 @@
 
   .home-hero,
   .home-programs,
-  .home-research,
-  .home-dual {
+  .home-research {
     padding: 54px 0;
   }
 
@@ -876,9 +816,5 @@
 
   .home-circle-item__visual {
     width: min(100%, 208px);
-  }
-
-  .home-dual__cell {
-    padding: 26px 22px 28px;
   }
 }

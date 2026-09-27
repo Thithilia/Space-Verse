@@ -348,13 +348,54 @@ body[data-page^="fields/"] .menu-toggle {
   justify-self: center;
 }
 
+.field-websites {
+  display: grid;
+  gap: 18px;
+  color: #06284c;
+}
+
+.field-page__inner--wide > .field-websites {
+  width: min(780px, 100%);
+  justify-self: center;
+}
+
+.field-websites h2 {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(1.45rem, 1.8vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+.field-websites__list {
+  display: grid;
+  gap: 6px;
+}
+
+.field-website {
+  display: flex;
+  align-items: center;
+  padding: 2px 0;
+  color: #0052a8;
+  font-size: clamp(1.15rem, 1.45vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.field-website:hover,
+.field-website:focus-visible {
+  color: #06284c;
+}
+
 .field-copy p,
 .field-copy ul {
   margin: 0;
 }
 
 .field-copy h2,
-.field-copy h3 {
+.field-copy h3,
+.taxonomy-intro h2 {
   margin: 0;
   color: #06284c;
   font-family: Arial, Helvetica, sans-serif;
@@ -413,6 +454,14 @@ body[data-page^="fields/"] .menu-toggle {
   color: #06284c;
 }
 
+.field-atlas--taxonomy {
+  width: min(780px, 100%);
+  justify-self: center;
+  gap: 28px;
+  font-size: clamp(1.15rem, 1.45vw, 1.75rem);
+  line-height: 1.6;
+}
+
 .atlas-section {
   display: grid;
   gap: 28px;
@@ -429,6 +478,14 @@ body[data-page^="fields/"] .menu-toggle {
   color: #35506d;
   font-size: clamp(1rem, 1.08vw, 1.18rem);
   line-height: 1.6;
+}
+
+.field-atlas--taxonomy .taxonomy-intro p,
+.field-atlas--taxonomy .field-taxonomy-list {
+  max-width: none;
+  color: #06284c;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .taxonomy-grid {
@@ -1269,7 +1326,9 @@ body[data-page^="fields/"] .menu-toggle {
   }
 
   .about-hero h1 {
-    font-size: clamp(3rem, 14vw, 5.6rem);
+    max-width: 100%;
+    font-size: 2.1rem;
+    overflow-wrap: anywhere;
   }
 
   .about-copy {

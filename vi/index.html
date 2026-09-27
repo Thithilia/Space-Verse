@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
-  <title>Space-Verse</title>
-  <link rel="stylesheet" href="../assets/style.css?v=20260518-gray-dual">
+  <title>Hub for Exploration Opportunities</title>
+  <link rel="stylesheet" href="../assets/style.css?v=20260920-white-home">
   <style>
     body[data-page="index.html"] .home-circle-item::before {
       content: none !important;
@@ -171,7 +171,7 @@
       }
     }
 
-    body[data-page="index.html"] .home-circle-item {
+    body[data-page="index.html"] .home-research:not(.home-planetary) .home-circle-item {
       position: relative;
     }
 
@@ -201,7 +201,7 @@
       </div>
     </section>
 
-    <section class="home-band home-band--light home-research home-grid-lines">
+    <section class="home-band home-band--light home-research home-grid-lines home-planetary">
       <div class="home-research__overlay" aria-hidden="true"></div>
       <div class="home-research__meteors" aria-hidden="true">
         <span class="home-research__meteor" style="--meteor-left: 4%; --meteor-top: 8%; --meteor-length: 170px; --meteor-width: 3px; --meteor-duration: 4.8s; --meteor-delay: -0.9s;"></span>
@@ -233,6 +233,12 @@
         </div>
 
         <div class="home-research__stack">
+          <div class="planetary-orbits" aria-hidden="true">
+            <span style="--orbit: 36%"></span>
+            <span style="--orbit: 54%"></span>
+            <span style="--orbit: 72%"></span>
+            <span style="--orbit: 88%"></span>
+          </div>
           <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(10, 38, 79, 0.92)" data-overlay-image="../image/crabglass.png" href="../vi/fields/astrophysics-&-cosmology.html">
             <span class="home-circle-item__visual">
               <img src="../image/crabglass.png" alt="Hình ảnh Crab cho mục vật lý thiên văn và vũ trụ học" />
@@ -250,9 +256,9 @@
 
           <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(15, 54, 97, 0.92)" data-overlay-image="../image/remote.png" href="../vi/fields/remote-sensing.html">
             <span class="home-circle-item__visual">
-              <img src="../image/remote.png" alt="Viễn thám và khoa học Trái Đất" />
+              <img src="../image/remote.png" alt="Viễn thám" />
             </span>
-            <span class="home-circle-item__title">Viễn thám và khoa học Trái Đất</span>
+            <span class="home-circle-item__title">Viễn thám</span>
           </a>
 
           <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(18, 48, 88, 0.92)" data-overlay-image="../image/heparea.jpg" href="../vi/fields/space-physics.html">
@@ -265,40 +271,17 @@
       </div>
     </section>
 
-    <section class="home-band home-band--gray home-dual">
-      <div class="container home-dual__grid">
-        <article class="home-dual__cell">
-          <h2 class="section-title">Khám phá cơ hội</h2>
-          <p>Trang cơ hội giúp người học xác định nên theo dõi học bổng, chương trình sau đại học và internship ở đâu trước khi đi sâu vào từng đợt tuyển chọn cụ thể.</p>
-          <a class="home-text-link" href="../vi/opportunities.html">Đi tới cơ hội</a>
-        </article>
-
-        <article class="home-dual__cell">
-          <h2 class="section-title">Tài nguyên học thuật</h2>
-          <p>Danh mục tài nguyên giúp người học kết nối các môn nền tảng, kỹ năng học thuật và chủ đề chuyên sâu trong cùng một lộ trình học tập rõ ràng.</p>
-          <a class="home-text-link" href="../vi/resources.html">Mở tài nguyên</a>
-        </article>
-
-        <article class="home-dual__cell">
-          <h2 class="section-title">Tin tức</h2>
-          <p>Theo dõi các bản tin không gian được tổng hợp từ nguồn chính thống, kết hợp bộ lọc theo lĩnh vực và chế độ demo khi backend chưa kết nối.</p>
-          <a class="home-text-link" href="../vi/news.html">Mở tin tức</a>
-        </article>
-
-      </div>
-    </section>
-
   </main>
 
   <div id="site-footer"></div>
-  <script src="../assets/site-shell.js?v=20260519-news-guide" defer></script>
+  <script src="../assets/site-shell.js?v=20260927-footer-coolheo" defer></script>
   <script>
     function initResearchOverlay() {
       const section = document.querySelector(".home-research");
       const overlay = section ? section.querySelector(".home-research__overlay") : null;
       const triggers = section ? section.querySelectorAll("[data-overlay-trigger]") : [];
 
-      if (!section || !overlay || !triggers.length) return;
+      if (!section || !overlay || !triggers.length || section.classList.contains("home-planetary")) return;
 
       let activeTrigger = null;
 

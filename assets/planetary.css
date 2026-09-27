@@ -1,0 +1,149 @@
+/* Research destinations arranged as a planetary system. */
+body[data-page="index.html"] .home-planetary {
+  min-height: 0;
+  padding: 80px 0 50px;
+  background: radial-gradient(ellipse at 50% 55%, #eef3fa 0, #fafbfd 42%, #fff 75%);
+}
+
+.home-planetary .home-research__meteors,
+.home-planetary .home-research__ground-wind,
+.home-planetary .home-research__overlay {
+  display: none;
+}
+
+.home-planetary .home-research__grid {
+  gap: 12px;
+}
+
+.home-planetary .home-research__label {
+  max-width: 720px;
+  font-size: clamp(1.6rem, 3vw, 2.6rem);
+  line-height: 1.25;
+}
+
+.home-planetary .home-research__stack {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+.planetary-orbits {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.planetary-orbits span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: var(--orbit);
+  height: var(--orbit);
+  transform: translate(-50%, -50%);
+  border: 1px solid #ccd6e3;
+  border-radius: 50%;
+}
+
+.planetary-sun {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(64px, 11vw, 112px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(circle at 35% 30%, #fffbe6, #ffd279 45%, #e89735 78%, #c56c26);
+  box-shadow: 0 0 32px #f7c96b66, 0 0 85px #f7c96b33;
+  color: #754514;
+  font-size: clamp(13px, 2vw, 21px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.home-planetary .home-circle-item {
+  position: absolute;
+  left: var(--planet-x);
+  top: var(--planet-y);
+  width: clamp(76px, 15vw, 148px);
+  transform: translate(-50%, -50%);
+  gap: 0;
+  z-index: 2;
+}
+
+.home-planetary a.home-circle-item:nth-of-type(1) { --planet-x: 64.75%; --planet-y: 39.68%; }
+.home-planetary button.home-circle-item { --planet-x: 25.53%; --planet-y: 61.41%; }
+.home-planetary a.home-circle-item:nth-of-type(2) { --planet-x: 77.58%; --planet-y: 73.14%; }
+.home-planetary a.home-circle-item:nth-of-type(3) { --planet-x: 16.29%; --planet-y: 21.72%; }
+
+.home-planetary .home-circle-item__visual {
+  width: 100%;
+  border: 1px solid #ffffffaa;
+  box-shadow: 7px 12px 22px #19324c26;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.home-planetary .home-circle-item__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.home-planetary .home-circle-item__visual::after {
+  background: radial-gradient(circle at 28% 25%, #ffffff22, transparent 38%, #020f2a88 90%);
+  box-shadow: inset -8px -7px 14px #06132d55;
+  border-radius: 50%;
+}
+
+.home-planetary .home-circle-item__title {
+  position: absolute;
+  top: calc(100% + 12px);
+  width: 190px;
+  max-width: none;
+  font-size: clamp(0.78rem, 1.3vw, 1rem);
+  line-height: 1.35;
+  font-weight: 600;
+  color: #183453;
+}
+
+.home-planetary .home-circle-item__status {
+  position: absolute;
+  top: calc(100% + 38px);
+  white-space: nowrap;
+  font-size: 0.65rem;
+}
+
+.home-planetary .home-circle-item:hover .home-circle-item__visual,
+.home-planetary .home-circle-item:focus-visible .home-circle-item__visual {
+  transform: scale(1.08);
+  box-shadow: 0 0 0 5px #9abce633, 7px 16px 28px #19324c33;
+}
+
+.home-planetary .home-circle-item:focus-visible {
+  outline: 2px solid #1456c1;
+  outline-offset: 7px;
+  border-radius: 50%;
+}
+
+.home-planetary .home-circle-item:hover .home-circle-item__title,
+.home-planetary .home-circle-item:hover .home-circle-item__status,
+.home-planetary .home-circle-item:focus-visible .home-circle-item__title,
+.home-planetary .home-circle-item:focus-visible .home-circle-item__status {
+  opacity: 1;
+}
+
+@media (max-width: 600px) {
+  body[data-page="index.html"] .home-planetary { padding: 48px 0 64px; }
+  .home-planetary .home-research__grid { gap: 36px; }
+  .home-planetary .home-circle-item { width: clamp(58px, 16vw, 90px); }
+  .home-planetary .home-circle-item__title { width: 104px; top: calc(100% + 8px); font-size: 0.72rem; }
+  .home-planetary .home-circle-item__status { top: calc(100% + 43px); font-size: 0.5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-planetary .home-circle-item__visual { transition: none; }
+}
