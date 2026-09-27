@@ -412,14 +412,14 @@ body[data-page^="fields/"] .menu-toggle {
   margin-top: 10px;
 }
 
-body[data-page="fields/astrophysics-&-cosmology.html"] .field-page__inner,
-body[data-page="fields/astrophysics-&-cosmology.html"] .field-page__inner h1,
-body[data-page="fields/astrophysics-&-cosmology.html"] .field-page__inner h2,
-body[data-page="fields/astrophysics-&-cosmology.html"] .field-page__inner h3,
-body[data-page="fields/astrophysics-&-cosmology.html"] .field-page__inner p,
-body[data-page="fields/astrophysics-&-cosmology.html"] .field-page__inner li,
-body[data-page="fields/astrophysics-&-cosmology.html"] .field-page__inner strong,
-body[data-page="fields/astrophysics-&-cosmology.html"] .field-page__inner a {
+.field-page__inner,
+.field-page__inner h1,
+.field-page__inner h2,
+.field-page__inner h3,
+.field-page__inner p,
+.field-page__inner li,
+.field-page__inner strong,
+.field-page__inner a {
   color: #000000;
 }
 
