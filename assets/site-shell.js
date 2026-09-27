@@ -61,7 +61,7 @@
         contactTitle: "Liên hệ",
         quickLinks: [
           { label: "Về chúng tôi", href: "about.html" },
-          { label: "Nghiên cứu", href: "research.html" },
+          { label: "Nghiên cứu", href: "fields/astrophysics-&-cosmology.html" },
           { label: "Tài nguyên", href: "resources.html" }
         ],
         contactLines: [
@@ -83,7 +83,7 @@
         {
           type: "submenu",
           label: "Nghiên cứu",
-          href: "research.html",
+          href: "fields/astrophysics-&-cosmology.html",
           items: [
             { label: "Vật lý thiên văn và vũ trụ học", href: "fields/astrophysics-&-cosmology.html" },
             { label: "Công nghệ vệ tinh", href: "fields/satellite-technology.html" },
@@ -202,7 +202,7 @@
           return `<a href="${href}"${current}>${subItem.label}</a>`;
         }).join("");
         const href = item.href ? ` data-href="${localeHref(locale, item.href)}"` : "";
-        const active = item.href === page || (item.href === "research.html" && page.startsWith("fields/")) || (item.href === "opportunities.html" && page.startsWith("opportunities/"));
+        const active = item.href === page || (item.href === "fields/astrophysics-&-cosmology.html" && page.startsWith("fields/")) || (item.href === "opportunities.html" && page.startsWith("opportunities/"));
         return `<div class="nav-item has-submenu" data-active="${active}"><button type="button" aria-expanded="false"${href}>${item.label}</button><div class="submenu">${submenu}</div></div>`;
       }
       const href = localeHref(locale, item.href);
@@ -253,7 +253,7 @@
 
   function renderFooter() {
     if (!footerRoot) return;
-    const researchHref = locale === "vi" ? localeHref(locale, "research.html") : localeHref(locale, "projects.html");
+    const researchHref = locale === "vi" ? localeHref(locale, "fields/astrophysics-&-cosmology.html") : localeHref(locale, "projects.html");
     const materialHref = locale === "vi" ? localeHref(locale, "resources.html") : localeHref(locale, "index.html");
     const newsHref = locale === "vi" ? localeHref(locale, "news.html") : localeHref(locale, "index.html");
     const contactHref = "mailto:contact.space-verse@gmail.com";
