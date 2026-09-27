@@ -22,17 +22,22 @@
         {
           href: "fields/remote-sensing.html",
           title: "Viễn thám",
-          summary: "Thu nhận, xử lý và diễn giải dữ liệu vệ tinh, ảnh không gian và dữ liệu địa lý."
+          summary: "Thu nhận, xử lý và phân tích thông tin từ xa bằng cảm biến quang học, radar, lidar và các hệ thống quan sát khác."
         },
         {
-          href: "fields/remote-sensing-&-earth-sciences.html",
-          title: "Viễn thám và khoa học Trái Đất",
-          summary: "Nhánh chuyên sâu về khí hậu, môi trường, tài nguyên, thiên tai và hệ Trái Đất."
+          href: "fields/earth-sciences.html",
+          title: "Khoa học Trái Đất",
+          summary: "Nghiên cứu các hệ thống đất, nước, khí quyển, băng quyển, sinh quyển và những biến đổi của Trái Đất."
         },
         {
           href: "fields/space-physics.html",
           title: "Vật lý không gian",
           summary: "Môi trường plasma, gió Mặt Trời, từ quyển, tầng điện ly và thời tiết không gian."
+        },
+        {
+          href: "fields/particle-physics.html",
+          title: "Vật lý hạt",
+          summary: "Các hạt cơ bản, tương tác nền tảng, máy gia tốc, detector và vật lý năng lượng cao."
         }
       ]
     },
@@ -79,7 +84,7 @@
 
   function activeHref() {
     if (page.startsWith("fields/astrophysics/")) return "fields/astrophysics-&-cosmology.html";
-    if (page.startsWith("fields/earth-sciences/")) return "fields/remote-sensing-&-earth-sciences.html";
+    if (page.startsWith("fields/earth-sciences/")) return "fields/earth-sciences.html";
     return page;
   }
 

@@ -402,7 +402,7 @@ async function renderNewsList(target) {
 }
 
 function renderArticle(target, data) {
-  document.title = `${data.title_vi} | Space-Verse`;
+  document.title = `${data.title_vi} | Hub for Exploration Opportunities`;
   const imageUrl = safeHttpUrl(data.image_url);
   const sourceUrl = safeHttpUrl(data.source_url);
   const imageSourceUrl = safeHttpUrl(data.image_source_url);

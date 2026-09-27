@@ -1,56 +1,61 @@
 import { expect, test } from "@playwright/test";
 
 const pages = [
-  { path: "/vi/index.html", title: /Space-Verse/, checks: [[".home-circle-item", 4]] },
-  { path: "/en/index.html", title: /Space-Verse/, checks: [[".home-circle-item", 4], [".home-dual__cell", 3]] },
-  { path: "/fr/index.html", title: /Space-Verse/, checks: [[".home-circle-item", 4], [".home-dual__cell", 3]] },
-  { path: "/vi/about.html", title: /Space-Verse/ },
-  { path: "/vi/disclaimer.html", title: /Space-Verse/ },
+  { path: "/vi/index.html", title: /Hub for Exploration Opportunities/, checks: [[".home-circle-item", 4]] },
+  { path: "/en/index.html", title: /Hub for Exploration Opportunities/, checks: [[".home-circle-item", 4]] },
+  { path: "/fr/index.html", title: /Hub for Exploration Opportunities/, checks: [[".home-circle-item", 4]] },
+  { path: "/vi/about.html", title: /Hub for Exploration Opportunities/ },
+  { path: "/vi/disclaimer.html", title: /Hub for Exploration Opportunities/ },
   { path: "/vi/news.html", title: /Tin/, checks: [[".news-toolbar", 1], ["[data-news-root]", 1]] },
   { path: "/vi/news.html?demo=1", title: /Tin/, checks: [[".news-card", 10], [".news-card__media img", 10]] },
-  { path: "/vi/news/article.html?slug=demo-webb-exoplanet-atmosphere&demo=1", title: /Space-Verse/, checks: [[".news-article", 1]] },
+  { path: "/vi/news/article.html?slug=demo-webb-exoplanet-atmosphere&demo=1", title: /Hub for Exploration Opportunities/, checks: [[".news-article", 1]] },
   { path: "/vi/news/article.html?slug=test", title: /Tin/, checks: [[".news-state", 1]] },
   { path: "/vi/admin/news.html", title: /Tin/, checks: [["input[name='email']", 1]] },
-  { path: "/vi/research.html", title: /Space-Verse/, checks: [[".resource-sidebar", 1], ["#research-sidebar .resource-link", 5], ["#research-overview .resource-overview-link", 5]] },
+  { path: "/vi/research.html", title: /Hub for Exploration Opportunities/, checks: [[".resource-sidebar", 1], ["#research-sidebar .resource-link", 6], ["#research-overview .resource-overview-link", 6]] },
   {
     path: "/vi/fields/astrophysics-&-cosmology.html",
-    title: /Space-Verse/,
-    checks: [[".resource-sidebar", 1], ["#research-sidebar .resource-link", 5], ["#astro-categories-title", 1], [".taxonomy-group", 6], [".taxonomy-code", 6]]
+    title: /Hub for Exploration Opportunities/,
+    checks: [[".resource-sidebar", 1], ["#research-sidebar .resource-link", 6], [".field-websites", 1], [".field-website", 5], ["#astro-categories-title", 1], [".taxonomy-intro p", 1], [".iau-division-list li", 9]]
   },
   {
     path: "/vi/fields/satellite-technology.html",
-    title: /Space-Verse/,
-    checks: [[".resource-sidebar", 1], ["#research-sidebar .resource-link", 5], [".mission-scale", 1], [".cosmic-node", 6]]
+    title: /Hub for Exploration Opportunities/,
+    checks: [[".resource-sidebar", 1], ["#research-sidebar .resource-link", 6], [".field-websites", 1], [".field-website", 4], [".field-copy", 2], [".satellite-technology-direction", 4]]
   },
   {
     path: "/vi/fields/remote-sensing.html",
-    title: /Space-Verse/,
-    checks: [[".resource-sidebar", 1], ["#research-sidebar .resource-link", 5], [".mission-scale", 1], [".cosmic-node", 7]]
+    title: /Hub for Exploration Opportunities/,
+    checks: [[".resource-sidebar", 1], ["#research-sidebar .resource-link", 6], [".field-websites", 1], [".field-website", 4], [".field-copy", 2], [".remote-sensing-taxonomy h3", 3]]
   },
   {
-    path: "/vi/fields/remote-sensing-&-earth-sciences.html",
-    title: /Space-Verse/,
-    checks: [[".resource-sidebar", 1], ["#research-sidebar .resource-link", 5], [".field-copy", 7]]
+    path: "/vi/fields/earth-sciences.html",
+    title: /Hub for Exploration Opportunities/,
+    checks: [[".resource-sidebar", 1], ["#research-sidebar .resource-link", 6], [".field-websites", 1], [".field-website", 4], [".field-copy", 2], [".earth-science-direction", 4]]
   },
   {
     path: "/vi/fields/space-physics.html",
-    title: /Space-Verse/,
-    checks: [[".resource-sidebar", 1], ["#research-sidebar .resource-link", 5], [".space-weather-map", 1], [".space-weather-node", 6]]
+    title: /Hub for Exploration Opportunities/,
+    checks: [[".resource-sidebar", 1], ["#research-sidebar .resource-link", 6], [".field-copy", 2], [".space-physics-direction", 4]]
+  },
+  {
+    path: "/vi/fields/particle-physics.html",
+    title: /Vật lý hạt/,
+    checks: [[".resource-sidebar", 1], ["#research-sidebar .resource-link", 6], [".field-websites", 1], [".field-website", 4], [".field-copy", 2], [".particle-physics-direction", 4]]
   },
   {
     path: "/vi/resources.html",
-    title: /Space-Verse/,
+    title: /Hub for Exploration Opportunities/,
     checks: [[".resource-sidebar", 1], [".resource-link", 18], [".resource-intro", 1]]
   },
   {
     path: "/vi/resources/profile-building.html",
-    title: /Space-Verse/,
+    title: /Hub for Exploration Opportunities/,
     checks: [[".resource-sidebar", 1], [".resource-link", 18], [".resource-detail", 1]]
   },
-  { path: "/vi/opportunities.html", title: /Space-Verse/, checks: [[".resource-sidebar", 1], ["#opportunity-sidebar .resource-link", 3], ["#opportunity-overview .resource-overview-link", 3]] },
-  { path: "/vi/opportunities/graduate-programs.html", title: /Space-Verse/, checks: [[".resource-sidebar", 1], ["#opportunity-sidebar .resource-link", 3], [".resource-detail", 1]] },
-  { path: "/vi/opportunities/internships.html", title: /Space-Verse/, checks: [[".resource-sidebar", 1], ["#opportunity-sidebar .resource-link", 3], [".resource-detail", 1]] },
-  { path: "/vi/opportunities/scholarships.html", title: /Space-Verse/, checks: [[".resource-sidebar", 1], ["#opportunity-sidebar .resource-link", 3], [".resource-detail", 1], [".scholarship-table", 1], [".scholarship-table thead th", 4], [".scholarship-table tbody tr", 17]] }
+  { path: "/vi/opportunities.html", title: /Hub for Exploration Opportunities/, checks: [[".resource-sidebar", 1], ["#opportunity-sidebar .resource-link", 3], ["#opportunity-overview .resource-overview-link", 3]] },
+  { path: "/vi/opportunities/graduate-programs.html", title: /Hub for Exploration Opportunities/, checks: [[".resource-sidebar", 1], ["#opportunity-sidebar .resource-link", 3], [".resource-detail", 1]] },
+  { path: "/vi/opportunities/internships.html", title: /Hub for Exploration Opportunities/, checks: [[".resource-sidebar", 1], ["#opportunity-sidebar .resource-link", 3], [".resource-detail", 1]] },
+  { path: "/vi/opportunities/scholarships.html", title: /Hub for Exploration Opportunities/, checks: [[".resource-sidebar", 1], ["#opportunity-sidebar .resource-link", 3], [".resource-detail", 1], [".scholarship-table", 1], [".scholarship-table thead th", 4], [".scholarship-table tbody tr", 17]] }
 ];
 
 test.describe("site smoke checks", () => {
@@ -72,6 +77,7 @@ test.describe("site smoke checks", () => {
   }
 
   test("hamburger navigation opens and exposes major links", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/vi/index.html", { waitUntil: "domcontentloaded" });
 
     await expect(page.locator(".menu-toggle")).toHaveCount(1);
@@ -101,7 +107,23 @@ test.describe("site smoke checks", () => {
     }
   });
 
+  test("pages use the supplied Space-Verse logo as the browser favicon", async ({ page, request }) => {
+    for (const path of ["/vi/index.html", "/vi/fields/astrophysics/exoplanets.html"]) {
+      await page.goto(path, { waitUntil: "domcontentloaded" });
+
+      const favicon = page.locator('link[rel~="icon"]');
+      await expect(favicon).toHaveCount(1);
+      await expect(favicon).toHaveAttribute("type", "image/png");
+      await expect(favicon).toHaveAttribute("href", /assets\/favicon\.png\?v=20260821$/);
+
+      const faviconUrl = await favicon.evaluate((link) => link.href);
+      const response = await request.get(faviconUrl);
+      expect(response.status(), `${faviconUrl} should be available`).toBe(200);
+    }
+  });
+
   test("language switcher renders image flags instead of regional letter glyphs", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/vi/index.html", { waitUntil: "domcontentloaded" });
     await page.locator(".menu-toggle").click();
     await page.locator(".lang-trigger").click();
@@ -124,14 +146,12 @@ test.describe("site smoke checks", () => {
         lang: "en",
         heading: "Explore research across space and the Universe.",
         field: "Astrophysics and cosmology",
-        section: "Academic resources"
       },
       {
         path: "/fr/index.html",
         lang: "fr",
         heading: "Explorez les domaines de recherche sur l’espace et l’Univers.",
         field: "Astrophysique et cosmologie",
-        section: "Ressources académiques"
       }
     ];
 
@@ -141,9 +161,8 @@ test.describe("site smoke checks", () => {
       await expect(page.locator("body")).toHaveAttribute("data-locale", locale.lang);
       await expect(page.locator(".home-research__label")).toHaveText(locale.heading);
       await expect(page.locator(".home-circle-item__title").first()).toHaveText(locale.field);
-      await expect(page.locator(".home-dual__cell .section-title").nth(1)).toHaveText(locale.section);
       await expect(page.locator(".home-circle-item")).toHaveCount(4);
-      await expect(page.locator(".home-dual__cell")).toHaveCount(3);
+      await expect(page.locator(".home-dual")).toHaveCount(0);
       await expect(page.locator(".home-circle-item img")).toHaveCount(4);
     }
   });
@@ -155,10 +174,10 @@ test.describe("site smoke checks", () => {
     await page.goto("/vi/index.html", { waitUntil: "domcontentloaded" });
     await expect(page.locator('a[href*="guide.html"]')).toHaveCount(0);
     await expect(page.getByText("Hướng dẫn sử dụng website", { exact: true })).toHaveCount(0);
-    await expect(page.locator(".home-dual__cell")).toHaveCount(3);
+    await expect(page.locator(".home-dual")).toHaveCount(0);
   });
 
-  test("main content connects directly to the gray footer without a tinted gap", async ({ page }) => {
+  test("main content connects directly to the white footer without a tinted gap", async ({ page }) => {
     const paths = [
       "/vi/resources.html",
       "/vi/research.html",
@@ -171,11 +190,13 @@ test.describe("site smoke checks", () => {
 
       const colors = await page.evaluate(() => ({
         main: getComputedStyle(document.querySelector(".site-main")).backgroundColor,
-        footer: getComputedStyle(document.querySelector(".site-footer")).backgroundColor
+        footer: getComputedStyle(document.querySelector(".site-footer")).backgroundColor,
+        footerBorder: getComputedStyle(document.querySelector(".site-footer")).borderTopColor
       }));
 
       expect(colors.main).toBe("rgb(255, 255, 255)");
-      expect(colors.footer).toBe("rgb(245, 245, 245)");
+      expect(colors.footer).toBe("rgb(255, 255, 255)");
+      expect(colors.footerBorder).toBe("rgb(217, 221, 227)");
     }
   });
 
@@ -218,7 +239,7 @@ test.describe("site smoke checks", () => {
       "/vi/fields/astrophysics-&-cosmology.html",
       "/vi/fields/satellite-technology.html",
       "/vi/fields/remote-sensing.html",
-      "/vi/fields/remote-sensing-&-earth-sciences.html",
+      "/vi/fields/earth-sciences.html",
       "/vi/fields/space-physics.html"
     ];
 
@@ -253,11 +274,16 @@ test.describe("site smoke checks", () => {
   test("research sidebar links open the selected field detail", async ({ page }) => {
     await page.goto("/vi/research.html", { waitUntil: "domcontentloaded" });
 
-    await page.locator("#research-sidebar .resource-link", { hasText: "Viễn thám và khoa học Trái Đất" }).click();
+    await expect(page.locator("#research-sidebar .resource-link")).toHaveCount(6);
+    await expect(page.locator("#research-sidebar .resource-link", { hasText: /^Viễn thám/ })).toHaveCount(1);
+    await expect(page.locator("#research-sidebar .resource-link", { hasText: /^Khoa học Trái Đất/ })).toHaveCount(1);
+    await expect(page.locator("#research-sidebar .resource-link", { hasText: "Vật lý hạt" })).toHaveCount(1);
 
-    await expect(page).toHaveURL(/\/vi\/fields\/remote-sensing-&-earth-sciences\.html$/);
-    await expect(page.locator("h1")).toContainText("Viễn thám và khoa học Trái Đất");
-    await expect(page.locator("#research-sidebar .resource-link.is-active")).toContainText("Viễn thám và khoa học Trái Đất");
+    await page.locator("#research-sidebar .resource-link", { hasText: /^Khoa học Trái Đất/ }).click();
+
+    await expect(page).toHaveURL(/\/vi\/fields\/earth-sciences\.html$/);
+    await expect(page.locator("h1")).toContainText("Khoa học Trái Đất");
+    await expect(page.locator("#research-sidebar .resource-link.is-active")).toContainText("Khoa học Trái Đất");
   });
 
   test("opportunity sidebar links open the selected detail", async ({ page }) => {
@@ -338,7 +364,7 @@ test.describe("site smoke checks", () => {
       "/vi/fields/astrophysics-&-cosmology.html",
       "/vi/fields/satellite-technology.html",
       "/vi/fields/remote-sensing.html",
-      "/vi/fields/remote-sensing-&-earth-sciences.html",
+      "/vi/fields/earth-sciences.html",
       "/vi/fields/space-physics.html"
     ];
     const internalPaths = new Set();
@@ -361,6 +387,7 @@ test.describe("site smoke checks", () => {
   });
 
   test("images on key pages are loaded", async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
     for (const path of ["/vi/index.html", "/vi/research.html"]) {
       await page.goto(path, { waitUntil: "domcontentloaded" });
       await page.locator(".menu-toggle").click();

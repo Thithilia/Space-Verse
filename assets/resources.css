@@ -217,6 +217,10 @@
   line-height: 1.22;
 }
 
+.resource-detail h2.document-heading {
+  font-weight: 700;
+}
+
 .resource-detail h3 {
   color: #000000;
   font-size: clamp(1.1rem, 1.25vw, 1.4rem);

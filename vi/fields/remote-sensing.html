@@ -4,126 +4,74 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; form-action 'self'; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://*.supabase.co">
-  <title>Viễn thám | Space-Verse</title>
-  <link rel="stylesheet" href="../../assets/style.css?v=20260516-audit2">
+  <title>Viễn thám | Hub for Exploration Opportunities</title>
+  <link rel="stylesheet" href="../../assets/style.css?v=20260927-field-section-alignment">
 </head>
 <body class="section-ui" data-locale="vi" data-page="fields/remote-sensing.html" data-root="../../">
   <div id="site-header"></div>
 
   <section class="resource-top-band" aria-hidden="true"></section>
 
-  <nav class="resource-breadcrumb-row" aria-label="Breadcrumb">
-    <div class="container">
-      <a href="../../vi/index.html">Trang chủ</a>
-      <span>/</span>
-      <a href="../../vi/research.html">Nghiên cứu</a>
-      <span>/</span>
-      <span>Viễn thám</span>
-    </div>
-  </nav>
-
   <main class="site-main field-page">
     <div class="container page-section resource-layout">
       <div class="page-grid">
         <aside id="research-sidebar"></aside>
         <div class="field-page__inner">
-      <header class="resource-intro page-intro">
-        <span class="eyebrow">Research area</span>
-        <h1 class="section-title">Viễn thám</h1>
-      </header>
-      <section class="field-copy field-copy--lead">
-        <h2>Giới thiệu chung</h2>
-        <p>Viễn thám nghiên cứu cách thu nhận và diễn giải tín hiệu từ cảm biến ở xa để hiểu bề mặt đất, khí quyển, đại dương và các quá trình môi trường. Điểm cốt lõi của ngành không nằm ở việc “xem ảnh vệ tinh”, mà ở việc hiểu tín hiệu đo được đã đi qua khí quyển, hình học quan sát, nhiễu thiết bị và quy trình xử lý như thế nào trước khi trở thành sản phẩm khoa học.</p>
+          <header class="resource-intro page-intro">
+            <h1 class="section-title">Viễn thám</h1>
+          </header>
 
-        <p>Lĩnh vực này kết nối vật lý bức xạ với xử lý ảnh, GIS, thống kê, mô hình môi trường và khoa học dữ liệu. Người học phải làm quen với nhiều loại cảm biến khác nhau, từ quang học thụ động đến radar chủ động, từ ảnh độ phân giải cao đến chuỗi thời gian dài phục vụ giám sát biến động.</p>
+          <section class="field-websites" aria-labelledby="remote-websites-title">
+            <h2 id="remote-websites-title">Website nên biết</h2>
+            <div class="field-websites__list">
+              <a class="field-website" href="https://www.earthdata.nasa.gov/">NASA Earthdata</a>
+              <a class="field-website" href="https://dataspace.copernicus.eu/">Copernicus Data Space</a>
+              <a class="field-website" href="https://earthexplorer.usgs.gov/">USGS EarthExplorer</a>
+              <a class="field-website" href="https://earth.esa.int/eogateway">ESA Earth Online</a>
+            </div>
+          </section>
 
-        <p>Viễn thám đặc biệt quan trọng vì nó tạo ra góc nhìn lặp lại, quy mô lớn và có thể định lượng được. Điều đó làm cho nó trở thành một nền tảng thiết yếu cho quan trắc đất, rừng, nước, băng tuyết, cháy rừng, đô thị hóa, chất lượng khí quyển và nhiều bài toán climate services.</p>
-      </section>
-      <section class="field-atlas" aria-labelledby="remote-map-title"><div class="atlas-heading"><span class="atlas-kicker">Luồng xử lý viễn thám</span><h3 id="remote-map-title">Từ tín hiệu cảm biến đến sản phẩm bản đồ có thể dùng được.</h3></div><div class="cosmic-scale mission-scale"><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">01</span><span class="cosmic-node__title">Vật lý cảm biến</span><span class="cosmic-node__question">Phổ đo, độ phân giải và nhiễu đo.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">02</span><span class="cosmic-node__title">Thu nhận</span><span class="cosmic-node__question">Dữ liệu quang học, radar, nhiệt hay khí tượng.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">03</span><span class="cosmic-node__title">Tiền xử lý</span><span class="cosmic-node__question">Hiệu chỉnh hình học, khí quyển, mây và căn thời gian.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">04</span><span class="cosmic-node__title">Đặc trưng</span><span class="cosmic-node__question">Chỉ số phổ, texture và ngữ cảnh không gian.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">05</span><span class="cosmic-node__title">Mô hình hóa</span><span class="cosmic-node__question">Phân loại, hồi quy và phát hiện thay đổi.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">06</span><span class="cosmic-node__title">Kiểm định</span><span class="cosmic-node__question">Ground truth, độ bất định và độ chính xác.</span></article><article class="cosmic-node"><span class="cosmic-node__dot"></span><span class="cosmic-node__scale">07</span><span class="cosmic-node__title">Lớp quyết định</span><span class="cosmic-node__question">Bản đồ, dashboard và cảnh báo vận hành.</span></article></div></section>
+          <section class="field-copy field-copy--lead">
+            <h2>Giới thiệu chung</h2>
+            <p><strong>Viễn thám (Remote Sensing)</strong> là khoa học và công nghệ thu thập, xử lý và phân tích thông tin về một đối tượng, bề mặt hoặc hiện tượng từ xa mà <strong>không cần tiếp xúc vật lý trực tiếp</strong> với đối tượng đó.</p>
 
-      <section class="field-columns" aria-label="Khung nội dung viễn thám">
-        <article class="field-copy">
-          <h3>Chủ đề nghiên cứu tiêu biểu</h3>
-          <ul>
-            <li>Quan trắc đất, rừng, nông nghiệp, đô thị và tài nguyên nước bằng chuỗi ảnh vệ tinh.</li>
-            <li>Radar khẩu độ tổng hợp (SAR) cho quan trắc mọi thời tiết, cả ngày lẫn đêm.</li>
-            <li>Nhiệt hồng ngoại, sounding khí quyển và quan trắc aerosol, mây, nhiệt độ bề mặt.</li>
-            <li>Phát hiện thay đổi, theo dõi thiên tai, cháy rừng, ngập lụt và biến động dài hạn.</li>
-            <li>Xây dựng sản phẩm bản đồ, chỉ số môi trường và hệ thống hỗ trợ quyết định.</li>
-          </ul>
-        </article>
-        <article class="field-copy">
-          <h3>Nền tảng nên chuẩn bị</h3>
-          <ul>
-            <li>Vật lý bức xạ, quang học cơ bản, thống kê và xử lý tín hiệu.</li>
-            <li>GIS, dữ liệu raster/vector, hệ tọa độ và suy nghĩ theo không gian - thời gian.</li>
-            <li>Lập trình Python hoặc R để xử lý ảnh, trực quan hóa và tự động hóa pipeline.</li>
-            <li>Khả năng đọc metadata cảm biến, hiểu độ phân giải phổ, không gian, thời gian và bức xạ.</li>
-          </ul>
-        </article>
-      </section>
+            <p>Khái niệm về quan sát bề mặt Trái Đất đã tiến hóa mạnh mẽ gắn liền với lịch sử phát triển công nghệ của nhân loại. Mặc dù tư tưởng sơ khai của viễn thám bắt đầu từ giữa thế kỷ XIX khi con người thực hiện chụp ảnh hàng không từ khí cầu hoặc khinh khí cầu, bước ngoặt thực sự chỉ diễn ra cùng với sự bùng nổ của kỷ nguyên không gian vào nửa sau thế kỷ XX. Việc phóng các vệ tinh nhân tạo đầu tiên và sự ra đời của chương trình Landsat (NASA/USGS) vào năm 1972 đã đánh dấu bình minh của kỷ nguyên quan sát Trái Đất liên tục từ quỹ đạo, mở ra khả năng giám sát tài nguyên thiên nhiên và môi trường ở quy mô toàn cầu.</p>
 
-      <section class="field-columns" aria-label="Phương pháp và dữ liệu">
-        <article class="field-copy">
-          <h3>Phương pháp, dữ liệu và công cụ</h3>
-          <ul>
-            <li>Phân biệt sensor thụ động và chủ động; hiểu giới hạn của quang học, radar và dữ liệu nhiệt.</li>
-            <li>Tiền xử lý gồm georeferencing, atmospheric correction, masking mây và đồng bộ chuỗi thời gian.</li>
-            <li>Phân tích chỉ số phổ, texture, segmentation, classification, regression và change detection.</li>
-            <li>Khai thác kho dữ liệu mở qua NASA Earthdata, USGS Landsat, Copernicus và NOAA products.</li>
-          </ul>
-        </article>
-        <article class="field-copy">
-          <h3>Nhiệm vụ và bộ dữ liệu nên biết</h3>
-          <ul>
-            <li>Landsat là chuỗi ảnh đất dài hạn từ năm 1972, rất quan trọng cho bài toán biến đổi theo thời gian.</li>
-            <li>Copernicus Sentinel-1 cung cấp SAR mọi thời tiết; Sentinel-2 và Sentinel-3 cung cấp ảnh đa phổ và sản phẩm nhiệt, đại dương.</li>
-            <li>VIIRS trong hệ JPSS hỗ trợ quan trắc vận hành cho mây, aerosol, cháy rừng, nhiệt độ và nhiều sản phẩm môi trường.</li>
-            <li>LP DAAC phân phối nhiều bộ dữ liệu đất liền quan trọng như MODIS, VIIRS, ASTER, GEDI, ECOSTRESS và HLS.</li>
-          </ul>
-        </article>
-      </section>
+            <p>Sự bứt phá của viễn thám hiện đại gắn liền với sự đa dạng hóa của các hệ thống cảm biến (sensor) và phương tiện mang (platform). Bên cạnh các vệ tinh quang học truyền thống đo đạc ánh sáng nhìn thấy và hồng ngoại, sự xuất hiện của hệ thống Radar lỗ mở tổng hợp (SAR) cho phép quan sát xuyên qua mây mù, bóng đêm và kỹ thuật LiDAR giúp dựng mô hình 3D cấu trúc bề mặt với độ chính xác cao. Hiện nay, việc kết hợp giữa các chòm vệ tinh quan sát Trái Đất thế hệ mới, thiết bị bay không người lái (Drone/UAV), cùng công nghệ xử lý dữ liệu lớn (Big Data) và Trí tuệ Nhân tạo (AI) đã đưa viễn thám trở thành một công cụ định lượng chính xác cao - cung cấp thông tin thời gian thực phục vụ giám sát biến đổi khí hậu, quản lý tài nguyên và ứng phó thiên tai.</p>
+          </section>
 
-      <section class="field-columns" aria-label="Định hướng học">
-        <article class="field-copy">
-          <h3>Ngành này thường được thực hành ở đâu</h3>
-          <ul>
-            <li>Trung tâm dữ liệu và khoa học Trái Đất của NASA, USGS, Copernicus và NOAA.</li>
-            <li>Nhóm nghiên cứu môi trường, khí hậu, tài nguyên nước, nông nghiệp và thiên tai ở đại học.</li>
-            <li>Đơn vị vận hành sản phẩm bản đồ hoặc dịch vụ cảnh báo, nơi dữ liệu viễn thám đi vào quyết định thực tế.</li>
-          </ul>
-        </article>
-        <article class="field-copy">
-          <h3>Lộ trình nhập môn gợi ý</h3>
-          <ul>
-            <li>Bắt đầu từ sự khác nhau giữa dữ liệu quang học, radar và nhiệt thay vì học tool trước.</li>
-            <li>Tự làm một pipeline nhỏ với Landsat hoặc Sentinel cho một bài toán rõ ràng như NDVI, cháy rừng hay ngập lụt.</li>
-            <li>So sánh sản phẩm đầu ra với ground truth hoặc tài liệu xác thực để hiểu sai số.</li>
-            <li>Sau đó mới mở rộng sang chuỗi thời gian lớn, mô hình học máy hoặc sản phẩm vận hành.</li>
-          </ul>
-        </article>
-      </section>
+          <section class="field-copy field-copy--lead remote-sensing-taxonomy" aria-labelledby="remote-sensing-taxonomy-title">
+            <h2 id="remote-sensing-taxonomy-title">Phân loại viễn thám</h2>
+            <p>Không có một phân loại chính thức cho các ngành viễn thám, tuy nhiên cộng đồng ngành viễn thám chấp nhận phân loại một cách <strong>thống nhất theo các tiêu chí khoa học - kỹ thuật sau:</strong></p>
 
-      <section class="field-copy">
-        <h2>Nguồn bắt đầu đáng tin cậy</h2>
-        <ul class="field-link-list">
-          <li><a href="https://science.nasa.gov/earth/earth-observatory/remote-sensing/">NASA: Remote Sensing overview</a></li>
-          <li><a href="https://www.earthdata.nasa.gov/centers/lp-daac">NASA Earthdata: LP DAAC</a></li>
-          <li><a href="https://www.usgs.gov/landsat">USGS Landsat Missions</a></li>
-          <li><a href="https://www.esa.int/Enabling_Support/Operations/Copernicus_Sentinels">ESA: Copernicus Sentinels</a></li>
-          <li><a href="https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Optical_missions">ESA: Optical missions</a></li>
-          <li><a href="https://www.esa.int/Our_Activities/Observing_the_Earth/Copernicus/SAR_missions">ESA: SAR missions</a></li>
-          <li><a href="https://ncc.nesdis.noaa.gov/VIIRS/aboutVIIRS.php">NOAA: About VIIRS</a></li>
-          <li><a href="https://www.ospo.noaa.gov/products/Suites/satellite_instruments.html">NOAA OSPO: Satellite instruments overview</a></li>
-        </ul>
-      </section>
+            <h3><em>Phân loại theo Nguồn Năng lượng</em></h3>
+            <ul>
+              <li><strong><em>Viễn thám thụ động (Passive Remote Sensing):</em></strong> <em>Cảm biến đo bức xạ tự nhiên (phản xạ ánh sáng Mặt Trời hoặc phát xạ nhiệt từ vật thể). Ví dụ: Ảnh quang học Landsat, Sentinel-2, ảnh nhiệt.</em></li>
+              <li><strong><em>Viễn thám chủ động (Active Remote Sensing):</em></strong> <em>Cảm biến tự phát ra nguồn năng lượng điện từ và đo tín hiệu phản hồi lại. Ví dụ: Radar (SAR), LiDAR, Sonar.</em></li>
+            </ul>
+
+            <h3><em>Phân loại theo Dải sóng Điện từ</em></h3>
+            <ul>
+              <li><strong><em>Viễn thám Quang học (Optical):</em></strong> <em>Ánh sáng nhìn thấy (VIS), Hồng ngoại gần (NIR), Hồng ngoại ngắn (SWIR).</em></li>
+              <li><strong><em>Viễn thám Nhiệt (Thermal):</em></strong> <em>Dải hồng ngoại nhiệt (TIR) - đo nhiệt độ bề mặt.</em></li>
+              <li><strong><em>Viễn thám Siêu cao tần (Microwave/Radar):</em></strong> <em>Sóng ra-đa (băng X, C, L, P) - xuyên mây, hoạt động ngày/đêm.</em></li>
+            </ul>
+
+            <h3><em>Phân loại theo Phân giải (Resolutions - Tiêu chuẩn Kỹ thuật)</em></h3>
+            <p><em>Các tổ chức không gian thường phân loại các hệ thống vệ tinh dựa trên 4 độ phân giải cốt lõi:</em></p>
+            <ul>
+              <li><strong><em>Độ phân giải Không gian (Spatial Resolution):</em></strong> <em>Thô (&gt;100m), Trung bình (10-100m), Cao (1-10m), Rất cao (&lt;1m).</em></li>
+              <li><strong><em>Độ phân giải Phổ (Spectral Resolution):</em></strong> <em>Đơn phổ (Panchromatic), Đa phổ (Multispectral - vài dải sóng), Siêu phổ (Hyperspectral - hàng trăm dải sóng liên tục).</em></li>
+              <li><strong><em>Độ phân giải Thời gian (Temporal Resolution):</em></strong> <em>Chu kỳ lặp lại chụp ảnh (từ vài giờ đến vài tuần).</em></li>
+            </ul>
+          </section>
         </div>
       </div>
     </div>
   </main>
 
   <div id="site-footer"></div>
-  <script src="../../assets/site-shell.js?v=20260519-news-guide" defer></script>
-  <script src="../../assets/section-catalog.js" defer></script>
+  <script src="../../assets/site-shell.js?v=20260927-footer-coolheo" defer></script>
+  <script src="../../assets/section-catalog.js?v=20260927-earth-sciences-split" defer></script>
 </body>
 </html>

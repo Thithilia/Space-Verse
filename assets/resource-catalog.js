@@ -1,6 +1,6 @@
 ﻿(function () {
   const catalog = [
-    { slug: "skills", href: "resources/skills.html", title: "Kỹ năng học thuật và nghề nghiệp", level: "foundation", tags: ["ky-nang", "viet-bai", "dao-duc"], summary: "Viết học thuật, trích dẫn, dùng AI có trách nhiệm, quản lý thời gian và kỹ năng làm việc học thuật." },
+    { slug: "skills", href: "resources/skills.html", title: "Liêm chính Học thuật và Khoa học", level: "foundation", tags: ["liem-chinh", "hoc-thuat", "khoa-hoc"], summary: "Nguyên tắc liêm chính, trích dẫn, chống đạo văn, sử dụng AI có trách nhiệm và đạo đức khoa học." },
     { slug: "profile-building", href: "resources/profile-building.html", title: "Xây dựng hồ sơ", level: "foundation", tags: ["ho-so", "cv", "thu", "email"], summary: "Hướng dẫn chuẩn bị CV, motivation letter, cover letter và email liên hệ giáo sư." },
     { slug: "scientific-programming", href: "resources/scientific-programming.html", title: "Lập trình khoa học với Python", level: "foundation", tags: ["lap-trinh", "python", "du-lieu"], summary: "Chuỗi tài nguyên cho Python, notebook, mô phỏng số và xử lý dữ liệu khoa học." },
     { slug: "maths", href: "resources/maths.html", title: "Toán nền tảng", level: "foundation", tags: ["toan", "phan-tich", "dai-so"], summary: "Các môn toán cần thiết để theo học vật lý, thiên văn và kỹ thuật không gian." },
