@@ -1,7 +1,7 @@
 import { expect, test } from "@playwright/test";
 
 const pages = [
-  { path: "/vi/index.html", title: /Hub for Exploration Opportunities/, checks: [[".home-circle-item", 4]] },
+  { path: "/vi/index.html", title: /Hub for Exploration Opportunities/, checks: [[".home-circle-item", 6]] },
   { path: "/en/index.html", title: /Hub for Exploration Opportunities/, checks: [[".home-circle-item", 4]] },
   { path: "/fr/index.html", title: /Hub for Exploration Opportunities/, checks: [[".home-circle-item", 4]] },
   { path: "/vi/about.html", title: /Hub for Exploration Opportunities/ },

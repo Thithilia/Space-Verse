@@ -1,5 +1,5 @@
 /* Research destinations arranged as a planetary system. */
-body[data-page="index.html"] .home-planetary {
+body[data-page="index.html"] .home-research.home-planetary {
   min-height: 0;
   padding: 80px 0 50px;
   background: radial-gradient(ellipse at 50% 55%, #eef3fa 0, #fafbfd 42%, #fff 75%);
@@ -15,6 +15,27 @@ body[data-page="index.html"] .home-planetary {
   gap: 12px;
 }
 
+.planetary-motion-toggle {
+  padding: 8px 14px;
+  border: 1px solid #ccd6e3;
+  border-radius: 999px;
+  background: #ffffff;
+  color: #183453;
+  font: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.planetary-motion-toggle:focus-visible {
+  outline: 2px solid #1456c1;
+  outline-offset: 4px;
+}
+
+.home-planetary[data-motion-enabled] .planetary-orbit,
+.home-planetary[data-motion-enabled] .home-circle-item {
+  will-change: transform;
+}
+
 .home-planetary .home-research__label {
   max-width: 720px;
   font-size: clamp(1.6rem, 3vw, 2.6rem);
@@ -28,15 +49,10 @@ body[data-page="index.html"] .home-planetary {
   max-width: 900px;
   aspect-ratio: 1;
   margin: 0 auto;
+  container-type: inline-size;
 }
 
-.planetary-orbits {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.planetary-orbits span {
+.home-planetary .planetary-orbit {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -45,6 +61,7 @@ body[data-page="index.html"] .home-planetary {
   transform: translate(-50%, -50%);
   border: 1px solid #ccd6e3;
   border-radius: 50%;
+  pointer-events: none;
 }
 
 .planetary-sun {
@@ -65,20 +82,17 @@ body[data-page="index.html"] .home-planetary {
   letter-spacing: 0.14em;
 }
 
-.home-planetary .home-circle-item {
+.home-planetary .planetary-orbit .home-circle-item {
   position: absolute;
   left: var(--planet-x);
   top: var(--planet-y);
-  width: clamp(76px, 15vw, 148px);
+  width: clamp(34px, 10cqi, 86px);
+  aspect-ratio: 1;
   transform: translate(-50%, -50%);
   gap: 0;
   z-index: 2;
+  pointer-events: auto;
 }
-
-.home-planetary a.home-circle-item:nth-of-type(1) { --planet-x: 64.75%; --planet-y: 39.68%; }
-.home-planetary button.home-circle-item { --planet-x: 25.53%; --planet-y: 61.41%; }
-.home-planetary a.home-circle-item:nth-of-type(2) { --planet-x: 77.58%; --planet-y: 73.14%; }
-.home-planetary a.home-circle-item:nth-of-type(3) { --planet-x: 16.29%; --planet-y: 21.72%; }
 
 .home-planetary .home-circle-item__visual {
   width: 100%;
@@ -101,10 +115,12 @@ body[data-page="index.html"] .home-planetary {
 
 .home-planetary .home-circle-item__title {
   position: absolute;
-  top: calc(100% + 12px);
-  width: 190px;
+  top: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 158px;
   max-width: none;
-  font-size: clamp(0.78rem, 1.3vw, 1rem);
+  font-size: clamp(0.7rem, 1.4cqi, 0.9rem);
   line-height: 1.35;
   font-weight: 600;
   color: #183453;
@@ -136,14 +152,117 @@ body[data-page="index.html"] .home-planetary {
   opacity: 1;
 }
 
+/* Keep the moving disks within the radial gap, even at conjunction. */
+.home-planetary[data-motion-enabled] .planetary-orbit .home-circle-item {
+  width: clamp(12px, 5.6cqi, 50px);
+}
+
+.home-planetary[data-motion-enabled] .home-circle-item::after {
+  content: attr(data-planet-index);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  place-items: center;
+  width: clamp(10px, 1.8cqi, 16px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #183453;
+  font-size: clamp(7px, 1.2cqi, 10px);
+  font-weight: 700;
+  pointer-events: none;
+}
+
+.home-planetary[data-motion-enabled] .home-circle-item .home-circle-item__title {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.home-planetary[data-motion-enabled] .planetary-orbit:has(.home-circle-item:hover),
+.home-planetary[data-motion-enabled] .planetary-orbit:focus-within {
+  z-index: 3;
+}
+
+@media (min-width: 961px) {
+  .home-planetary[data-motion-enabled] .home-circle-item:hover .home-circle-item__title,
+  .home-planetary[data-motion-enabled] .home-circle-item:focus-visible .home-circle-item__title {
+    opacity: 1;
+    padding: 4px 6px;
+    background: #ffffff;
+    border-radius: 4px;
+  }
+}
+
+.planetary-legend {
+  width: 100%;
+  max-width: 900px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px 24px;
+  padding: 0;
+  margin: 16px 0 0;
+  list-style: none;
+}
+
+.planetary-legend[hidden] { display: none; }
+
+.planetary-legend a,
+.planetary-legend button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: #183453;
+  font: inherit;
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.planetary-legend img {
+  flex: 0 0 32px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.planetary-legend__number {
+  font-size: 0.7rem;
+  color: #506980;
+}
+
+.planetary-legend a:focus-visible,
+.planetary-legend button:focus-visible {
+  outline: 2px solid #1456c1;
+  outline-offset: 4px;
+}
+
 @media (max-width: 600px) {
-  body[data-page="index.html"] .home-planetary { padding: 48px 0 64px; }
+  body[data-page="index.html"] .home-research.home-planetary { padding: 48px 0 64px; }
   .home-planetary .home-research__grid { gap: 36px; }
-  .home-planetary .home-circle-item { width: clamp(58px, 16vw, 90px); }
-  .home-planetary .home-circle-item__title { width: 104px; top: calc(100% + 8px); font-size: 0.72rem; }
+  .home-planetary .home-circle-item__title { width: 90px; top: calc(100% + 7px); font-size: 0.625rem; }
+  .home-planetary .planetary-orbit:first-child .home-circle-item__title {
+    top: 50%;
+    left: calc(100% + 7px);
+    width: 80px;
+    transform: translateY(-50%);
+    text-align: left;
+  }
   .home-planetary .home-circle-item__status { top: calc(100% + 43px); font-size: 0.5rem; }
+  .planetary-legend { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 14px; }
+  .planetary-legend a, .planetary-legend button { font-size: 0.72rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .home-planetary .home-circle-item__visual { transition: none; }
+}
+
+@media (max-width: 420px) {
+  .planetary-legend { grid-template-columns: 1fr; }
+  .planetary-legend a, .planetary-legend button { font-size: 0.85rem; }
 }

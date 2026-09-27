@@ -17,7 +17,7 @@
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"WebSite","name":"Hub for Exploration Opportunities","alternateName":"HEO","url":"https://thithilia.github.io/Space-Verse/"}
   </script>
-  <link rel="stylesheet" href="../assets/style.css?v=20260920-white-home">
+  <link rel="stylesheet" href="../assets/style.css?v=20260928-kepler-motion">
   <style>
     body[data-page="index.html"] .home-circle-item::before {
       content: none !important;
@@ -243,42 +243,57 @@
         <div class="home-research__label-wrap">
           <h2 class="home-research__label">Khám phá các hướng nghiên cứu không gian và vũ trụ.</h2>
         </div>
+        <button class="planetary-motion-toggle" type="button" aria-pressed="false" hidden>Tạm dừng chuyển động</button>
 
         <div class="home-research__stack">
-          <div class="planetary-orbits" aria-hidden="true">
-            <span style="--orbit: 36%"></span>
-            <span style="--orbit: 54%"></span>
-            <span style="--orbit: 72%"></span>
-            <span style="--orbit: 88%"></span>
+          <div class="planetary-orbit" style="--orbit: 20%; --planet-x: 100%; --planet-y: 50%;">
+            <a class="home-circle-item home-circle-item--particle" href="../vi/fields/particle-physics.html">
+              <span class="home-circle-item__visual">
+                <img src="../image/ALICE.png" alt="ALICE — Vật lý hạt" />
+              </span>
+              <span class="home-circle-item__title">Vật lý hạt</span>
+            </a>
           </div>
-          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(10, 38, 79, 0.92)" data-overlay-image="../image/crabglass.png" href="../vi/fields/astrophysics-&-cosmology.html">
-            <span class="home-circle-item__visual">
-              <img src="../image/crabglass.png" alt="Hình ảnh Crab cho mục vật lý thiên văn và vũ trụ học" />
-            </span>
-            <span class="home-circle-item__title">Vật lý thiên văn và vũ trụ học</span>
-          </a>
-
-          <button class="home-circle-item home-circle-item--coming" data-overlay-trigger data-research-state="coming-soon" data-overlay-color="rgba(22, 47, 92, 0.92)" data-overlay-image="../image/sate.png" type="button" aria-label="Công nghệ vệ tinh, đang phát triển">
-            <span class="home-circle-item__visual">
-              <img src="../image/sate.png" alt="Hình minh họa công nghệ vệ tinh" />
-            </span>
-            <span class="home-circle-item__title">Công nghệ vệ tinh</span>
-            <span class="home-circle-item__status">Đang phát triển</span>
-          </button>
-
-          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(15, 54, 97, 0.92)" data-overlay-image="../image/remote.png" href="../vi/fields/remote-sensing.html">
-            <span class="home-circle-item__visual">
-              <img src="../image/remote.png" alt="Viễn thám" />
-            </span>
-            <span class="home-circle-item__title">Viễn thám</span>
-          </a>
-
-          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(18, 48, 88, 0.92)" data-overlay-image="../image/heparea.jpg" href="../vi/fields/space-physics.html">
-            <span class="home-circle-item__visual">
-              <img src="../image/heparea.jpg" alt="Hình minh họa vật lý không gian" />
-            </span>
-            <span class="home-circle-item__title">Vật lý không gian</span>
-          </a>
+          <div class="planetary-orbit" style="--orbit: 34%; --planet-x: 6.69873%; --planet-y: 75%;">
+            <a class="home-circle-item home-circle-item--earth" href="../vi/fields/earth-sciences.html">
+              <span class="home-circle-item__visual">
+                <img src="../image/earth.png" alt="Trái Đất — Khoa học Trái Đất" />
+              </span>
+              <span class="home-circle-item__title">Khoa học Trái Đất</span>
+            </a>
+          </div>
+          <div class="planetary-orbit" style="--orbit: 48%; --planet-x: 25%; --planet-y: 6.69873%;">
+            <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(15, 54, 97, 0.92)" data-overlay-image="../image/remote.png" href="../vi/fields/remote-sensing.html">
+              <span class="home-circle-item__visual">
+                <img src="../image/remote.png" alt="Viễn thám" />
+              </span>
+              <span class="home-circle-item__title">Viễn thám</span>
+            </a>
+          </div>
+          <div class="planetary-orbit" style="--orbit: 62%; --planet-x: 82.13938%; --planet-y: 88.30222%;">
+            <button class="home-circle-item home-circle-item--coming" data-overlay-trigger data-research-state="coming-soon" data-overlay-color="rgba(22, 47, 92, 0.92)" data-overlay-image="../image/sate.png" type="button" aria-label="Công nghệ vệ tinh">
+              <span class="home-circle-item__visual">
+                <img src="../image/sate.png" alt="Hình minh họa công nghệ vệ tinh" />
+              </span>
+              <span class="home-circle-item__title">Công nghệ vệ tinh</span>
+            </button>
+          </div>
+          <div class="planetary-orbit" style="--orbit: 76%; --planet-x: 75%; --planet-y: 6.69873%;">
+            <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(18, 48, 88, 0.92)" data-overlay-image="../image/spacephy.png" href="../vi/fields/space-physics.html">
+              <span class="home-circle-item__visual">
+                <img src="../image/spacephy.png" alt="Hình minh họa vật lý không gian" />
+              </span>
+              <span class="home-circle-item__title">Vật lý không gian</span>
+            </a>
+          </div>
+          <div class="planetary-orbit" style="--orbit: 90%; --planet-x: 50%; --planet-y: 100%;">
+            <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(10, 38, 79, 0.92)" data-overlay-image="../image/crabglass.png" href="../vi/fields/astrophysics-&-cosmology.html">
+              <span class="home-circle-item__visual">
+                <img src="../image/crabglass.png" alt="Hình ảnh Crab cho mục vật lý thiên văn và vũ trụ học" />
+              </span>
+              <span class="home-circle-item__title">Vật lý thiên văn và vũ trụ học</span>
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -287,6 +302,8 @@
 
   <div id="site-footer"></div>
   <script src="../assets/site-shell.js?v=20260927-footer-coolheo" defer></script>
+  <script src="../assets/vendor/gsap.min.js" defer></script>
+  <script src="../assets/planetary-motion.js?v=20260928-kepler" defer></script>
   <script>
     function initResearchOverlay() {
       const section = document.querySelector(".home-research");
