@@ -412,6 +412,17 @@ body[data-page^="fields/"] .menu-toggle {
   margin-top: 10px;
 }
 
+.field-page__inner,
+.field-page__inner h1,
+.field-page__inner h2,
+.field-page__inner h3,
+.field-page__inner p,
+.field-page__inner li,
+.field-page__inner strong,
+.field-page__inner a {
+  color: #000000;
+}
+
 .field-link-list {
   display: grid;
   gap: 0;

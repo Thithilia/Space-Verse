@@ -11,7 +11,6 @@ const pages = [
   { path: "/vi/news/article.html?slug=demo-webb-exoplanet-atmosphere&demo=1", title: /Hub for Exploration Opportunities/, checks: [[".news-article", 1]] },
   { path: "/vi/news/article.html?slug=test", title: /Tin/, checks: [[".news-state", 1]] },
   { path: "/vi/admin/news.html", title: /Tin/, checks: [["input[name='email']", 1]] },
-  { path: "/vi/research.html", title: /Hub for Exploration Opportunities/, checks: [[".resource-sidebar", 1], ["#research-sidebar .resource-link", 6], ["#research-overview .resource-overview-link", 6]] },
   {
     path: "/vi/fields/astrophysics-&-cosmology.html",
     title: /Hub for Exploration Opportunities/,
@@ -45,12 +44,17 @@ const pages = [
   {
     path: "/vi/resources.html",
     title: /Hub for Exploration Opportunities/,
-    checks: [[".resource-sidebar", 1], [".resource-link", 18], [".resource-intro", 1]]
+    checks: [[".resource-sidebar", 1], [".resource-link", 19], [".resource-intro", 1]]
   },
   {
     path: "/vi/resources/profile-building.html",
     title: /Hub for Exploration Opportunities/,
-    checks: [[".resource-sidebar", 1], [".resource-link", 18], [".resource-detail", 1]]
+    checks: [[".resource-sidebar", 1], [".resource-link", 19], [".resource-detail", 1]]
+  },
+  {
+    path: "/vi/resources/scientific-writing-communication.html",
+    title: /Scientific writing and communication/,
+    checks: [[".resource-sidebar", 1], [".resource-link", 19], [".resource-detail", 1], [".resource-detail li", 5]]
   },
   { path: "/vi/opportunities.html", title: /Hub for Exploration Opportunities/, checks: [[".resource-sidebar", 1], ["#opportunity-sidebar .resource-link", 3], ["#opportunity-overview .resource-overview-link", 3]] },
   { path: "/vi/opportunities/graduate-programs.html", title: /Hub for Exploration Opportunities/, checks: [[".resource-sidebar", 1], ["#opportunity-sidebar .resource-link", 3], [".resource-detail", 1]] },
@@ -177,10 +181,21 @@ test.describe("site smoke checks", () => {
     await expect(page.locator(".home-dual")).toHaveCount(0);
   });
 
+  test("research entry points open the astrophysics field directly", async ({ page }) => {
+    await page.goto("/vi/index.html", { waitUntil: "domcontentloaded" });
+    const researchTrigger = page.locator('.nav-item.has-submenu button', { hasText: "Nghiên cứu" });
+    await researchTrigger.click();
+    await researchTrigger.click();
+    await expect(page).toHaveURL(/\/vi\/fields\/astrophysics-&-cosmology\.html$/);
+
+    await page.goto("/vi/research.html", { waitUntil: "domcontentloaded" });
+    await expect(page).toHaveURL(/\/vi\/fields\/astrophysics-&-cosmology\.html$/);
+  });
+
   test("main content connects directly to the white footer without a tinted gap", async ({ page }) => {
     const paths = [
       "/vi/resources.html",
-      "/vi/research.html",
+      "/vi/fields/astrophysics-&-cosmology.html",
       "/vi/opportunities.html",
       "/vi/news.html"
     ];
@@ -221,7 +236,7 @@ test.describe("site smoke checks", () => {
 
   test("decorative eyebrow labels are removed across page types", async ({ page }) => {
     const paths = [
-      "/vi/research.html",
+      "/vi/fields/astrophysics-&-cosmology.html",
       "/vi/opportunities.html",
       "/vi/fields/astrophysics-&-cosmology.html",
       "/vi/news.html",
@@ -272,7 +287,7 @@ test.describe("site smoke checks", () => {
   });
 
   test("research sidebar links open the selected field detail", async ({ page }) => {
-    await page.goto("/vi/research.html", { waitUntil: "domcontentloaded" });
+    await page.goto("/vi/fields/astrophysics-&-cosmology.html", { waitUntil: "domcontentloaded" });
 
     await expect(page.locator("#research-sidebar .resource-link")).toHaveCount(6);
     await expect(page.locator("#research-sidebar .resource-link", { hasText: /^Viễn thám/ })).toHaveCount(1);
@@ -359,7 +374,6 @@ test.describe("site smoke checks", () => {
       "/fr/index.html",
       "/vi/about.html",
       "/vi/news.html",
-      "/vi/research.html",
       "/vi/resources.html",
       "/vi/fields/astrophysics-&-cosmology.html",
       "/vi/fields/satellite-technology.html",
@@ -388,7 +402,7 @@ test.describe("site smoke checks", () => {
 
   test("images on key pages are loaded", async ({ page }) => {
     await page.setViewportSize({ width: 390, height: 844 });
-    for (const path of ["/vi/index.html", "/vi/research.html"]) {
+    for (const path of ["/vi/index.html", "/vi/fields/astrophysics-&-cosmology.html"]) {
       await page.goto(path, { waitUntil: "domcontentloaded" });
       await page.locator(".menu-toggle").click();
       await page.locator(".lang-trigger").click();

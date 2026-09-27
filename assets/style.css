@@ -1,10 +1,10 @@
 ﻿@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Roboto+Condensed:wght@300;400;500;700&display=swap");
 @import url("./base.css");
-@import url("./layout.css?v=20260927-field-section-alignment");
+@import url("./layout.css?v=20260927-all-fields-black");
 @import url("./header.css?v=20260927-horizontal-nav");
 @import url("./footer.css?v=20260927-heo-mascot");
 @import url("./home.css?v=20260920-white-cleanup");
-@import url("./resources.css?v=20260926-document-headings");
+@import url("./resources.css?v=20260928-graduate-spacing");
 @import url("./news.css?v=20260519-news-ui");
 @import url("./fonts/nunito-sans.css");
 @import url("./planetary.css?v=20260927-position-fix");
