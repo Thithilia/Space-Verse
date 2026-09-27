@@ -247,6 +247,25 @@
   word-break: break-word;
 }
 
+.graduate-pathways {
+  gap: 12px;
+}
+
+.graduate-pathways ol,
+.graduate-pathways ul {
+  max-width: 74ch;
+  margin: 0;
+  padding-left: 1.35em;
+}
+
+.graduate-pathways h2 {
+  margin-top: 18px;
+}
+
+.graduate-pathways h3 {
+  margin-top: 12px;
+}
+
 .scholarship-table-note {
   font-size: 1rem;
   color: #4a4a4a;
