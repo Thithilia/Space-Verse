@@ -44,12 +44,17 @@ const pages = [
   {
     path: "/vi/resources.html",
     title: /Hub for Exploration Opportunities/,
-    checks: [[".resource-sidebar", 1], [".resource-link", 18], [".resource-intro", 1]]
+    checks: [[".resource-sidebar", 1], [".resource-link", 19], [".resource-intro", 1]]
   },
   {
     path: "/vi/resources/profile-building.html",
     title: /Hub for Exploration Opportunities/,
-    checks: [[".resource-sidebar", 1], [".resource-link", 18], [".resource-detail", 1]]
+    checks: [[".resource-sidebar", 1], [".resource-link", 19], [".resource-detail", 1]]
+  },
+  {
+    path: "/vi/resources/scientific-writing-communication.html",
+    title: /Scientific writing and communication/,
+    checks: [[".resource-sidebar", 1], [".resource-link", 19], [".resource-detail", 1], [".resource-detail li", 5]]
   },
   { path: "/vi/opportunities.html", title: /Hub for Exploration Opportunities/, checks: [[".resource-sidebar", 1], ["#opportunity-sidebar .resource-link", 3], ["#opportunity-overview .resource-overview-link", 3]] },
   { path: "/vi/opportunities/graduate-programs.html", title: /Hub for Exploration Opportunities/, checks: [[".resource-sidebar", 1], ["#opportunity-sidebar .resource-link", 3], [".resource-detail", 1]] },

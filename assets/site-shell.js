@@ -26,6 +26,7 @@
       "fields/space-physics.html",
       "fields/particle-physics.html",
       "resources/skills.html",
+      "resources/scientific-writing-communication.html",
       "resources/profile-building.html",
       "resources/scientific-programming.html",
       "resources/maths.html",
