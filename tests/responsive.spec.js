@@ -11,6 +11,7 @@ const listHtmlPages = (dir) =>
 
 const responsivePages = listHtmlPages(join(process.cwd(), "vi"))
   .map((filePath) => `/${relative(process.cwd(), filePath).replaceAll("\\", "/")}`)
+  .filter((path) => !/\/google[0-9a-f]+\.html$/.test(path))
   .sort();
 
 const viewports = [
