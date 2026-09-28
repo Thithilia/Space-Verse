@@ -295,6 +295,48 @@
   letter-spacing: 0;
 }
 
+.home-axiom-intro--curious {
+  --intro-mascot-size: clamp(220px, 28vw, 440px);
+  position: relative;
+  min-height: 0;
+  padding: var(--header-height) 0 0;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.home-axiom-intro__mascot {
+  position: absolute;
+  top: calc(50% + var(--header-height) / 2);
+  left: 0;
+  width: var(--intro-mascot-size);
+  max-width: none;
+  height: auto;
+  /* Hide the image's left margin so its wall meets the frame edge. */
+  transform: translate(-21%, -50%);
+  background: #ffffff;
+  pointer-events: none;
+  user-select: none;
+}
+
+.home-axiom-intro--curious .home-axiom-intro__inner {
+  position: relative;
+  /* Size the frame to the artwork, excluding the image's outer margins. */
+  min-height: calc(var(--intro-mascot-size) * 0.84 + 16px);
+  padding-block: 8px;
+}
+
+@media (max-width: 720px) {
+  .home-axiom-intro--curious {
+    --intro-mascot-size: clamp(140px, 32vw, 200px);
+  }
+
+  .home-axiom-intro--curious .home-axiom-intro__inner {
+    width: 100%;
+    padding-left: calc(var(--intro-mascot-size) * 0.65 + 16px);
+    padding-right: 20px;
+  }
+}
+
 .home-overlay {
   --overlay-x: 50vw;
   --overlay-y: 50vh;

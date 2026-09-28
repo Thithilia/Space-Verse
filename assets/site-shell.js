@@ -6,11 +6,13 @@
       "index.html",
       "about.html",
       "disclaimer.html",
+      "news.html",
       "research.html",
       "opportunities.html",
       "opportunities/graduate-programs.html",
       "opportunities/internships.html",
       "opportunities/scholarships.html",
+      "opportunities/summer-schools-workshops-conferences.html",
       "resources.html",
       "fields/astrophysics-&-cosmology.html",
       "fields/astrophysics/exoplanets.html",
@@ -77,6 +79,7 @@
             { label: "Tuyên bố miễn trừ trách nhiệm", href: "disclaimer.html" }
           ]
         },
+        { type: "link", label: "Tin tức", href: "news.html" },
         {
           type: "submenu",
           label: "Nghiên cứu",
@@ -97,7 +100,8 @@
           items: [
             { label: "Chương trình học thạc sĩ / tiến sĩ", href: "opportunities/graduate-programs.html" },
             { label: "Cơ hội internship", href: "opportunities/internships.html" },
-            { label: "Các chương trình học bổng", href: "opportunities/scholarships.html" }
+            { label: "Các chương trình học bổng", href: "opportunities/scholarships.html" },
+            { label: "Trường hè/Hội thảo/Hội nghị", href: "opportunities/summer-schools-workshops-conferences.html" }
           ]
         },
         { type: "link", label: "Tài nguyên", href: "resources.html" }
@@ -117,8 +121,9 @@
         contactTitle: "Contact",
         quickLinks: [
           { label: "About", href: "about.html" },
-          { label: "Projects", href: "projects.html" },
-          { label: "Contact", href: "contact.html" }
+          { label: "Research", href: "research.html" },
+          { label: "Opportunities", href: "opportunities.html" },
+          { label: "Resources", href: "resources.html" }
         ],
         contactLines: [
           "Email: contact.space-verse@gmail.com",

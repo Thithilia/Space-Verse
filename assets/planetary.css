@@ -1,5 +1,5 @@
 /* Research destinations arranged as a planetary system. */
-body[data-page="index.html"] .home-planetary {
+body[data-page="index.html"] .home-research.home-planetary {
   min-height: 0;
   padding: 80px 0 50px;
   background: radial-gradient(ellipse at 50% 55%, #eef3fa 0, #fafbfd 42%, #fff 75%);
@@ -12,7 +12,13 @@ body[data-page="index.html"] .home-planetary {
 }
 
 .home-planetary .home-research__grid {
-  gap: 12px;
+  width: min(1500px, calc(100% - 48px));
+  gap: 24px;
+}
+
+.home-planetary[data-motion-enabled] .planetary-orbit,
+.home-planetary[data-motion-enabled] .home-circle-item {
+  will-change: transform;
 }
 
 .home-planetary .home-research__label {
@@ -25,18 +31,13 @@ body[data-page="index.html"] .home-planetary {
   position: relative;
   display: block;
   width: 100%;
-  max-width: 900px;
+  max-width: 1500px;
   aspect-ratio: 1;
   margin: 0 auto;
+  container-type: inline-size;
 }
 
-.planetary-orbits {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-
-.planetary-orbits span {
+.home-planetary .planetary-orbit {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -45,6 +46,7 @@ body[data-page="index.html"] .home-planetary {
   transform: translate(-50%, -50%);
   border: 1px solid #ccd6e3;
   border-radius: 50%;
+  pointer-events: none;
 }
 
 .planetary-sun {
@@ -65,20 +67,18 @@ body[data-page="index.html"] .home-planetary {
   letter-spacing: 0.14em;
 }
 
-.home-planetary .home-circle-item {
+.home-planetary .planetary-orbit .home-circle-item {
   position: absolute;
   left: var(--planet-x);
   top: var(--planet-y);
-  width: clamp(76px, 15vw, 148px);
+  /* Adjacent radii are 8cqi apart; leave clearance even on hover. */
+  width: min(108px, 7.2cqi);
+  aspect-ratio: 1;
   transform: translate(-50%, -50%);
   gap: 0;
   z-index: 2;
+  pointer-events: auto;
 }
-
-.home-planetary a.home-circle-item:nth-of-type(1) { --planet-x: 64.75%; --planet-y: 39.68%; }
-.home-planetary button.home-circle-item { --planet-x: 25.53%; --planet-y: 61.41%; }
-.home-planetary a.home-circle-item:nth-of-type(2) { --planet-x: 77.58%; --planet-y: 73.14%; }
-.home-planetary a.home-circle-item:nth-of-type(3) { --planet-x: 16.29%; --planet-y: 21.72%; }
 
 .home-planetary .home-circle-item__visual {
   width: 100%;
@@ -101,10 +101,12 @@ body[data-page="index.html"] .home-planetary {
 
 .home-planetary .home-circle-item__title {
   position: absolute;
-  top: calc(100% + 12px);
-  width: 190px;
+  top: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 158px;
   max-width: none;
-  font-size: clamp(0.78rem, 1.3vw, 1rem);
+  font-size: clamp(0.7rem, 1.4cqi, 0.9rem);
   line-height: 1.35;
   font-weight: 600;
   color: #183453;
@@ -136,11 +138,37 @@ body[data-page="index.html"] .home-planetary {
   opacity: 1;
 }
 
+.home-planetary[data-motion-enabled] .home-circle-item .home-circle-item__title {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.home-planetary[data-motion-enabled] .planetary-orbit:has(.home-circle-item:hover),
+.home-planetary[data-motion-enabled] .planetary-orbit:focus-within {
+  z-index: 3;
+}
+
+@media (min-width: 961px) {
+  .home-planetary[data-motion-enabled] .home-circle-item:hover .home-circle-item__title,
+  .home-planetary[data-motion-enabled] .home-circle-item:focus-visible .home-circle-item__title {
+    opacity: 1;
+    padding: 4px 6px;
+    background: #ffffff;
+    border-radius: 4px;
+  }
+}
+
 @media (max-width: 600px) {
-  body[data-page="index.html"] .home-planetary { padding: 48px 0 64px; }
-  .home-planetary .home-research__grid { gap: 36px; }
-  .home-planetary .home-circle-item { width: clamp(58px, 16vw, 90px); }
-  .home-planetary .home-circle-item__title { width: 104px; top: calc(100% + 8px); font-size: 0.72rem; }
+  body[data-page="index.html"] .home-research.home-planetary { padding: 48px 0 64px; }
+  .home-planetary .home-research__grid { width: calc(100% - 24px); gap: 36px; }
+  .home-planetary .home-circle-item__title { width: 90px; top: calc(100% + 7px); font-size: 0.625rem; }
+  .home-planetary .planetary-orbit:first-child .home-circle-item__title {
+    top: 50%;
+    left: calc(100% + 7px);
+    width: 80px;
+    transform: translateY(-50%);
+    text-align: left;
+  }
   .home-planetary .home-circle-item__status { top: calc(100% + 43px); font-size: 0.5rem; }
 }
 

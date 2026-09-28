@@ -85,7 +85,7 @@ test.describe("site smoke checks", () => {
     await expect(page.locator(".site-header[data-menu-open='true']")).toHaveCount(1);
     const panel = page.locator(".site-menu-panel");
     await expect(panel).toBeVisible();
-    await expect(panel.locator('a[href$="/vi/news.html"]')).toHaveCount(0);
+    await expect(panel.locator('a[href$="/vi/news.html"]')).toBeVisible();
     await expect(panel.locator('a[href$="/vi/resources.html"]')).toBeVisible();
 
     await panel.locator(".nav-item.has-submenu").filter({ has: page.locator('a[href$="/vi/fields/space-physics.html"]') }).locator("button").click();
@@ -125,7 +125,7 @@ test.describe("site smoke checks", () => {
     await page.setViewportSize({ width: 390, height: 844 });
     await page.goto("/vi/index.html", { waitUntil: "domcontentloaded" });
     await page.locator(".menu-toggle").click();
-    await page.locator(".lang-trigger").click();
+    await expect(page.locator(".lang-switcher")).toBeHidden();
 
     const flags = page.locator(".lang-trigger .lang-flag, .lang-menu .lang-flag");
     await expect(flags).toHaveCount(4);
@@ -144,13 +144,13 @@ test.describe("site smoke checks", () => {
         path: "/en/index.html",
         lang: "en",
         heading: "Explore research across space and the Universe.",
-        field: "Astrophysics and cosmology",
+        field: "Particle physics",
       },
       {
         path: "/fr/index.html",
         lang: "fr",
         heading: "Explorez les domaines de recherche sur l’espace et l’Univers.",
-        field: "Astrophysique et cosmologie",
+        field: "Physique des particules",
       }
     ];
 
@@ -160,9 +160,9 @@ test.describe("site smoke checks", () => {
       await expect(page.locator("body")).toHaveAttribute("data-locale", locale.lang);
       await expect(page.locator(".home-research__label")).toHaveText(locale.heading);
       await expect(page.locator(".home-circle-item__title").first()).toHaveText(locale.field);
-      await expect(page.locator(".home-circle-item")).toHaveCount(4);
+      await expect(page.locator(".home-circle-item")).toHaveCount(6);
       await expect(page.locator(".home-dual")).toHaveCount(0);
-      await expect(page.locator(".home-circle-item img")).toHaveCount(4);
+      await expect(page.locator(".home-circle-item img")).toHaveCount(6);
     }
   });
 
@@ -359,7 +359,6 @@ test.describe("site smoke checks", () => {
     for (const path of ["/vi/index.html", "/vi/fields/astrophysics-&-cosmology.html"]) {
       await page.goto(path, { waitUntil: "domcontentloaded" });
       await page.locator(".menu-toggle").click();
-      await page.locator(".lang-trigger").click();
 
       await expect.poll(() =>
         page.locator("img").evaluateAll((images) =>

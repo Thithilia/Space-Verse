@@ -131,11 +131,13 @@
   margin-bottom: 16px;
 }
 
-body[data-page="about.html"] {
+body[data-page="about.html"],
+body[data-page="news.html"] {
   background: #ffffff;
 }
 
-body[data-page="about.html"] .site-main {
+body[data-page="about.html"] .site-main,
+body[data-page="news.html"] .site-main {
   padding-bottom: 0;
 }
 
@@ -150,6 +152,13 @@ body[data-page="about.html"] .site-main {
   display: grid;
   align-items: start;
   background: #ffffff;
+}
+
+body[data-page="about.html"] .about-hero,
+body[data-page="disclaimer.html"] .about-hero,
+body[data-page="news.html"] .about-hero {
+  min-height: 0;
+  padding-bottom: 28px;
 }
 
 .about-hero__inner {
@@ -168,6 +177,12 @@ body[data-page="about.html"] .site-main {
   font-weight: 400;
   line-height: 0.96;
   letter-spacing: 0;
+}
+
+.about-hero #disclaimer-title {
+  max-width: 100%;
+  line-height: 1.2;
+  white-space: nowrap;
 }
 
 .about-hero p {
@@ -225,6 +240,55 @@ body[data-page="about.html"] .site-main {
 .about-copy__signature {
   padding-top: 18px;
   color: #141414;
+}
+
+.news-sources {
+  gap: 32px;
+}
+
+.news-sources__mascot {
+  display: block;
+  width: min(320px, 80%);
+  height: auto;
+  justify-self: center;
+}
+
+.news-sources .about-copy__section {
+  gap: 8px;
+  padding-top: 0;
+}
+
+.about-copy .news-source-list {
+  display: grid;
+  gap: 2px;
+  padding: 0;
+  list-style: none;
+}
+
+.news-source-list li + li {
+  margin-top: 0;
+}
+
+.news-source-list a {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  max-width: 100%;
+  min-height: 44px;
+  padding: 3px 0;
+  color: #0052a8;
+  overflow-wrap: anywhere;
+  text-underline-offset: 4px;
+}
+
+.news-source-list a:hover,
+.news-source-list a:focus-visible {
+  text-decoration: underline;
+}
+
+.news-source-list a:focus-visible {
+  outline: 2px solid #0052a8;
+  outline-offset: 3px;
 }
 
 .program-list {
@@ -463,6 +527,14 @@ body[data-page^="fields/"] .menu-toggle {
   display: grid;
   gap: 92px;
   color: #06284c;
+}
+
+.astronomy-reference-group,
+.field-reference-group {
+  display: grid;
+  gap: 28px;
+  width: min(780px, 100%);
+  justify-self: center;
 }
 
 .field-atlas--taxonomy {
@@ -1336,10 +1408,20 @@ body[data-page^="fields/"] .menu-toggle {
     padding: calc(var(--header-height) + 76px) 0 64px;
   }
 
+  body[data-page="about.html"] .about-hero,
+  body[data-page="disclaimer.html"] .about-hero,
+  body[data-page="news.html"] .about-hero {
+    padding-bottom: 24px;
+  }
+
   .about-hero h1 {
     max-width: 100%;
     font-size: 2.1rem;
     overflow-wrap: anywhere;
+  }
+
+  .about-hero #disclaimer-title {
+    font-size: clamp(1.25rem, 6vw, 2.1rem);
   }
 
   .about-copy {

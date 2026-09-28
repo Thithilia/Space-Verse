@@ -44,6 +44,16 @@
 .resource-sidebar__heading {
   display: grid;
   gap: 22px;
+  margin-bottom: 30px;
+  list-style: none;
+}
+
+.resource-sidebar__heading::-webkit-details-marker {
+  display: none;
+}
+
+.resource-sidebar__mobile-label {
+  display: none;
 }
 
 .resource-sidebar__heading::after {
@@ -104,6 +114,13 @@
 
 .resource-intro {
   color: #111111;
+}
+
+.resource-intro__mascot {
+  display: block;
+  width: min(280px, 80%);
+  height: auto;
+  justify-self: center;
 }
 
 .resource-intro .section-title {
@@ -399,9 +416,103 @@ body[data-page="fields/astrophysics-&-cosmology.html"] .resource-top-band {
   background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
 }
 
-@media (max-width: 960px) {
+@media (max-width: 1199px), (hover: none) and (pointer: coarse) {
+  .resource-layout {
+    padding-top: 24px;
+  }
+
+  .resource-layout .page-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
   .resource-sidebar {
     position: static;
+    gap: 0;
+  }
+
+  .resource-sidebar__disclosure {
+    min-width: 0;
+    border: 1px solid #d9e1ef;
+    border-radius: 8px;
+    background: #f6f8fb;
+  }
+
+  .resource-sidebar__heading {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 14px;
+    margin: 0;
+    padding: 12px 16px;
+    cursor: pointer;
+  }
+
+  .resource-sidebar__heading h2 {
+    display: none;
+  }
+
+  .resource-sidebar__mobile-label {
+    display: grid;
+    gap: 2px;
+    min-width: 0;
+  }
+
+  .resource-sidebar__prompt {
+    color: #06284c;
+    font-size: 1rem;
+    font-weight: 700;
+  }
+
+  .resource-sidebar__current {
+    overflow: hidden;
+    color: #4b5c70;
+    font-size: 0.9rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .resource-sidebar__heading::after {
+    width: 9px;
+    height: 9px;
+    margin-right: 3px;
+    border-right: 2px solid #06284c;
+    border-bottom: 2px solid #06284c;
+    background: none;
+    transform: rotate(45deg);
+  }
+
+  .resource-sidebar__disclosure[open] > .resource-sidebar__heading::after {
+    transform: rotate(225deg);
+  }
+
+  .resource-sidebar__heading:focus-visible {
+    outline: 2px solid #0052a8;
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+
+  .resource-sidebar .resource-list {
+    max-height: min(50vh, 360px);
+    max-height: min(50dvh, 360px);
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+    padding: 0 16px 8px;
+    border-top: 1px solid #d9e1ef;
+  }
+
+  .resource-sidebar .resource-link {
+    min-height: 44px;
+    padding: 12px 0;
+    font-size: 1rem;
+  }
+
+  .resource-sidebar .resource-link.is-active {
+    font-weight: 700;
+  }
+
+  .resource-sidebar .resource-link:focus-visible {
+    outline: 2px solid #0052a8;
+    outline-offset: -2px;
   }
 }
 

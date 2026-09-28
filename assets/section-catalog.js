@@ -6,8 +6,9 @@
       overviewId: "research-overview",
       heading: "Lĩnh vực nghiên cứu",
       ariaLabel: "Lĩnh vực nghiên cứu",
+      mobilePrompt: "Chọn lĩnh vực",
       emptyText: "Chưa có lĩnh vực nào trong danh mục này.",
-      overviewText: "Chọn một lĩnh vực ở cột bên trái để đi tới trang giới thiệu chi tiết, gồm bối cảnh, chủ đề nghiên cứu, nền tảng cần chuẩn bị, phương pháp, dữ liệu và nguồn bắt đầu.",
+      overviewText: "Chọn một lĩnh vực trong danh mục để đi tới trang giới thiệu chi tiết, gồm bối cảnh, chủ đề nghiên cứu, nền tảng cần chuẩn bị, phương pháp, dữ liệu và nguồn bắt đầu.",
       items: [
         {
           href: "fields/astrophysics-&-cosmology.html",
@@ -47,8 +48,9 @@
       overviewId: "opportunity-overview",
       heading: "Cơ hội",
       ariaLabel: "Các nhóm cơ hội",
+      mobilePrompt: "Chọn nhóm cơ hội",
       emptyText: "Chưa có nhóm cơ hội nào trong danh mục này.",
-      overviewText: "Chọn một nhóm cơ hội ở cột bên trái để xem thông tin định hướng, các điểm cần chuẩn bị và lưu ý khi theo dõi nguồn chính thức.",
+      overviewText: "Chọn một nhóm cơ hội trong danh mục để xem thông tin định hướng, các điểm cần chuẩn bị và lưu ý khi theo dõi nguồn chính thức.",
       items: [
         {
           href: "opportunities/graduate-programs.html",
@@ -64,6 +66,11 @@
           href: "opportunities/scholarships.html",
           title: "Các chương trình học bổng",
           summary: "Nguồn hỗ trợ học phí, sinh hoạt phí, nghiên cứu và trao đổi học thuật."
+        },
+        {
+          href: "opportunities/summer-schools-workshops-conferences.html",
+          title: "Trường hè/Hội thảo/Hội nghị",
+          summary: "Các trường hè, hội thảo và hội nghị về khoa học vũ trụ và công nghệ không gian."
         }
       ]
     }
@@ -81,6 +88,7 @@
 
   const sidebarTarget = document.getElementById(section.sidebarId);
   if (!sidebarTarget) return;
+  const compactNavigation = window.matchMedia("(max-width: 1199px), (hover: none) and (pointer: coarse)");
 
   function activeHref() {
     if (page.startsWith("fields/astrophysics/")) return "fields/astrophysics-&-cosmology.html";
@@ -90,6 +98,7 @@
 
   function renderSidebar() {
     const currentHref = activeHref();
+    const currentItem = section.items.find((item) => item.href === currentHref);
     const links = section.items.map((item) => {
       const activeClass = item.href === currentHref ? " is-active" : "";
       const currentAttr = item.href === currentHref ? ' aria-current="page"' : "";
@@ -98,14 +107,39 @@
 
     sidebarTarget.innerHTML = `
       <div class="resource-sidebar">
-        <div class="resource-sidebar__heading">
-          <h2>${section.heading}</h2>
-        </div>
-        <nav class="resource-list" aria-label="${section.ariaLabel}">
-          <div class="resource-list__group">${links || `<div class="resource-empty">${section.emptyText}</div>`}</div>
-        </nav>
+        <details class="resource-sidebar__disclosure"${compactNavigation.matches ? "" : " open"}>
+          <summary class="resource-sidebar__heading">
+            <h2>${section.heading}</h2>
+            <span class="resource-sidebar__mobile-label">
+              <span class="resource-sidebar__prompt">${section.mobilePrompt}</span>
+              <span class="resource-sidebar__current">${currentItem ? currentItem.title : section.heading}</span>
+            </span>
+          </summary>
+          <nav class="resource-list" aria-label="${section.ariaLabel}">
+            <div class="resource-list__group">${links || `<div class="resource-empty">${section.emptyText}</div>`}</div>
+          </nav>
+        </details>
       </div>
     `;
+
+    const disclosure = sidebarTarget.querySelector("details");
+    const summary = disclosure.querySelector("summary");
+    function syncSidebar() {
+      disclosure.open = !compactNavigation.matches;
+      summary.tabIndex = compactNavigation.matches ? 0 : -1;
+    }
+    summary.addEventListener("click", (event) => {
+      if (!compactNavigation.matches) event.preventDefault();
+    });
+    disclosure.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && compactNavigation.matches && disclosure.open) {
+        disclosure.open = false;
+        summary.focus();
+        event.preventDefault();
+      }
+    });
+    compactNavigation.addEventListener("change", syncSidebar);
+    syncSidebar();
   }
 
   function renderOverview() {
