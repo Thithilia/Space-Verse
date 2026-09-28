@@ -179,6 +179,7 @@
 }
 
 .lang-switcher {
+  display: none !important;
   position: relative;
   justify-self: start;
 }
