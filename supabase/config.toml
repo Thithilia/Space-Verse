@@ -1,8 +1,0 @@
-[functions.sync-news]
-verify_jwt = true
-
-[functions.draft-news]
-verify_jwt = true
-
-[functions.export-static-news]
-verify_jwt = true

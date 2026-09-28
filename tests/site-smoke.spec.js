@@ -6,11 +6,6 @@ const pages = [
   { path: "/fr/index.html", title: /Hub for Exploration Opportunities/, checks: [[".home-circle-item", 4]] },
   { path: "/vi/about.html", title: /Hub for Exploration Opportunities/ },
   { path: "/vi/disclaimer.html", title: /Hub for Exploration Opportunities/ },
-  { path: "/vi/news.html", title: /Tin/, checks: [[".news-toolbar", 1], ["[data-news-root]", 1]] },
-  { path: "/vi/news.html?demo=1", title: /Tin/, checks: [[".news-card", 10], [".news-card__media img", 10]] },
-  { path: "/vi/news/article.html?slug=demo-webb-exoplanet-atmosphere&demo=1", title: /Hub for Exploration Opportunities/, checks: [[".news-article", 1]] },
-  { path: "/vi/news/article.html?slug=test", title: /Tin/, checks: [[".news-state", 1]] },
-  { path: "/vi/admin/news.html", title: /Tin/, checks: [["input[name='email']", 1]] },
   {
     path: "/vi/fields/astrophysics-&-cosmology.html",
     title: /Hub for Exploration Opportunities/,
@@ -90,7 +85,7 @@ test.describe("site smoke checks", () => {
     await expect(page.locator(".site-header[data-menu-open='true']")).toHaveCount(1);
     const panel = page.locator(".site-menu-panel");
     await expect(panel).toBeVisible();
-    await expect(panel.locator('a[href$="/vi/news.html"]')).toBeVisible();
+    await expect(panel.locator('a[href$="/vi/news.html"]')).toHaveCount(0);
     await expect(panel.locator('a[href$="/vi/resources.html"]')).toBeVisible();
 
     await panel.locator(".nav-item.has-submenu").filter({ has: page.locator('a[href$="/vi/fields/space-physics.html"]') }).locator("button").click();
@@ -196,8 +191,7 @@ test.describe("site smoke checks", () => {
     const paths = [
       "/vi/resources.html",
       "/vi/fields/astrophysics-&-cosmology.html",
-      "/vi/opportunities.html",
-      "/vi/news.html"
+      "/vi/opportunities.html"
     ];
 
     for (const path of paths) {
@@ -220,18 +214,13 @@ test.describe("site smoke checks", () => {
       "/vi/resources/profile-building.html",
       "/vi/opportunities/graduate-programs.html",
       "/vi/fields/astrophysics-&-cosmology.html",
-      "/vi/fields/astrophysics/exoplanets.html",
-      "/vi/news.html",
-      "/vi/news/article.html?slug=demo-webb-exoplanet-atmosphere&demo=1"
+      "/vi/fields/astrophysics/exoplanets.html"
     ];
 
     for (const path of paths) {
       await page.goto(path, { waitUntil: "domcontentloaded" });
       await expect(page.locator('nav[aria-label="Breadcrumb"]')).toBeHidden();
     }
-
-    await page.goto("/vi/news.html", { waitUntil: "domcontentloaded" });
-    await expect(page.locator(".hero-banner")).toBeHidden();
   });
 
   test("decorative eyebrow labels are removed across page types", async ({ page }) => {
@@ -239,7 +228,6 @@ test.describe("site smoke checks", () => {
       "/vi/fields/astrophysics-&-cosmology.html",
       "/vi/opportunities.html",
       "/vi/fields/astrophysics-&-cosmology.html",
-      "/vi/news.html",
       "/en/about.html"
     ];
 
@@ -334,46 +322,12 @@ test.describe("site smoke checks", () => {
     expect(overflow.page).toBeFalsy();
   });
 
-  test("news demo page uses a five by two card grid on desktop", async ({ page }) => {
-    await page.setViewportSize({ width: 1440, height: 900 });
-    await page.goto("/vi/news.html?demo=1", { waitUntil: "domcontentloaded" });
-    await expect(page.locator(".news-card")).toHaveCount(10);
-
-    const grid = await page.locator(".news-card").evaluateAll((cards) => {
-      const rects = cards.map((card) => {
-        const rect = card.getBoundingClientRect();
-        return {
-          top: Math.round(rect.top),
-          width: Math.round(rect.width),
-          imageCount: card.querySelectorAll(".news-card__media img").length
-        };
-      });
-      const firstTop = rects[0]?.top ?? 0;
-      return {
-        count: rects.length,
-        firstRowCount: rects.filter((rect) => Math.abs(rect.top - firstTop) <= 2).length,
-        rowCount: new Set(rects.map((rect) => rect.top)).size,
-        allHaveImages: rects.every((rect) => rect.imageCount === 1),
-        equalWidth: rects.every((rect) => Math.abs(rect.width - rects[0].width) <= 2)
-      };
-    });
-
-    expect(grid).toEqual({
-      count: 10,
-      firstRowCount: 5,
-      rowCount: 2,
-      allHaveImages: true,
-      equalWidth: true
-    });
-  });
-
   test("internal links on key pages do not point to missing pages", async ({ page, request }) => {
     const keyPages = [
       "/vi/index.html",
       "/en/index.html",
       "/fr/index.html",
       "/vi/about.html",
-      "/vi/news.html",
       "/vi/resources.html",
       "/vi/fields/astrophysics-&-cosmology.html",
       "/vi/fields/satellite-technology.html",

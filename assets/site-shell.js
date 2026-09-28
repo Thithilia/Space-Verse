@@ -6,9 +6,6 @@
       "index.html",
       "about.html",
       "disclaimer.html",
-      "news.html",
-      "news/article.html",
-      "admin/news.html",
       "research.html",
       "opportunities.html",
       "opportunities/graduate-programs.html",
@@ -80,7 +77,6 @@
             { label: "Tuyên bố miễn trừ trách nhiệm", href: "disclaimer.html" }
           ]
         },
-        { type: "link", label: "Tin tức", href: "news.html" },
         {
           type: "submenu",
           label: "Nghiên cứu",
@@ -256,7 +252,6 @@
     if (!footerRoot) return;
     const researchHref = locale === "vi" ? localeHref(locale, "fields/astrophysics-&-cosmology.html") : localeHref(locale, "projects.html");
     const materialHref = locale === "vi" ? localeHref(locale, "resources.html") : localeHref(locale, "index.html");
-    const newsHref = locale === "vi" ? localeHref(locale, "news.html") : localeHref(locale, "index.html");
     const contactHref = "mailto:contact.space-verse@gmail.com";
     footerRoot.innerHTML = `
       <footer class="site-footer">
@@ -273,7 +268,6 @@
 
           <div class="site-footer__nav">
             <div class="site-footer__primary-links" aria-label="Footer primary links">
-              <a href="${newsHref}">News</a>
               <a href="${materialHref}">Material</a>
             </div>
             <div class="site-footer__secondary-links" aria-label="Footer secondary links">
