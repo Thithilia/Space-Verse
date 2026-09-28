@@ -8,4 +8,4 @@ If you have any questions, or encounter incorrect information or typos, thank yo
 
 Thank you for coming! I wish you all the best on your academic path.
 
-<p align="center"><img width="700" src="image/coolheo.png" alt="description" /></p>
+<p align="center"><img width="100" src="image/coolheo.png" alt="description" /></p>
