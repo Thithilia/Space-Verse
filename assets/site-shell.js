@@ -1,7 +1,7 @@
 ﻿(function () {
   const pagesByLocale = {
-    en: new Set(["index.html", "about.html", "projects.html", "contact.html"]),
-    fr: new Set(["index.html", "about.html", "projects.html", "contact.html"]),
+    en: new Set(["index.html", "about.html", "projects.html", "contact.html", "research.html", "opportunities.html", "resources.html"]),
+    fr: new Set(["index.html", "about.html", "projects.html", "contact.html", "research.html", "opportunities.html", "resources.html"]),
     vi: new Set([
       "index.html",
       "about.html",
@@ -129,7 +129,31 @@
       nav: [
         { type: "link", label: "Home", href: "index.html" },
         { type: "link", label: "About", href: "about.html" },
-        { type: "link", label: "Projects", href: "projects.html" },
+        {
+          type: "submenu",
+          label: "Research",
+          href: "research.html",
+          items: [
+            { label: "Astrophysics and cosmology · Vietnamese", href: "fields/astrophysics-&-cosmology.html", locale: "vi" },
+            { label: "Satellite technology · Vietnamese", href: "fields/satellite-technology.html", locale: "vi" },
+            { label: "Remote sensing · Vietnamese", href: "fields/remote-sensing.html", locale: "vi" },
+            { label: "Earth science · Vietnamese", href: "fields/earth-sciences.html", locale: "vi" },
+            { label: "Space physics · Vietnamese", href: "fields/space-physics.html", locale: "vi" },
+            { label: "Particle physics · Vietnamese", href: "fields/particle-physics.html", locale: "vi" }
+          ]
+        },
+        {
+          type: "submenu",
+          label: "Opportunities",
+          href: "opportunities.html",
+          items: [
+            { label: "Graduate programmes · Vietnamese", href: "opportunities/graduate-programs.html", locale: "vi" },
+            { label: "Internships · Vietnamese", href: "opportunities/internships.html", locale: "vi" },
+            { label: "Scholarships · Vietnamese", href: "opportunities/scholarships.html", locale: "vi" },
+            { label: "Summer schools and conferences · Vietnamese", href: "opportunities/summer-schools-workshops-conferences.html", locale: "vi" }
+          ]
+        },
+        { type: "link", label: "Resources", href: "resources.html" },
         { type: "link", label: "Contact", href: "contact.html" }
       ]
     },
@@ -147,8 +171,9 @@
         contactTitle: "Contact",
         quickLinks: [
           { label: "À propos", href: "about.html" },
-          { label: "Projets", href: "projects.html" },
-          { label: "Contact", href: "contact.html" }
+          { label: "Recherche", href: "research.html" },
+          { label: "Opportunités", href: "opportunities.html" },
+          { label: "Ressources", href: "resources.html" }
         ],
         contactLines: [
           "Email: contact.space-verse@gmail.com",
@@ -159,7 +184,31 @@
       nav: [
         { type: "link", label: "Accueil", href: "index.html" },
         { type: "link", label: "À propos", href: "about.html" },
-        { type: "link", label: "Projets", href: "projects.html" },
+        {
+          type: "submenu",
+          label: "Recherche",
+          href: "research.html",
+          items: [
+            { label: "Astrophysique et cosmologie · en vietnamien", href: "fields/astrophysics-&-cosmology.html", locale: "vi" },
+            { label: "Technologies satellitaires · en vietnamien", href: "fields/satellite-technology.html", locale: "vi" },
+            { label: "Télédétection · en vietnamien", href: "fields/remote-sensing.html", locale: "vi" },
+            { label: "Sciences de la Terre · en vietnamien", href: "fields/earth-sciences.html", locale: "vi" },
+            { label: "Physique spatiale · en vietnamien", href: "fields/space-physics.html", locale: "vi" },
+            { label: "Physique des particules · en vietnamien", href: "fields/particle-physics.html", locale: "vi" }
+          ]
+        },
+        {
+          type: "submenu",
+          label: "Opportunités",
+          href: "opportunities.html",
+          items: [
+            { label: "Études supérieures · en vietnamien", href: "opportunities/graduate-programs.html", locale: "vi" },
+            { label: "Stages · en vietnamien", href: "opportunities/internships.html", locale: "vi" },
+            { label: "Bourses · en vietnamien", href: "opportunities/scholarships.html", locale: "vi" },
+            { label: "Écoles d’été et conférences · en vietnamien", href: "opportunities/summer-schools-workshops-conferences.html", locale: "vi" }
+          ]
+        },
+        { type: "link", label: "Ressources", href: "resources.html" },
         { type: "link", label: "Contact", href: "contact.html" }
       ]
     }
@@ -194,8 +243,9 @@
     return items.map((item) => {
       if (item.type === "submenu") {
         const submenu = item.items.map((subItem) => {
-          const href = localeHref(locale, subItem.href);
-          const current = subItem.href === page ? ' aria-current="page"' : "";
+          const targetLocale = subItem.locale || locale;
+          const href = localeHref(targetLocale, subItem.href);
+          const current = targetLocale === locale && subItem.href === page ? ' aria-current="page"' : "";
           return `<a href="${href}"${current}>${subItem.label}</a>`;
         }).join("");
         const href = item.href ? ` data-href="${localeHref(locale, item.href)}"` : "";

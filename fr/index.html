@@ -17,7 +17,7 @@
   <script type="application/ld+json">
     {"@context":"https://schema.org","@type":"WebSite","name":"Hub for Exploration Opportunities","alternateName":"HEO","url":"https://thithilia.github.io/Space-Verse/"}
   </script>
-  <link rel="stylesheet" href="../assets/style.css?v=20260920-white-home">
+  <link rel="stylesheet" href="../assets/style.css?v=20260928-en-fr-standard">
   <style>
     body[data-page="index.html"] .home-circle-item::before {
       content: none !important;
@@ -207,13 +207,14 @@
   <div id="site-header"></div>
 
   <main class="site-main home-page">
-    <section class="home-axiom-intro" aria-labelledby="home-axiom-title">
+    <section class="home-axiom-intro home-axiom-intro--curious" aria-labelledby="home-axiom-title">
+      <img class="home-axiom-intro__mascot" src="../image/curiousheo.png?v=20260928-white-heo-frame" width="1254" height="1254" alt="" aria-hidden="true" decoding="async" draggable="false">
       <div class="container home-axiom-intro__inner">
         <h1 id="home-axiom-title">Le raisonnement est le point de départ.</h1>
       </div>
     </section>
 
-    <section class="home-band home-band--light home-research home-grid-lines">
+    <section class="home-band home-band--light home-research home-grid-lines home-planetary">
       <div class="home-research__overlay" aria-hidden="true"></div>
       <div class="home-research__meteors" aria-hidden="true">
         <span class="home-research__meteor" style="--meteor-left: 4%; --meteor-top: 8%; --meteor-length: 170px; --meteor-width: 3px; --meteor-duration: 4.8s; --meteor-delay: -0.9s;"></span>
@@ -245,34 +246,12 @@
         </div>
 
         <div class="home-research__stack">
-          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(10, 38, 79, 0.92)" data-overlay-image="../image/crabglass.png" href="../vi/fields/astrophysics-&-cosmology.html">
-            <span class="home-circle-item__visual">
-              <img src="../image/crabglass.png" alt="Nébuleuse du Crabe pour l’astrophysique et la cosmologie" />
-            </span>
-            <span class="home-circle-item__title">Astrophysique et cosmologie</span>
-          </a>
-
-          <button class="home-circle-item home-circle-item--coming" data-overlay-trigger data-research-state="coming-soon" data-overlay-color="rgba(22, 47, 92, 0.92)" data-overlay-image="../image/sate.png" type="button" aria-label="Technologies satellitaires, en développement">
-            <span class="home-circle-item__visual">
-              <img src="../image/sate.png" alt="Illustration des technologies satellitaires" />
-            </span>
-            <span class="home-circle-item__title">Technologies satellitaires</span>
-            <span class="home-circle-item__status">En développement</span>
-          </button>
-
-          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(15, 54, 97, 0.92)" data-overlay-image="../image/remote.png" href="../vi/fields/remote-sensing-&-earth-sciences.html">
-            <span class="home-circle-item__visual">
-              <img src="../image/remote.png" alt="Télédétection et sciences de la Terre" />
-            </span>
-            <span class="home-circle-item__title">Télédétection et sciences de la Terre</span>
-          </a>
-
-          <a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(18, 48, 88, 0.92)" data-overlay-image="../image/heparea.jpg" href="../vi/fields/space-physics.html">
-            <span class="home-circle-item__visual">
-              <img src="../image/heparea.jpg" alt="Illustration de la physique spatiale" />
-            </span>
-            <span class="home-circle-item__title">Physique spatiale</span>
-          </a>
+          <div class="planetary-orbit" style="--orbit: 12%; --planet-x: 100%; --planet-y: 50%;"><a class="home-circle-item home-circle-item--particle" href="../vi/fields/particle-physics.html"><span class="home-circle-item__visual"><img src="../image/ALICE.png" alt="Détecteur ALICE, physique des particules" /></span><span class="home-circle-item__title">Physique des particules</span></a></div>
+          <div class="planetary-orbit" style="--orbit: 28%; --planet-x: 6.69873%; --planet-y: 75%;"><a class="home-circle-item home-circle-item--earth" href="../vi/fields/earth-sciences.html"><span class="home-circle-item__visual"><img src="../image/earth.png" alt="Sciences de la Terre" /></span><span class="home-circle-item__title">Sciences de la Terre</span></a></div>
+          <div class="planetary-orbit" style="--orbit: 44%; --planet-x: 25%; --planet-y: 6.69873%;"><a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(15, 54, 97, 0.92)" data-overlay-image="../image/remote.png" href="../vi/fields/remote-sensing.html"><span class="home-circle-item__visual"><img src="../image/remote.png" alt="Télédétection" /></span><span class="home-circle-item__title">Télédétection</span></a></div>
+          <div class="planetary-orbit" style="--orbit: 60%; --planet-x: 82.13938%; --planet-y: 88.30222%;"><button class="home-circle-item home-circle-item--coming" data-overlay-trigger data-research-state="coming-soon" data-overlay-color="rgba(22, 47, 92, 0.92)" data-overlay-image="../image/sate.png" type="button" aria-label="Technologies satellitaires"><span class="home-circle-item__visual"><img src="../image/sate.png" alt="Technologies satellitaires" /></span><span class="home-circle-item__title">Technologies satellitaires</span></button></div>
+          <div class="planetary-orbit" style="--orbit: 76%; --planet-x: 75%; --planet-y: 6.69873%;"><a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(18, 48, 88, 0.92)" data-overlay-image="../image/spacephy.png" href="../vi/fields/space-physics.html"><span class="home-circle-item__visual"><img src="../image/spacephy.png" alt="Physique spatiale" /></span><span class="home-circle-item__title">Physique spatiale</span></a></div>
+          <div class="planetary-orbit" style="--orbit: 92%; --planet-x: 50%; --planet-y: 100%;"><a class="home-circle-item" data-overlay-trigger data-research-state="live" data-overlay-color="rgba(10, 38, 79, 0.92)" data-overlay-image="../image/crabglass.png" href="../vi/fields/astrophysics-&amp;-cosmology.html"><span class="home-circle-item__visual"><img src="../image/crabglass.png" alt="Nébuleuse du Crabe, astrophysique et cosmologie" /></span><span class="home-circle-item__title">Astrophysique et cosmologie</span></a></div>
         </div>
       </div>
     </section>
@@ -280,14 +259,16 @@
   </main>
 
   <div id="site-footer"></div>
-  <script src="../assets/site-shell.js?v=20260927-research-direct" defer></script>
+  <script src="../assets/site-shell.js?v=20260928-en-fr-standard" defer></script>
+  <script src="../assets/vendor/gsap.min.js" defer></script>
+  <script src="../assets/planetary-motion.js?v=20260928-no-legend" defer></script>
   <script>
     function initResearchOverlay() {
       const section = document.querySelector(".home-research");
       const overlay = section ? section.querySelector(".home-research__overlay") : null;
       const triggers = section ? section.querySelectorAll("[data-overlay-trigger]") : [];
 
-      if (!section || !overlay || !triggers.length) return;
+      if (!section || !overlay || !triggers.length || section.classList.contains("home-planetary")) return;
 
       let activeTrigger = null;
 
