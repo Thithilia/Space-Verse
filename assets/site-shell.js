@@ -231,7 +231,8 @@
     const favicon = document.querySelector('link[rel~="icon"]') || document.createElement("link");
     favicon.rel = "icon";
     favicon.type = "image/png";
-    favicon.href = `${root}assets/favicon.png?v=20260821`;
+    favicon.href = `${root}assets/favicon.png`;
+    favicon.sizes = "96x96";
     if (!favicon.parentNode) document.head.appendChild(favicon);
   }
 
