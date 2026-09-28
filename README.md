@@ -1,4 +1,5 @@
 Hub for Exploration Opportunities - HEO is is a community project aimed at providing a knowledge roadmap and reference materials for young learners aspiring to pursue research in Astronomy, Space Sciences and Technologies, Remote Sensing, Earth Sciences, and Particle Physics.
+
 Content provided on this website is free and encouraged to share.
 Some content is still in progress and will be updated regularly.
 
