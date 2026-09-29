@@ -4,6 +4,7 @@ Content provided on this website is free and encouraged to share.
 Some content is still in progress and will be updated regularly.
 
 Contributors: Do Quoc Trong, Nguyen Phu Huy.
+
 If you have any questions, or encounter incorrect information or typos, thank you to shoot me an email through trong.q.do.space@gmail.com
 
 Thank you for coming! I wish you all the best on your academic path.
