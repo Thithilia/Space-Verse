@@ -25,6 +25,12 @@
 }
 
 /* Shared page titles and second-level headings across all languages. */
+/* Research body copy uses regular weight, including emphasized phrases. */
+body[data-page^="fields/"] main :is(p, li, td, dd),
+body[data-page^="fields/"] main :is(p, li, td, dd) :is(strong, b) {
+  font-weight: 400;
+}
+
 :root body h1,
 :root body h2 {
   font-family: Georgia, "Times New Roman", serif;
