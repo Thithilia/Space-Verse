@@ -75,7 +75,7 @@
         {
           href: "opportunities/competitions.html",
           title: "Các cuộc thi",
-          summary: "Thiên văn, Vật lý, Khoa học Trái đất và Toán."
+          summary: "Thiên văn, Vật lý, Khoa học Trái đất, Khoa học và công nghệ không gian và Toán."
         }
       ]
     }
