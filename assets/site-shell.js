@@ -287,7 +287,7 @@
             <span class="brand__mark" aria-hidden="true">
               <img src="${root}assets/space-verse-logo.png" alt="" width="1254" height="1254">
             </span>
-            <span class="brand__name">Hub for Exploration Opportunities - HEO</span>
+            <span class="brand__name">Hub for Exploration Opportunities</span>
           </a>
           <button class="menu-toggle" type="button" aria-expanded="false" aria-label="Open navigation">
             <span></span>
