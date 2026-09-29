@@ -97,7 +97,7 @@
         {
           type: "submenu",
           label: "Cơ hội",
-          href: "opportunities.html",
+          href: "opportunities/graduate-programs.html",
           items: [
             { label: "Chương trình học thạc sĩ / tiến sĩ", href: "opportunities/graduate-programs.html" },
             { label: "Cơ hội internship", href: "opportunities/internships.html" },
@@ -259,7 +259,7 @@
           return `<a href="${href}"${current}>${subItem.label}</a>`;
         }).join("");
         const href = item.href ? ` data-href="${localeHref(locale, item.href)}"` : "";
-        const active = item.href === page || (item.href === "fields/astrophysics-&-cosmology.html" && page.startsWith("fields/")) || (item.href === "opportunities.html" && page.startsWith("opportunities/"));
+        const active = item.href === page || (item.href === "fields/astrophysics-&-cosmology.html" && page.startsWith("fields/")) || (["opportunities.html", "opportunities/graduate-programs.html"].includes(item.href) && page.startsWith("opportunities/"));
         return `<div class="nav-item has-submenu" data-active="${active}"><button type="button" aria-expanded="false"${href}>${item.label}</button><div class="submenu">${submenu}</div></div>`;
       }
       const href = localeHref(locale, item.href);
