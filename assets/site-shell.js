@@ -13,6 +13,7 @@
       "opportunities/internships.html",
       "opportunities/scholarships.html",
       "opportunities/summer-schools-workshops-conferences.html",
+      "opportunities/competitions.html",
       "resources.html",
       "fields/astrophysics-&-cosmology.html",
       "fields/astrophysics/exoplanets.html",
@@ -101,7 +102,8 @@
             { label: "Chương trình học thạc sĩ / tiến sĩ", href: "opportunities/graduate-programs.html" },
             { label: "Cơ hội internship", href: "opportunities/internships.html" },
             { label: "Các chương trình học bổng", href: "opportunities/scholarships.html" },
-            { label: "Trường hè/Hội thảo/Hội nghị", href: "opportunities/summer-schools-workshops-conferences.html" }
+            { label: "Trường hè/Hội thảo/Hội nghị", href: "opportunities/summer-schools-workshops-conferences.html" },
+            { label: "Các cuộc thi", href: "opportunities/competitions.html" }
           ]
         },
         { type: "link", label: "Tài nguyên", href: "resources.html" }
@@ -155,7 +157,8 @@
             { label: "Graduate programmes · Vietnamese", href: "opportunities/graduate-programs.html", locale: "vi" },
             { label: "Internships · Vietnamese", href: "opportunities/internships.html", locale: "vi" },
             { label: "Scholarships · Vietnamese", href: "opportunities/scholarships.html", locale: "vi" },
-            { label: "Summer schools and conferences · Vietnamese", href: "opportunities/summer-schools-workshops-conferences.html", locale: "vi" }
+            { label: "Summer schools and conferences · Vietnamese", href: "opportunities/summer-schools-workshops-conferences.html", locale: "vi" },
+            { label: "Competitions · Vietnamese", href: "opportunities/competitions.html", locale: "vi" }
           ]
         },
         { type: "link", label: "Resources", href: "resources.html" },
@@ -210,7 +213,8 @@
             { label: "Études supérieures · en vietnamien", href: "opportunities/graduate-programs.html", locale: "vi" },
             { label: "Stages · en vietnamien", href: "opportunities/internships.html", locale: "vi" },
             { label: "Bourses · en vietnamien", href: "opportunities/scholarships.html", locale: "vi" },
-            { label: "Écoles d’été et conférences · en vietnamien", href: "opportunities/summer-schools-workshops-conferences.html", locale: "vi" }
+            { label: "Écoles d’été et conférences · en vietnamien", href: "opportunities/summer-schools-workshops-conferences.html", locale: "vi" },
+            { label: "Concours · en vietnamien", href: "opportunities/competitions.html", locale: "vi" }
           ]
         },
         { type: "link", label: "Ressources", href: "resources.html" },

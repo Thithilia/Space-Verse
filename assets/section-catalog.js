@@ -71,6 +71,11 @@
           href: "opportunities/summer-schools-workshops-conferences.html",
           title: "Trường hè/Hội thảo/Hội nghị",
           summary: "Các trường hè, hội thảo và hội nghị về khoa học vũ trụ và công nghệ không gian."
+        },
+        {
+          href: "opportunities/competitions.html",
+          title: "Các cuộc thi",
+          summary: "Vật lý và Toán."
         }
       ]
     }
