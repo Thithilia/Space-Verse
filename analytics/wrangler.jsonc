@@ -1,0 +1,10 @@
+{
+  "$schema": "https://raw.githubusercontent.com/cloudflare/workers-sdk/main/packages/wrangler/config-schema.json",
+  "name": "heo-analytics",
+  "main": "worker.js",
+  "compatibility_date": "2026-09-30",
+  "workers_dev": true,
+  "observability": { "enabled": false },
+  "vars": { "SITE_ORIGIN": "https://thithilia.github.io" },
+  "d1_databases": [{ "binding": "DB", "database_name": "heo-analytics", "database_id": "725047c3-01a6-43b6-af14-0900a93ae8b4" }]
+}

@@ -416,6 +416,10 @@
   }
 
   renderFavicon();
+  const analyticsScript = document.createElement("script");
+  analyticsScript.type = "module";
+  analyticsScript.src = `${root}assets/analytics.js`;
+  document.head.appendChild(analyticsScript);
   renderHeader();
   renderFooter();
   enhanceInteractions();
