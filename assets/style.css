@@ -24,6 +24,16 @@
   src: url("./fonts/noto-serif-bold.ttf") format("truetype");
 }
 
+.resource-intro .study-resources-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.study-resources-subtitle a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 /* Shared page titles and second-level headings across all languages. */
 /* Research body copy uses regular weight, including emphasized phrases. */
 body[data-page^="fields/"] main :is(p, li, td, dd),
