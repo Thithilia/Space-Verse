@@ -1,11 +1,12 @@
 ﻿(function () {
   const pagesByLocale = {
-    en: new Set(["index.html", "about.html", "projects.html", "contact.html", "research.html", "opportunities.html", "resources.html"]),
-    fr: new Set(["index.html", "about.html", "projects.html", "contact.html", "research.html", "opportunities.html", "resources.html"]),
+    en: new Set(["index.html", "about.html", "projects.html", "contact.html", "research.html", "opportunities.html", "resources.html", "licensing.html"]),
+    fr: new Set(["index.html", "about.html", "projects.html", "contact.html", "research.html", "opportunities.html", "resources.html", "licensing.html"]),
     vi: new Set([
       "index.html",
       "about.html",
       "disclaimer.html",
+      "licensing.html",
       "news.html",
       "research.html",
       "opportunities.html",
@@ -335,11 +336,13 @@
               <a href="${researchHref}">Research</a>
               <a href="${contactHref}">Contact</a>
               <a href="https://github.com/Thithilia/Space-Verse">Github</a>
+              <a href="${localeHref(locale, "licensing.html")}">${locale === "vi" ? "Bản quyền & giấy phép" : locale === "fr" ? "Droits & licences" : "Copyright & licenses"}</a>
             </div>
           </div>
 
           <div class="site-footer__copyright">
-            Copyright © <span id="footer-year"></span> Hub for Exploration Opportunities - All Rights Reserved.
+            © <span id="footer-year"></span> Hub for Exploration Opportunities.<br>
+            <a href="${localeHref(locale, "licensing.html")}">${locale === "vi" ? "Nội dung HEO: CC BY 4.0 · Mã nguồn HEO: MIT. Ảnh và tài nguyên bên thứ ba có quyền riêng." : locale === "fr" ? "Contenu HEO : CC BY 4.0 · Code HEO : MIT. Images et ressources tierces : droits distincts." : "HEO content: CC BY 4.0 · HEO code: MIT. Images and third-party assets have separate rights."}</a>
           </div>
         </div>
       </footer>

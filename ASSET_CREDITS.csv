@@ -1,0 +1,28 @@
+﻿asset,source,license_evidence,next_action,references
+assets/favicon.png,Not documented in repository,Unresolved,Review provenance,assets/site-shell.js; en/index.html; fr/index.html; index.html; vi/index.html
+assets/flags/fr.svg,Not documented in repository,Unresolved,Review provenance,assets/site-shell.js; tests/site-smoke.spec.js
+assets/flags/gb.svg,Not documented in repository,Unresolved,Review provenance,assets/site-shell.js; tests/site-smoke.spec.js
+assets/flags/vi.svg,Not documented in repository,Unresolved,Review provenance,assets/site-shell.js; tests/site-smoke.spec.js
+assets/fonts/noto-serif-bold.ttf,Noto Project / Nunito Sans Project,SIL OFL 1.1; bundled license text,Retain license and original font notices,assets/style.css
+assets/fonts/noto-serif-regular.ttf,Noto Project / Nunito Sans Project,SIL OFL 1.1; bundled license text,Retain license and original font notices,assets/style.css
+assets/fonts/nunito-sans-italic-400.ttf,Noto Project / Nunito Sans Project,SIL OFL 1.1; bundled license text,Retain license and original font notices,assets/fonts/nunito-sans.css
+assets/fonts/nunito-sans-italic-700.ttf,Noto Project / Nunito Sans Project,SIL OFL 1.1; bundled license text,Retain license and original font notices,assets/fonts/nunito-sans.css
+assets/fonts/nunito-sans-normal-400.ttf,Noto Project / Nunito Sans Project,SIL OFL 1.1; bundled license text,Retain license and original font notices,assets/fonts/nunito-sans.css
+assets/fonts/nunito-sans-normal-600.ttf,Noto Project / Nunito Sans Project,SIL OFL 1.1; bundled license text,Retain license and original font notices,assets/fonts/nunito-sans.css
+assets/fonts/nunito-sans-normal-700.ttf,Noto Project / Nunito Sans Project,SIL OFL 1.1; bundled license text,Retain license and original font notices,assets/fonts/nunito-sans.css
+assets/space-verse-logo.png,Not documented in repository,Unresolved,Review provenance,assets/site-shell.js; en/index.html; fr/index.html; index.html; vi/index.html
+image/ALICE.png,Not documented in repository,Unresolved,Review provenance,en/index.html; fr/index.html; vi/index.html
+image/SM.png,https://www.quantamagazine.org/a-video-tour-of-the-standard-model-20210716/,Unresolved,Obtain permission or replace; attribution is not a license,vi/fields/particle-physics.html
+image/astroarea.jpg,Not documented in repository,Unresolved,Review provenance,vi/fields/astrophysics/exoplanets.html; vi/fields/astrophysics/gamma-ray-astronomy.html; vi/fields/astrophysics/microlensing.html
+image/coolheo.png,Not documented in repository,Unresolved,Review provenance,README.md; assets/site-shell.js
+image/crabglass.png,Not documented in repository,Unresolved,Review provenance,assets/home.css; en/index.html; fr/index.html; vi/index.html
+image/curiousheo.png,Not documented in repository,Unresolved,Review provenance,en/index.html; fr/index.html; tests/site-refresh.spec.js; vi/index.html
+image/earth.png,Not documented in repository,Unresolved,Review provenance,en/index.html; fr/index.html; vi/index.html
+image/galaxy.png,Not documented in repository,Unresolved,Review provenance,vi/Not_included/astrophysics-&-cosmology.html
+image/heparea.jpg,Not documented in repository,Unresolved,Review provenance,assets/home.css
+image/lookingheo.png,Not documented in repository,Unresolved,Review provenance,tests/site-refresh.spec.js; vi/news.html
+image/remote.png,Not documented in repository,Unresolved,Review provenance,assets/home.css; en/index.html; fr/index.html; vi/fields/earth-sciences/arctic-coastal-erosion.html; vi/fields/earth-sciences/carbon-monitoring.html; vi/fields/earth-sciences/climate-monitoring.html; vi/fields/earth-sciences/cryosphere-monitoring.html; vi/fields/earth-sciences/disaster-monitoring.html; vi/fields/earth-sciences/drained-lake-basins.html; vi/fields/earth-sciences/drought-ecosystem-stress.html; vi/fields/earth-sciences/methane-super-emitters.html; vi/fields/earth-sciences/mountain-permafrost.html; vi/fields/earth-sciences/permafrost-monitoring.html; vi/fields/earth-sciences/sea-level-coastal-change.html; vi/fields/earth-sciences/thermokarst-lakes.html; vi/fields/earth-sciences/vegetation-productivity-fluorescence.html; vi/fields/earth-sciences/water-cycle-monitoring.html; vi/fields/earth-sciences/wildfire-permafrost.html; vi/index.html
+image/sate.png,Not documented in repository,Unresolved,Review provenance,assets/home.css; en/index.html; fr/index.html; vi/index.html
+image/solarwind.jpg,https://sarahamiraslani.com/projects/3_project/,Unresolved,Trace original rights holder and license,vi/fields/space-physics.html
+image/spacephy.png,Not documented in repository,Unresolved,Review provenance,en/index.html; fr/index.html; vi/index.html
+image/teachheo.png,Not documented in repository,Unresolved,Review provenance,tests/site-refresh.spec.js; vi/resources.html
